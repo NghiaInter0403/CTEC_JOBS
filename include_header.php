@@ -15,8 +15,12 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
+<<<<<<< HEAD
         <img src="img/LOGO.png" style="width: 250px; height: auto;">
         <a class="navbar-brand" href="index.php"></a>
+=======
+        <a class="navbar-brand" href="index.php">JobSV</a>
+>>>>>>> ebde7a9259c463f1d6351903e82e413fcc790660
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,15 +38,26 @@
                             Xin chào, <?php echo $_SESSION['name']; ?>
                         </a>
                         <ul class="dropdown-menu">
+<<<<<<< HEAD
                             <?php if ($_SESSION['role'] == 'student'): ?>
                                 <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
                             <?php elseif ($_SESSION['role'] == 'employer'): ?>
                                 <li><a class="dropdown-item" href="cty_trangchu.php">Dashboard</a></li>
+=======
+                            <?php if ($_SESSION['role'] == 'sinhvien'): ?>
+                                <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
+                            <?php elseif ($_SESSION['role'] == 'nhatuyendung'): ?>
+                                <li><a class="dropdown-item" href="cty_trangchu.php">Trang chủ</a></li>
+>>>>>>> ebde7a9259c463f1d6351903e82e413fcc790660
                                 <li><a class="dropdown-item" href="cty_dangtuyen.php">Đăng tin</a></li>
                                 <li><a class="dropdown-item" href="cty_ungvien.php">Xem ứng viên</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
+<<<<<<< HEAD
                             <?php elseif ($_SESSION['role'] == 'admin'): ?>
+=======
+                            <?php elseif ($_SESSION['role'] == 'quatrivien'): ?>
+>>>>>>> ebde7a9259c463f1d6351903e82e413fcc790660
                                 <li><a class="dropdown-item" href="ad_trangchu.php">Quản trị</a></li>
                             <?php endif; ?>
                             <li><hr class="dropdown-divider"></li>
