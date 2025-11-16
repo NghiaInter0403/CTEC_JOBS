@@ -1,7 +1,12 @@
 <footer class="bg-dark text-white text-center py-4 mt-5">
     <div class="container">
-        <p>&copy; 2025 JobSV - Website Việc Làm Sinh Viên</p>
-        <p>Phát triển bởi sinh viên</p>
+
+        <p>&copy; 2025 CTEC JOBS - Website Việc Làm Sinh Viên </p>
+        <p>Sản phẩm thuộc trường cao đẳng Kinh Tế Kỹ Thuật Cần Thơ (CTEC)</p>
+        <p>Phát triển bởi sinh viên:</p>
+        <p>Leader1: Huỳnh Tấn Phát MSSV: 23CTHA0383</p>
+        <p>Leader2: Phan Hiếu Nghĩa MSSV: 23CTHA0372</p>
+        <p>Liên hệ: 0352755926 hoặc 0333161534</p>
     </div>
 </footer>
 
