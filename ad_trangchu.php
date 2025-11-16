@@ -187,4 +187,4 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
     </div>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include 'include_footer.php'; ?>
