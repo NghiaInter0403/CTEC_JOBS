@@ -111,7 +111,7 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                     <p class="text-center text-muted py-4">Không có tin nào chờ duyệt</p>
                     <?php endif; ?>
                     <div class="card-footer bg-light text-center">
-                        <a href="manage-jobs.php" class="btn btn-sm btn-outline-primary">Xem tất cả</a>
+                        <a href="ad_qlyviec.php" class="btn btn-sm btn-outline-primary">Xem tất cả</a>
                     </div>
                 </div>
             </div>
@@ -132,10 +132,10 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                         <div class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
                                 <strong><?php echo $app['sinhvien']; ?></strong><br>
-                                <small class="text-muted"><?php echo $app['tieude']; ?> • <?php echo date('d/m/Y H:i', strtotime($app['applied_at'])); ?></small>
+                                <small class="text-muted"><?php echo $app['tieude']; ?> • <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?></small>
                             </div>
-                            <span class="badge bg-<?php echo $app['trangthai']=='accepted'?'success':($app['status']=='rejected'?'danger':'secondary'); ?> rounded-pill">
-                                <?php echo ucfirst($app['status']); ?>
+                            <span class="badge bg-<?php echo $app['trangthai']=='daduyet'?'success':($app['trangthai']=='tuchoi'?'danger':'secondary'); ?> rounded-pill">
+                                <?php echo ucfirst($app['trangthai']); ?>
                             </span>
                         </div>
                         <?php endwhile; ?>
@@ -144,7 +144,7 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                     <p class="text-center text-muted py-4">Chưa có ứng viên</p>
                     <?php endif; ?>
                     <div class="card-footer bg-light text-center">
-                        <a href="stats.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
+                        <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
                     </div>
                 </div>
             </div>
@@ -161,17 +161,17 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-3">
-                            <a href="manage-jobs.php" class="btn btn-outline-primary w-100 p-3">
+                            <a href="ad_qlyviec.php" class="btn btn-outline-primary w-100 p-3">
                                 Duyệt tin tuyển dụng
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="manage-users.php" class="btn btn-outline-danger w-100 p-3">
+                            <a href="ad_qlyuser.php" class="btn btn-outline-danger w-100 p-3">
                                 Quản lý người dùng
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="stats.php" class="btn btn-outline-info w-100 p-3">
+                            <a href="thongke.php" class="btn btn-outline-info w-100 p-3">
                                 Thống kê & Báo cáo
                             </a>
                         </div>
