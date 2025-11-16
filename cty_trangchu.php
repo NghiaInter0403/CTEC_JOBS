@@ -86,7 +86,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                         <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             <div>
                                 <strong><?php echo $job['tieude']; ?></strong><br>
-                                <small class="text-muted"><?php echo $job['tencongty']; ?> • <?php echo date('d/m/Y', strtotime($job['posted_at'])); ?></small>
+                                <small class="text-muted"><?php echo $job['tencongty']; ?> • <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?></small>
                             </div>
                             <div>
                                 <span class="badge bg-<?php echo $job['trangthai']=='daduyet'?'success':($job['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
