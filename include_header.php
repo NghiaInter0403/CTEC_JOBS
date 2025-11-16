@@ -15,7 +15,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="uploads/index.php">JobSV</a>
+        <img src="img/LOGO.png" style="width: 250px; height: auto;">
+        <a class="navbar-brand" href="index.php"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,23 +35,23 @@
                         </a>
                         <ul class="dropdown-menu">
                             <?php if ($_SESSION['role'] == 'student'): ?>
-                                <li><a class="dropdown-item" href="student/dashboard.php">Trang cá nhân</a></li>
+                                <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
                             <?php elseif ($_SESSION['role'] == 'employer'): ?>
-                                <li><a class="dropdown-item" href="employer/dashboard.php">Dashboard</a></li>
-                                <li><a class="dropdown-item" href="employer/post-job.php">Đăng tin</a></li>
-                                <li><a class="dropdown-item" href="employer/applicants.php">Xem ứng viên</a></li>
+                                <li><a class="dropdown-item" href="cty_trangchu.php">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="cty_dangtuyen.php">Đăng tin</a></li>
+                                <li><a class="dropdown-item" href="cty_ungvien.php">Xem ứng viên</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
+                                <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                             <?php elseif ($_SESSION['role'] == 'admin'): ?>
-                                <li><a class="dropdown-item" href="admin/dashboard.php">Quản trị</a></li>
+                                <li><a class="dropdown-item" href="ad_trangchu.php">Quản trị</a></li>
                             <?php endif; ?>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
+                            <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                            </ul>
                     </li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="login.php">Đăng nhập</a></li>
-                    <li class="nav-item"><a class="nav-link" href="register.php">Đăng ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dangki.php">Đăng ký</a></li>
                 <?php endif; ?>
             </ul>
         </div>
