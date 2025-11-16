@@ -157,7 +157,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                     <a href="cty_ungvien.php" class="btn btn-primary w-100 p-3">Xem ứng viên</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="vl_danhdach.php" class="btn btn-outline-secondary w-100 p-3">Xem danh sách việc làm</a>
+                    <a href="vl_danhsach.php" class="btn btn-outline-secondary w-100 p-3">Xem danh sách việc làm</a>
                 </div>
             </div>
         </div>
