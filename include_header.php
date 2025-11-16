@@ -44,7 +44,7 @@
                                 <li><a class="dropdown-item" href="cty_ungvien.php">Xem ứng viên</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
-                            <?php elseif ($_SESSION['role'] == 'quatrivien'): ?>
+                            <?php elseif ($_SESSION['role'] == 'quantrivien'): ?>
                                 <li><a class="dropdown-item" href="ad_trangchu.php">Quản trị</a></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                             <?php endif; ?>
