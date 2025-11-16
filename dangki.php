@@ -8,7 +8,7 @@ if ($_POST) {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
-    $role = $_POST['role'];
+    $role = $_POST['vaitro'];
 
     // Kiểm tra email đã tồn tại
     $check = $conn->prepare("SELECT id FROM nguoidung WHERE email = ?");
@@ -88,14 +88,16 @@ if ($_POST) {
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">Bạn là</label>
-                            <select name="role" class="form-select" required>
-                                <option value="student" <?php echo (isset($_POST['role']) && $_POST['role']=='sinhvien') ? 'selected' : ''; ?>>
-                                    Sinh viên
-                                </option>
-                                <option value="employer" <?php echo (isset($_POST['role']) && $_POST['role']=='nhatuyendung') ? 'selected' : ''; ?>>
-                                    Nhà tuyển dụng
-                                </option>
-                            </select>
+                            <select name="vaitro" class="form-select" required>
+                        <option value="sinhvien"
+                        <?php echo (isset($_POST['vaitro']) && $_POST['vaitro']=='sinhvien') ? 'selected' : ''; ?>>
+                        Sinh viên
+                        </option>
+                        <option value="nhatuyendung"
+                        <?php echo (isset($_POST['vaitro']) && $_POST['vaitro']=='nhatuyendung') ? 'selected' : ''; ?>>
+                        Nhà tuyển dụng
+                        </option>
+                     </select>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100 fw-bold">
