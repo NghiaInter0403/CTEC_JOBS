@@ -1,0 +1,316 @@
+/* ========================================
+   CUSTOM STYLES - JOB PORTAL FOR STUDENTS
+   ======================================== */
+
+/* 1. CƠ BẢN */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* 2. NAVBAR */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 0.8rem 0;
+    background: linear-gradient(90deg, #2c3e50, #3498db);
+    overflow: visible !important;
+    position: relative;
+    z-index: 1040;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.nav-link {
+    color: #ecf0f1;
+    font-weight: 500;
+    transition: all 0.3s;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1050 !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    min-width: 160px;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.dropdown-item:hover {
+    background: #3498db;
+    color: white;
+}
+/* 3. JUMBOTRON - TRANG CHỦ */
+.jumbotron {
+    background: linear-gradient(120deg, #3498db, #2980b9);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.jumbotron h1 {
+    font-weight: 700;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.jumbotron .lead {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.jumbotron .btn {
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.jumbotron .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* 4. CARD - TIN TUYỂN DỤNG */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    background: #fff;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.card-text {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.card .btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+/* 5. FORM ĐĂNG NHẬP / ĐĂNG KÝ */
+.card-header {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    color: white;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1rem 1.5rem;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #2980b9, #1c6ea4);
+    transform: translateY(-2px);
+}
+
+/* 6. BẢNG (TABLE) */
+.table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.table thead {
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    color: white;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* 7. BADGE TRẠNG THÁI */
+.badge {
+    font-weight: 600;
+    padding: 0.5em 0.8em;
+    border-radius: 50px;
+    font-size: 0.8rem;
+}
+
+/* 8. ALERT THÔNG BÁO */
+.alert {
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.alert-warning {
+    background: linear-gradient(90deg, #f39c12, #e67e22);
+    color: white;
+}
+
+
+
+.alert-success {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+    color: white;
+}
+
+.alert-danger {
+    background: linear-gradient(90deg, #c0392b, #e74c3c);
+    color: white;
+}
+
+/* 9. FOOTER */
+footer {
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    color: #ecf0f1;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 10. DASHBOARD CARDS */
+.bg-primary, .bg-success, .bg-warning, .bg-info {
+    color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.bg-primary { background: linear-gradient(135deg, #3498db, #2980b9); }
+.bg-success { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+.bg-warning { background: linear-gradient(135deg, #f39c12, #e67e22); }
+.bg-info    { background: linear-gradient(135deg, #17a2b8, #138496); }
+
+/* 11. RESPONSIVE */
+@media (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+    .jumbotron .lead {
+        font-size: 1.1rem;
+    }
+    .navbar-nav {
+        text-align: center;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* 12. HIỆU ỨNG LOADING (TÙY CHỌN) */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 13. NÚT ỨNG TUYỂN ĐẸP */
+.btn-success {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+    border: none;
+    border-radius: 50px;
+    padding: 0.7rem 1.8rem;
+    font-weight: 600;
+}
+
+.btn-success:hover {
+    background: linear-gradient(90deg, #1e8449, #27ae60);
+    transform: translateY(-2px);
+}
+
+/* 14. CHI TIẾT CÔNG VIỆC */
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.card-header small {
+    font-style: italic;
+    opacity: 0.9;
+}

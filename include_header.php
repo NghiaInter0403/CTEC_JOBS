@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Việc Làm Sinh Viên</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="<?= $root ?>assets/css/style.css">
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="uploads/index.php">JobSV</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.php">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="vl_danhsach.php">Tin tuyển dụng</a></li>
+                <div class="dropdown">
+        </div>
+            </ul>
+            <ul class="navbar-nav">
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Xin chào, <?php echo $_SESSION['name']; ?>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php if ($_SESSION['role'] == 'student'): ?>
+                                <li><a class="dropdown-item" href="student/dashboard.php">Trang cá nhân</a></li>
+                            <?php elseif ($_SESSION['role'] == 'employer'): ?>
+                                <li><a class="dropdown-item" href="employer/dashboard.php">Dashboard</a></li>
+                                <li><a class="dropdown-item" href="employer/post-job.php">Đăng tin</a></li>
+                                <li><a class="dropdown-item" href="employer/applicants.php">Xem ứng viên</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
+                            <?php elseif ($_SESSION['role'] == 'admin'): ?>
+                                <li><a class="dropdown-item" href="admin/dashboard.php">Quản trị</a></li>
+                            <?php endif; ?>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
+                           </ul>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Đăng nhập</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.php">Đăng ký</a></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</nav>
