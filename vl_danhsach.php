@@ -54,9 +54,9 @@ $result = mysqli_query($conn, $sql);
         <div class="col-md-6 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h5><?php echo $job['tieude']; ?></h5>
+                    <h5 style="color:blue"><?php echo $job['tieude']; ?></h5>
                     <p><strong><?php echo $job['tencongty']; ?></strong></p>
-                    <p>Lương: <?php echo $job['luong']; ?> | <?php echo $job['diadiem']; ?></p>
+                    <p>Lương: <?php echo $job['mucluong']; ?> | <?php echo $job['diadiem']; ?></p>
                     <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
                 </div>
             </div>
