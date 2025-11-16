@@ -90,7 +90,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                             </div>
                             <div>
                                 <span class="badge bg-<?php echo $job['trangthai']=='daduyet'?'success':($job['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
-                                    <?php echo ucfirst($job['status']); ?>
+                                    <?php echo ucfirst($job['trangthai']); ?>
                                 </span>
                                 <a href="cty_suatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-secondary ms-1">Sửa</a>
                                 <a href="cty_xoatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-danger ms-1" onclick="return confirm('Xóa tin này?')">Xóa</a>

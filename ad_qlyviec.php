@@ -28,7 +28,7 @@ $result = mysqli_query($conn, $sql);
             <tr>
                 <th>Tiêu đề</th>
                 <th>Công ty</th>
-                <th>Nhà tuyển dụng</th>
+                <th>Mô tả</th>
                 <th>Trạng thái</th>
                 <th>Hành động</th>
             </tr>
@@ -38,7 +38,7 @@ $result = mysqli_query($conn, $sql);
             <tr>
                 <td><?php echo $job['tieude']; ?></td>
                 <td><?php echo $job['tencongty']; ?></td>
-                <td><?php echo $job['nhatuyendung']; ?></td>
+                <td><?php echo $job['mota']; ?></td>
                 <td>
                     <span class="badge bg-<?php echo $job['trangthai'] == 'daduyet' ? 'success' : ($job['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
                         <?php echo ucfirst($job['trangthai']); ?>
@@ -46,6 +46,7 @@ $result = mysqli_query($conn, $sql);
                 </td>
                 <td>
                     <?php if ($job['trangthai'] == 'choxuly'): ?>
+                        <!-- <a href="?choxuly=<?php echo $job['id']; ?>" class="btn btn-sm btn-success">Chờ xử lý</a> -->
                         <a href="?daduyet=<?php echo $job['id']; ?>" class="btn btn-sm btn-success">Duyệt</a>
                         <a href="?tuchoi=<?php echo $job['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
                     <?php endif; ?>
