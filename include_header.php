@@ -37,6 +37,7 @@
 
                             <?php if ($_SESSION['role'] == 'sinhvien'): ?>
                                 <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
+                                <li><a class="dropdown-item" href="sv_trangchu.php">Xem hồ sơ</a></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                             <?php elseif ($_SESSION['role'] == 'nhatuyendung'): ?>
                                 <li><a class="dropdown-item" href="cty_trangchu.php">Trang chủ</a></li>
