@@ -31,7 +31,7 @@ include 'include_header.php'; // ĐÃ CÓ BOOTSTRAP + CSS + root_url()
                         <i class="fas fa-map-marker-alt me-1"></i> <?php echo htmlspecialchars($job['diadiem']); ?>
                     </p>
                     <div class="mt-auto">
-                        <a href="<?= $root ?>vl_chitiet.php?id=<?php echo $job['id']; ?>" 
+                        <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" 
                            class="btn btn-outline-primary btn-sm w-100">
                            Xem chi tiết
                         </a>
