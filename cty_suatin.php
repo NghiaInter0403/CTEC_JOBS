@@ -43,8 +43,14 @@ if ($_POST) {
         <div class="mb-3"><label>Khu vực</label><input type="text" name="location" class="form-control" value="<?php echo $job['location']; ?>" required></div>
         <div class="mb-3"><label>Ngành nghề</label>
             <select name="category" class="form-select" required>
-                <option value="IT" <?php if($job['category']=='IT') echo 'selected'; ?>>IT</option>
-                <option value="Marketing" <?php if($job['category']=='Marketing') echo 'selected'; ?>>Marketing</option>
+                <option value="IT" <?php if($job['nganhnghe']=='IT') echo 'selected'; ?>>Công Nghệ Thông Tin</option>
+                <option value="Marketing" <?php if($job['nganhnghe']=='Marketing') echo 'selected'; ?>>Marketing</option>
+                <option value="Kinh doanh" <?php if($job['nganhnghe']=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
+                <option value="Nông Nghiệp" <?php if($job['nganhnghe']=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
+                <option value="Kế Toán" <?php if($job['nganhnghe']=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
+                <option value="Gia Sư" <?php if($job['nganhnghe']=='Gia Sư') echo 'selected'; ?>>Gia Sư</option>
+                <option value="Bán Thời Gian" <?php if($job['nganhnghe']=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
+                 <option value="Marketing" <?php if($job['nganhnghe']=='Marketing') echo 'selected'; ?>>Freelancer</option>
             </select>
         </div>
         <div class="mb-3"><label>Mô tả</label><textarea name="description" class="form-control" rows="4" required><?php echo $job['description']; ?></textarea></div>
