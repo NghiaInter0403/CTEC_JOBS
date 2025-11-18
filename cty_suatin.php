@@ -37,10 +37,10 @@ if ($_POST) {
 
     <form method="POST">
         <!-- Giống form post-job.php -->
-        <div class="mb-3"><label>Vị trí</label><input type="text" name="title" class="form-control" value="<?php echo $job['title']; ?>" required></div>
-        <div class="mb-3"><label>Công ty</label><input type="text" name="company" class="form-control" value="<?php echo $job['company']; ?>" required></div>
-        <div class="mb-3"><label>Lương</label><input type="text" name="salary" class="form-control" value="<?php echo $job['salary']; ?>" required></div>
-        <div class="mb-3"><label>Khu vực</label><input type="text" name="location" class="form-control" value="<?php echo $job['location']; ?>" required></div>
+        <div class="mb-3"><label>Vị trí</label><input type="text" name="title" class="form-control" value="<?php echo $job['tieude']; ?>" required></div>
+        <div class="mb-3"><label>Công ty</label><input type="text" name="company" class="form-control" value="<?php echo $job['tencongty']; ?>" required></div>
+        <div class="mb-3"><label>Lương</label><input type="text" name="salary" class="form-control" value="<?php echo $job['mucluong']; ?>" required></div>
+        <div class="mb-3"><label>Khu vực</label><input type="text" name="location" class="form-control" value="<?php echo $job['diadiem']; ?>" required></div>
         <div class="mb-3"><label>Ngành nghề</label>
             <select name="category" class="form-select" required>
                 <option value="Công Nghệ Thông Tin" <?php if($job['nganhnghe']=='IT') echo 'selected'; ?>>Công Nghệ Thông Tin</option>

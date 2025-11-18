@@ -31,7 +31,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Xin chào, <strong><?php echo $_SESSION['name']; ?></strong></h2>
-        <a href="post-job.php" class="btn btn-success">
+        <a href="cty_dangtuyen.php" class="btn btn-success">
             Đăng tin mới
         </a>
     </div>
