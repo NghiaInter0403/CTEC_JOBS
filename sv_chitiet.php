@@ -17,7 +17,7 @@ if ($_POST) {
     if ($_FILES['cv']['name']) {
         $target_dir = "uploads/";
         $duongdancv = $target_dir . basename($_FILES["cv"]["name"]);
-        move_uploaded_file($_FILES["cv"]["tmp_name"], $cv_path);
+        move_uploaded_file($_FILES["cv"]["tmp_name"], $duongdancv);
     }
 
     $sql = "INSERT INTO hosoungvien (idnguoidung, sodienthoai, diachi, duongdancv, kynang) 
