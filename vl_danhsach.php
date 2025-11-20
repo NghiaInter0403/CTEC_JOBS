@@ -25,7 +25,7 @@ $result = mysqli_query($conn, $sql);
     <form method="GET" class="mb-4">
         <div class="row g-2">
             <div class="col-md-4">
-                <input type="text" name="keyword" class="form-control" placeholder="Tìm theo từ khóa..." value="<?php echo $keyword; ?>">
+                <input type="text" name="keyword" class="form-control" placeholder="Tìm theo từ khóa..." value="<?php echo $tukhoa; ?>">
             </div>
             <div class="col-md-3">
                 <select name="category" class="form-select">
