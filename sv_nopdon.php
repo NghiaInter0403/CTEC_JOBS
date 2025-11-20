@@ -21,13 +21,10 @@ if (mysqli_num_rows($check) > 0) {
 }
 
 // Lưu đơn ứng tuyển
-$sql = "INSERT INTO donungvien (idsinhvien, idvieclam, trangthai, ngaynop)
-        VALUES ('$student_id', '$job_id', 'choduyet', NOW())";
+$sql = "INSERT INTO donungvien (idvieclam, idsinhvien, ngaynop, trangthai)
+        VALUES ('$job_id', '$student_id', NOW(), 'choxuly')";
 
 mysqli_query($conn, $sql);
-
-// Tăng bộ đếm cho admin? → KHÔNG CẦN
-// Vì admin đọc trực tiếp COUNT(*) FROM donungvien nên tự tăng.
 
 header("Location: vl_chitiet.php?id=$job_id&msg=success");
 exit;
