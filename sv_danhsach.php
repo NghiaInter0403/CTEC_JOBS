@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $sql);
             <div class="col-md-5">
                 <input type="text" name="location" class="form-control"
                        placeholder="Khu vực..."
-                       value="<?= $location ?>">
+                       value="<?= $diadiem ?>">
             </div>
             <div class="col-md-2">
                 <button class="btn btn-primary w-100">Tìm</button>
