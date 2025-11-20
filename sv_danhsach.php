@@ -12,7 +12,7 @@ if ($tukhoa) {
     $sql .= " AND (vl.tieude LIKE '%$tukhoa%' OR vl.tencongty LIKE '%$tukhoa%')";
 }
 if ($diadiem) {
-    $sql .= " AND vl.diadiem LIKE '%$location%'";
+    $sql .= " AND vl.diadiem LIKE '%$diadiem%'";
 }
 
 $sql .= " ORDER BY vl.ngaydang DESC";
