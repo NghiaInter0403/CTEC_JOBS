@@ -137,7 +137,7 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                             <span class="badge bg-<?php echo $app['trangthai']=='daduyet'?'success':($app['trangthai']=='tuchoi'?'danger':'secondary'); ?> rounded-pill">
                                 <?php echo ucfirst($app['trangthai']); ?>
                             </span>
-                        </div>
+                            </div>
                         <?php endwhile; ?>
                     </div>
                     <?php else: ?>
