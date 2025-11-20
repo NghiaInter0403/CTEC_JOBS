@@ -32,12 +32,12 @@ $result = mysqli_query($conn, $sql);
             <div class="col-md-5">
                 <input type="text" name="keyword" class="form-control"
                        placeholder="Tìm theo từ khóa..."
-                       value="<?= $keyword ?>">
+                       value="<?php $keyword ?>">
             </div>
             <div class="col-md-5">
                 <input type="text" name="location" class="form-control"
                        placeholder="Khu vực..."
-                       value="<?= $diadiem ?>">
+                       value="<?php $diadiem ?>">
             </div>
             <div class="col-md-2">
                 <button class="btn btn-primary w-100">Tìm</button>
