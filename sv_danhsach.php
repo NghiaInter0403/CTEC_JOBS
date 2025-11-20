@@ -9,7 +9,7 @@ $diadiem = $_GET['location'] ?? '';
 $sql = "SELECT vl.* FROM vieclam vl WHERE vl.trangthai = 'daduyet' ";
 
 if ($tukhoa) {
-    $sql .= " AND (vl.tieude LIKE '%$tukhoa%' OR vl.tencongty LIKE '%$keyword%')";
+    $sql .= " AND (vl.tieude LIKE '%$tukhoa%' OR vl.tencongty LIKE '%$tukhoa%')";
 }
 if ($location) {
     $sql .= " AND vl.diadiem LIKE '%$location%'";
