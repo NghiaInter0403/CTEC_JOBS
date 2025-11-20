@@ -30,7 +30,8 @@ $result = mysqli_query($conn, $sql);
                 <th>Công ty</th>
                 <th>Mô tả</th>
                 <th>Trạng thái</th>
-                <th>Hành động</th>
+                <th>Duyệt Hoặc Từ Chối</th>
+                <th>Xóa</th>
             </tr>
         </thead>
         <body>
@@ -51,6 +52,14 @@ $result = mysqli_query($conn, $sql);
                         <a href="?tuchoi=<?php echo $job['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
                     <?php endif; ?>
                 </td>
+                <td> <form action="ad_xoatin.php" method="POST" style="display:inline;">
+                     <input type="hidden" name="id" value="<?php echo $job['id']; ?>">
+                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?');">
+                     Xóa
+                      </button>
+                     </form>
+                </td>
+                </tr>
             </tr>
             <?php endwhile; ?>
         </body>
