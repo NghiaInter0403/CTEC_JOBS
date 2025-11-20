@@ -10,11 +10,11 @@ include 'ketnoi.php';
 $idnguoidung = $_SESSION['user_id'];
 
 // Lấy thông tin tài khoản
-$sql_sv = "SELECT * FROM nguoidung WHERE id = '$user_id'";
+$sql_sv = "SELECT * FROM nguoidung WHERE id = '$idnguoidung'";
 $sv = mysqli_fetch_assoc(mysqli_query($conn, $sql_sv));
 
 // Lấy thông tin hồ sơ sinh viên
-$sql_hoso = "SELECT * FROM hosoungvien WHERE idnguoidung = '$user_id'";
+$sql_hoso = "SELECT * FROM hosoungvien WHERE idnguoidung = '$idnguoidung'";
 $hoso = mysqli_fetch_assoc(mysqli_query($conn, $sql_hoso));
 ?>
 
