@@ -13,7 +13,7 @@ if ($_POST) {
     $kynang = $_POST['kynang'];
 
     // Upload CV
-    $cv_path = '';
+    $duongdancv = '';
     if ($_FILES['cv']['name']) {
         $target_dir = "uploads/";
         $duongdancv = $target_dir . basename($_FILES["cv"]["name"]);
