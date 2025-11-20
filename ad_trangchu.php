@@ -98,7 +98,7 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                     <?php if (mysqli_num_rows($recent_jobs) > 0): ?>
                     <div class="list-group list-group-flush">
                         <?php while ($job = mysqli_fetch_assoc($recent_jobs)): ?>
-                        <a href="manage-jobs.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        <a href="ad_qlyviec.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             <div>
                                 <strong><?php echo $job['tieude']; ?></strong><br>
                                 <small class="text-muted"><?php echo $job['nhatuyendung']; ?> • <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?></small>
