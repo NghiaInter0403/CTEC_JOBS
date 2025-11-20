@@ -8,22 +8,22 @@ include 'ketnoi.php';
 $user_id = $_SESSION['user_id'];
 
 if ($_POST) {
-    $phone = $_POST['sodienthoai'];
-    $address = $_POST['diachi'];
-    $skills = $_POST['kynang'];
+    $sodienthoai = $_POST['sodienthoai'];
+    $diachi = $_POST['diachi'];
+    $kynang = $_POST['kynang'];
 
     // Upload CV
     $cv_path = '';
     if ($_FILES['cv']['name']) {
         $target_dir = "uploads/";
-        $cv_path = $target_dir . basename($_FILES["cv"]["name"]);
-        move_uploaded_file($_FILES["cv"]["tmp_name"], $cv_path);
+        $duongdancv = $target_dir . basename($_FILES["cv"]["name"]);
+        move_uploaded_file($_FILES["cv"]["tmp_name"], $duongdancv);
     }
 
     $sql = "INSERT INTO hosoungvien (idnguoidung, sodienthoai, diachi, duongdancv, kynang) 
-            VALUES ('$user_id', '$phone', '$address', '$cv_path', '$skills')
+            VALUES ('$user_id', '$sodienthoai', '$diachi', '$duongdancv', '$kynang')
             ON DUPLICATE KEY UPDATE 
-            sodienthoai='$phone', diachi='$address', kynang='$skills'" . ($cv_path ? ", đuongancv='$cv_path'" : "");
+            sodienthoai='$sodienthoai', diachi='$diachi', kynang='$kynang'" . ($duongdancv ? ", duongdancv='$duongdancv'" : "");
 
     mysqli_query($conn, $sql);
     $success = "Cập nhật hồ sơ thành công!";
