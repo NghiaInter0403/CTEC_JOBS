@@ -3,8 +3,8 @@ session_start();
 include 'ketnoi.php';
 
 // Tìm kiếm
-$keyword = $_GET['keyword'] ?? '';
-$location = $_GET['location'] ?? '';
+$tukhoa = $_GET['keyword'] ?? '';
+$diadiem = $_GET['location'] ?? '';
 
 $sql = "SELECT vl.* FROM vieclam vl WHERE vl.trangthai = 'daduyet' ";
 
