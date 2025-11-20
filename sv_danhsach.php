@@ -8,8 +8,8 @@ $diadiem = $_GET['location'] ?? '';
 
 $sql = "SELECT vl.* FROM vieclam vl WHERE vl.trangthai = 'daduyet' ";
 
-if ($keyword) {
-    $sql .= " AND (vl.tieude LIKE '%$keyword%' OR vl.tencongty LIKE '%$keyword%')";
+if ($tukhoa) {
+    $sql .= " AND (vl.tieude LIKE '%$tukhoa%' OR vl.tencongty LIKE '%$keyword%')";
 }
 if ($location) {
     $sql .= " AND vl.diadiem LIKE '%$location%'";
