@@ -3,7 +3,7 @@ session_start();
 include 'ketnoi.php';
 
 // Tìm kiếm & lọc
-$keyword = $_GET['keyword'] ?? '';
+$tukhoa = $_GET['keyword'] ?? '';
 $category = $_GET['category'] ?? '';
 $location = $_GET['location'] ?? '';
 
