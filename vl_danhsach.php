@@ -8,7 +8,7 @@ $category = $_GET['category'] ?? '';
 $location = $_GET['location'] ?? '';
 
 $sql = "SELECT vl.*, nd.hoten as company FROM vieclam vl JOIN nguoidung nd ON vl.idnhatuyendung = nd.id WHERE vl.trangthai = 'daduyet' ";
-if ($keyword) $sql .= " AND (vl.tieude LIKE '%$keyword%' OR vl.tencongty LIKE '%$keyword%')";
+if ($tukhoa) $sql .= " AND (vl.tieude LIKE '%$keyword%' OR vl.tencongty LIKE '%$keyword%')";
 if ($category) $sql .= " AND vl.nganhnghe = '$category'";
 if ($location) $sql .= " AND vl.diadiem = '$location'";
 $sql .= " ORDER BY vl.ngaydang DESC";
