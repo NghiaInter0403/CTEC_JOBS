@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
 
 include 'ketnoi.php';
 
-$user_id = $_SESSION['user_id'];
+$idnguoidung = $_SESSION['user_id'];
 
 // Lấy thông tin tài khoản
 $sql_sv = "SELECT * FROM nguoidung WHERE id = '$user_id'";
