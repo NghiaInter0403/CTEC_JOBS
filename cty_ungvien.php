@@ -8,8 +8,25 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
 include 'ketnoi.php';
 $employer_id = $_SESSION['user_id'];
 
+// Xử lý xóa đơn ứng tuyển nếu có
+if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
+    $delete_id = $_GET['delete'];
+    // Chỉ xóa ứng viên ứng tuyển vào tin tuyển dụng của công ty
+    $sql_check = "SELECT duv.id FROM donungvien duv 
+                  JOIN vieclam vl ON duv.idvieclam = vl.id 
+                  WHERE duv.id='$delete_id' AND vl.idnhatuyendung='$employer_id'";
+    $res_check = mysqli_query($conn, $sql_check);
+    if (mysqli_num_rows($res_check) > 0) {
+        mysqli_query($conn, "DELETE FROM donungvien WHERE id='$delete_id'");
+        $success = "Xóa ứng viên thành công!";
+    } else {
+        $error = "Không thể xóa ứng viên này.";
+    }
+}
+
 // Lấy danh sách ứng viên ứng tuyển vào tin tuyển dụng của công ty
-$sql = "SELECT duv.*, vl.tieude AS job_title, sv.hoten AS student_name, hs.duongdancv, hs.sodienthoai, hs.diachi, hs.kynang
+$sql = "SELECT duv.*, duv.id as don_id, vl.tieude AS job_title, sv.hoten AS student_name, 
+        hs.duongdancv, hs.sodienthoai, hs.diachi, hs.kynang
         FROM donungvien duv
         JOIN vieclam vl ON duv.idvieclam = vl.id
         JOIN nguoidung sv ON duv.idsinhvien = sv.id
@@ -24,6 +41,10 @@ $result = mysqli_query($conn, $sql);
 
 <div class="container mt-4">
     <h3>Danh sách ứng viên</h3>
+
+    <?php if(isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
+    <?php if(isset($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
+
     <?php if(mysqli_num_rows($result) > 0): ?>
         <div class="list-group">
             <?php while($app = mysqli_fetch_assoc($result)): ?>
@@ -42,6 +63,12 @@ $result = mysqli_query($conn, $sql);
                     <span class="badge bg-<?php echo $app['trangthai']=='choxuly'?'warning':($app['trangthai']=='chapnhan'?'success':'danger'); ?> ms-2">
                         <?php echo ucfirst($app['trangthai']); ?>
                     </span>
+                    <!-- Nút xóa -->
+                    <a href="cty_ungvien.php?delete=<?php echo $app['don_id']; ?>" 
+                       class="btn btn-sm btn-danger float-end"
+                       onclick="return confirm('Bạn có chắc chắn muốn xóa ứng viên này?')">
+                       Xóa
+                    </a>
                 </div>
             <?php endwhile; ?>
         </div>
