@@ -110,7 +110,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
 
         <!-- Ứng viên mới -->
         <div class="col-lg-6 mb-4">
-            <div class="card h-100">
+            <div class="card h-auto">
                 <div class="card-header bg-success text-white">
                     <h5 class="mb-0">Ứng viên mới nhất</h5>
                 </div>
