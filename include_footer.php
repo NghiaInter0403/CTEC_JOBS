@@ -7,7 +7,7 @@
         <p>Leader1: Huỳnh Tấn Phát MSSV: 23CTHA0383</p>
         <p>Leader2: Phan Hiếu Nghĩa MSSV: 23CTHA0372</p>
         <p>Liên hệ: 0352755926 hoặc 0333161534</p>
-        <p>Công nghệ sử dụng: HTML, CSS, PHP, Mysqli, Git, GitHub,Figma</p>
+        <p>Công nghệ sử dụng: HTML, CSS, PHP, Mysqli, Bootstrap Git, GitHub, Figma</p>
     </div>
 </footer>
 
