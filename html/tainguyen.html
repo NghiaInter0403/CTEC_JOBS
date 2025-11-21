@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chứa toàn bộ tài nguyên HTML </title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <!-- menu -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <img src="../img/LOGO.png" style="width: 250px; height: auto;" alt="Logo">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tin tuyển dụng</a>
+                </li>
+            </ul>
+            <!-- menu đổ xuốn -->
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Xin chào, Nguyễn Văn A </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
+                        <li><a class="dropdown-item" href="#">Xem hồ sơ</a></li>
+                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+                <!-- hết menu đổ xuốnh -->
+                 <!-- đăng nhập và đăng ksi -->
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dangki.php">Đăng ký</a>
+                </li>
+                 <!-- hết đăng nhập và đăng kí -->
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- hết menu -->
+ <!-- trang chủ bên trang admin -->
+   <div class="container mt-4">
+    <!-- Thẻ thống kê -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="card text-white bg-primary h-100">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 class="card-title">Thẻ thống kê</h5>
+                        <h3 class="mb-0">0</h3>
+                    </div>
+                    <small><i class="fas fa-briefcase"></i> icon + nội dung </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Tin chờ duyệt -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-warning text-white">
+                    <h5 class="mb-0">Tin tuyển dụng chờ duyệt</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Tiêu đề việc làm</strong><br>
+                                <small class="text-muted">Tên công ty</small>
+                            </div>
+                            <span class="badge bg-warning rounded-pill">Chờ duyệt</span>
+                        </a>
+                    </div>
+                    <div class="card-footer bg-light text-center">
+                        <a href="#" class="btn btn-sm btn-outline-primary">Xem tất cả</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ứng viên mới -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Ứng viên mới nhất</h5>
+                </div>
+                <div class="card-body p-0">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                           
+                            <span class="badge bg-success rounded-pill">Đã duyệt</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            
+                            <span class="badge bg-secondary rounded-pill">Chờ xử lý</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span class="badge bg-danger rounded-pill">Từ chối</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light text-center">
+                        <a href="#" class="btn btn-sm btn-outline-success">Xem thống kê</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu nhanh -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Tùy chức năng</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <a href="#" class="btn btn-outline-primary w-100 p-3">
+                                nút chức năng
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hết menu nhanh -->
+</div>
+  <!-- hết  trang chủ bên trang admin -->
+   <hr>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
