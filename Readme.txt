@@ -1,7 +1,5 @@
 
 ```
-├── html
-│   └── tainguyen.html
 ├── img
 │   └── LOGO.png
 ├── uploads
