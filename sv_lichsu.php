@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo date('d/m/Y', strtotime($row['ngaynop'])); ?></td>
                 <td>
                     <span class="badge bg-<?php
-                        echo $row['trangthai'] == 'daduyet' ? 'success' :
+                        echo $row['trangthai'] == 'chapnhan' ? 'success' :
                              ($row['trangthai'] == 'tuchoi' ? 'danger' :
                              ($row['trangthai'] == 'daxem' ? 'info' : 'warning'));
                     ?>">
