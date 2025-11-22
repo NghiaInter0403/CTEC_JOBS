@@ -25,7 +25,7 @@ $result = mysqli_query($conn, $sql);
                 <th>Công ty</th>
                 <th>Lương</th>
                 <th>Ngày ứng tuyển</th>
-                <th>Trạng thái</th>
+                <th>Thông báo từ công ty</th>
             </tr>
         </thead>
         <body>
