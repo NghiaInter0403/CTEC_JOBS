@@ -88,9 +88,9 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
     <div class="row">
         <!-- Tin chờ duyệt -->
         <div class="col-lg-6 mb-4">
-            <div class="card h-100">
+            <div class="card h-auto">
                 <div class="card-header bg-warning text-white">
-                    <h5 class="mb-0">
+                    <h5 class="mb-0 ">
                         Tin tuyển dụng chờ duyệt
                     </h5>
                 </div>
