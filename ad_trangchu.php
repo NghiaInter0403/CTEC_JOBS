@@ -134,7 +134,7 @@ $recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FR
                                 <strong><?php echo $app['sinhvien']; ?></strong><br>
                                 <small class="text-muted"><?php echo $app['tieude']; ?> • <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?></small>
                             </div>
-                            <span class="badge bg-<?php echo $app['trangthai']=='chapnhan'?'success':($app['trangthai']=='tuchoi'?'danger':'secondary'); ?> rounded-pill">
+                            <span class="badge bg-<?php echo $app['trangthai']=='chapnhan'?'success':($app['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
                                 <?php echo ucfirst($app['trangthai']); ?>
                             </span>
                             </div>
