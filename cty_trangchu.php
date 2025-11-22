@@ -89,7 +89,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                                 <small class="text-muted"><?php echo $job['tencongty']; ?> • <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?></small>
                             </div>
                             <div>
-                                <span class="badge bg-<?php echo $job['trangthai']=='daduyet'?'success':($job['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
+                                <span class="badge bg-<?php echo $job['trangthai']=='chapnhan'?'success':($job['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
                                     <?php echo ucfirst($job['trangthai']); ?>
                                 </span>
                                 <a href="cty_suatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-secondary ms-1">Sửa</a>
