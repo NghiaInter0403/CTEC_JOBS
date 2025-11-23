@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo $nguoidung['id']; ?></td>
                 <td><?php echo $nguoidung['hoten']; ?></td>
                 <td><?php echo $nguoidung['email']; ?></td>
-                <td><?php echo $user['vaitro'] == 'sinhvien' ? 'Sinh viên' : 'Nhà tuyển dụng'; ?></td>
+                <td><?php echo $nguoidung['vaitro'] == 'sinhvien' ? 'Sinh viên' : 'Nhà tuyển dụng'; ?></td>
                 <td><?php echo date('d/m/Y', strtotime($user['ngaytao'])); ?></td>
                 <td>
                     <a href="?delete=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Xóa?')">Xóa</a>
