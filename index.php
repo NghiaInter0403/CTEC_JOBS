@@ -1,7 +1,8 @@
+<!-- kết nối csdl và bắt đầu session -->
 <?php 
 session_start(); 
 include 'ketnoi.php'; 
-include 'include_header.php'; // ĐÃ CÓ BOOTSTRAP + CSS + root_url()
+include 'include_header.php';
 ?>
 
 <div class="container mt-5">
@@ -15,23 +16,26 @@ include 'include_header.php'; // ĐÃ CÓ BOOTSTRAP + CSS + root_url()
 
     <h3 class="mt-5 mb-4 text-center fw-bold">Tin tuyển dụng mới nhất</h3>
     <div class="row g-4">
+        <!-- truy vấn  -->
         <?php
         $sql = "SELECT vl.*, nd.hoten as company FROM vieclam vl JOIN nguoidung nd ON vl.idnhatuyendung = nd.id WHERE vl.trangthai = 'daduyet' ORDER BY vl.ngaydang DESC LIMIT 6";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0):
-            while ($job = mysqli_fetch_assoc($result)):
+        $ketqua = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($ketqua) > 0):
+            while ($vieclam = mysqli_fetch_assoc($ketqua)):
         ?>
+        <!-- kết thúc truy vấn -->
         <div class="col-md-6 col-lg-4">
             <div class="card h-100 border-0 shadow-sm hover-shadow transition">
                 <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-primary fw-bold"><?php echo htmlspecialchars($job['tieude']); ?></h5>
+                    <h5 class="card-title text-primary fw-bold"><?php echo htmlspecialchars($vieclam['tieude']); ?></h5>
                     <p class="card-text text-muted small">
-                        <i class="fas fa-building me-1"></i> <strong><?php echo htmlspecialchars($job['tencongty']); ?></strong><br>
-                        <i class="fas fa-money-bill-wave me-1"></i> Lương: <?php echo htmlspecialchars($job['mucluong']); ?><br>
-                        <i class="fas fa-map-marker-alt me-1"></i> <?php echo htmlspecialchars($job['diadiem']); ?>
+                        <i class="fas fa-building me-1"></i> <strong><?php echo htmlspecialchars($vieclam['tencongty']); ?></strong><br>
+                        <i class="fas fa-money-bill-wave me-1"></i> Lương: <?php echo htmlspecialchars($vieclam['mucluong']); ?><br>
+                        <i class="fas fa-map-marker-alt me-1"></i> <?php echo htmlspecialchars($vieclam['diadiem']); ?>
                     </p>
+                    <!-- nút gửi id việc làm đến file vl_chitiet -->
                     <div class="mt-auto">
-                        <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" 
+                        <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" 
                            class="btn btn-outline-primary btn-sm w-100">
                            Xem chi tiết
                         </a>
