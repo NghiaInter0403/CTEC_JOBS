@@ -31,9 +31,9 @@ $result = mysqli_query($conn, $sql);
             </tr>
         </thead>
         <tbody>
-            <?php while ($user = mysqli_fetch_assoc($result)): ?>
+            <?php while ($nguoidung = mysqli_fetch_assoc($result)): ?>
             <tr>
-                <td><?php echo $user['id']; ?></td>
+                <td><?php echo $nguoidung['id']; ?></td>
                 <td><?php echo $user['hoten']; ?></td>
                 <td><?php echo $user['email']; ?></td>
                 <td><?php echo $user['vaitro'] == 'sinhvien' ? 'Sinh viên' : 'Nhà tuyển dụng'; ?></td>
