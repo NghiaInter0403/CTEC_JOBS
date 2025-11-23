@@ -34,7 +34,7 @@ $result = mysqli_query($conn, $sql);
             <?php while ($nguoidung = mysqli_fetch_assoc($result)): ?>
             <tr>
                 <td><?php echo $nguoidung['id']; ?></td>
-                <td><?php echo $user['hoten']; ?></td>
+                <td><?php echo $nguoidung['hoten']; ?></td>
                 <td><?php echo $user['email']; ?></td>
                 <td><?php echo $user['vaitro'] == 'sinhvien' ? 'Sinh viên' : 'Nhà tuyển dụng'; ?></td>
                 <td><?php echo date('d/m/Y', strtotime($user['ngaytao'])); ?></td>
