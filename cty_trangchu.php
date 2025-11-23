@@ -127,7 +127,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                                 <?php if ($app['duongdancv']): ?>
                                     <a href="<?php echo $app['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
                                 <?php endif; ?>
-                                <span class="badge bg-secondary ms-1"><?php echo ucfirst($app['trangthai']); ?></span>
+                                <span class="badge bg-warning ms-1"><?php echo ucfirst($app['trangthai']); ?></span>
                             </div>
                         </div>
                         <?php endwhile; ?>
