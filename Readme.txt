@@ -19,7 +19,7 @@
 ├── dangxuat.php
 ├── include_footer.php
 ├── include_header.php
-├── index.php
+├── index.php (nghĩa đã đổi)
 ├── ketnoi.php
 ├── login.php
 ├── style.css
