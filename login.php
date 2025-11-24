@@ -13,16 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-    $user   = $result->fetch_assoc();
+    $nguoidung = $result->fetch_assoc();
 
-    if ($user && password_verify($matkhau, $user['matkhau'])) {
+    if ($nguoidung && password_verify($matkhau, $nguoidung['matkhau'])) {
         // === LƯU SESSION ===
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['name']    = $user['hoten'];
-        $_SESSION['role']    = $user['vaitro'];  // Lưu vaitro gốc
+        $_SESSION['user_id'] = $nguoidung['id'];
+        $_SESSION['name']    = $nguoidung['hoten'];
+        $_SESSION['role']    = $nguoidung['vaitro'];  // Lưu vaitro gốc
 
         // === CHUYỂN HƯỚNG THEO VAI TRÒ (dùng giá trị trong CSDL) ===
-        switch ($user['vaitro']) {
+        switch ($nguoidung['vaitro']) {
             case 'sinhvien':
                 header("Location: sv_trangchu.php");
                 break;
