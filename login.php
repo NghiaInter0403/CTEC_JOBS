@@ -6,7 +6,7 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email']);        // <-- Lấy đúng tên field
-    $password = $_POST['password'];           // <-- ĐÃ SỬA: dùng 'password'
+    $matkhau = $_POST['matkhau'];           // <-- ĐÃ SỬA: dùng 'password'
 
     // === DÙNG PREPARED STATEMENT ĐỂ AN TOÀN ===
     $stmt = $conn->prepare("SELECT id, hoten, matkhau, vaitro FROM nguoidung WHERE email = ?");
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
     $user   = $result->fetch_assoc();
 
-    if ($user && password_verify($password, $user['matkhau'])) {
+    if ($user && password_verify($matkhau, $user['matkhau'])) {
         // === LƯU SESSION ===
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['name']    = $user['hoten'];
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">Mật khẩu</label>
-                            <input type="password" name="password" class="form-control" required>
+                            <input type="password" name="matkhau" class="form-control" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100 fw-bold">
