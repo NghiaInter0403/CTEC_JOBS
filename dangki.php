@@ -2,13 +2,13 @@
 session_start();
 include 'ketnoi.php';
 
-$success = $error = '';
+$thanhcong = $thatbai = '';
 
 if ($_POST) {
-    $name = trim($_POST['name']);
+    $hoten = trim($_POST['hoten']);
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $role = $_POST['vaitro'];
+    $matkhau = $_POST['matkhau'];
+    $vaitro = $_POST['vaitro'];
 
     // Kiểm tra email đã tồn tại
     $check = $conn->prepare("SELECT id FROM nguoidung WHERE email = ?");
@@ -20,17 +20,17 @@ if ($_POST) {
         $error = "Email này đã được sử dụng!";
     } else {
         // Mã hóa mật khẩu
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $mahoamk = password_hash($matkhau, PASSWORD_DEFAULT);
         // Insert dùng Prepared Statement
         $stmt = $conn->prepare("INSERT INTO nguoidung (hoten, email, matkhau, vaitro) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
+        $stmt->bind_param("ssss", $hoten, $email, $mahoamk, $vaitro);
 
         if ($stmt->execute()) {
-            $success = "Đăng ký thành công! Vui lòng đăng nhập.";
+            $thanhcong = "Đăng ký thành công! Vui lòng đăng nhập.";
             // Có thể chuyển hướng sau 2 giây
             header("refresh:2;url=login.php");
         } else {
-            $error = "Có lỗi xảy ra. Vui lòng thử lại.";
+            $thatbai = "Có lỗi xảy ra. Vui lòng thử lại.";
         }
         $stmt->close();
     }
@@ -49,27 +49,27 @@ if ($_POST) {
                 <div class="card-body p-4">
 
                     <!-- Thông báo thành công -->
-                    <?php if ($success): ?>
+                    <?php if ($thanhcong): ?>
                         <div class="alert alert-success text-center">
-                            <i class="fas fa-check-circle"></i> <?php echo $success; ?>
+                            <i class="fas fa-check-circle"></i> <?php echo $thanhcong; ?>
                             <br><small>Đang chuyển đến trang đăng nhập...</small>
                         </div>
                     <?php endif; ?>
 
                     <!-- Thông báo lỗi -->
-                    <?php if ($error): ?>
+                    <?php if ($thatbai): ?>
                         <div class="alert alert-danger">
-                            <?php echo $error; ?>
+                            <?php echo $thatbai; ?>
                         </div>
                     <?php endif; ?>
 
                     <!-- Form đăng ký -->
-                    <?php if (!$success): ?>
+                    <?php if (!$thanhcong): ?>
                     <form method="POST" novalidate>
                         <div class="mb-3">
                             <label class="form-label fw-bold">Họ và tên</label>
-                            <input type="text" name="name" class="form-control" 
-                                   value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>" 
+                            <input type="text" name="hoten" class="form-control" 
+                                   value="<?php echo isset($_POST['hoten']) ? htmlspecialchars($_POST['hoten']) : ''; ?>" 
                                    required>
                         </div>
 
@@ -82,7 +82,7 @@ if ($_POST) {
 
                         <div class="mb-3">
                             <label class="form-label fw-bold">Mật khẩu</label>
-                            <input type="password" name="password" class="form-control" 
+                            <input type="password" name="matkhau" class="form-control" 
                                    placeholder="Ít nhất 6 ký tự" minlength="6" required>
                         </div>
 
