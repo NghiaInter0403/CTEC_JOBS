@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
     exit;
 }
 include 'ketnoi.php';
-$user_id = $_SESSION['user_id'];
+$idnguoidung = $_SESSION['user_id'];
 
 if ($_POST) {
     $sodienthoai = $_POST['sodienthoai'];
@@ -15,8 +15,8 @@ if ($_POST) {
     // Upload CV
     $duongdancv = '';
     if ($_FILES['cv']['name']) {
-        $target_dir = "uploads/";
-        $duongdancv = $target_dir . basename($_FILES["cv"]["name"]);
+        $diachiluu = "uploads/";
+        $duongdancv = $diachiluu . basename($_FILES["cv"]["name"]);
         move_uploaded_file($_FILES["cv"]["tmp_name"], $duongdancv);
     }
 
