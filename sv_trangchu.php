@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
     exit;
 }
 include 'ketnoi.php';
-$user_id = $_SESSION['user_id'];
+$idnguoidung = $_SESSION['user_id'];
 ?>
 
 <?php include 'include_header.php'; ?>
