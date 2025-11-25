@@ -35,7 +35,7 @@ $result = mysqli_query($conn, $sql);
             </tr>
         </thead>
         <body>
-            <?php while ($job = mysqli_fetch_assoc($result)): ?>
+            <?php while ($vieclam = mysqli_fetch_assoc($result)): ?>
             <tr>
                 <td><?php echo $job['tieude']; ?></td>
                 <td><?php echo $job['tencongty']; ?></td>
