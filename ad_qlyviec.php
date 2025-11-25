@@ -41,7 +41,7 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo $vieclam ['tencongty']; ?></td>
                 <td><?php echo $vieclam ['mota']; ?></td>
                 <td>
-                    <span class="badge bg-<?php echo $vieclam ['trangthai'] == 'daduyet' ? 'success' : ($job['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
+                    <span class="badge bg-<?php echo $vieclam ['trangthai'] == 'daduyet' ? 'success' : ($vieclam ['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
                         <?php echo ucfirst($job['trangthai']); ?>
                     </span>
                 </td>
