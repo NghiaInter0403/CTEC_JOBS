@@ -24,7 +24,7 @@
 ├── login.php (Nghĩa đã đổi)
 ├── style.css
 ├── sv_chitiet.php (Nghĩa đã đổi)
-├── sv_danhsach.php
+├── sv_danhsach.php (Nghĩa đã đổi)
 ├── sv_hoso.php
 ├── sv_lichsu.php
 ├── sv_nopdon.php
