@@ -48,7 +48,7 @@ $result = mysqli_query($conn, $sql);
                 <td>
                     <?php if ($vieclam['trangthai'] == 'choxuly'): ?>
                         <!-- <a href="?choxuly=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-success">Chờ xử lý</a> -->
-                        <a href="?daduyet=<?php echo $job['id']; ?>" class="btn btn-sm btn-success">Duyệt</a>
+                        <a href="?daduyet=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-success">Duyệt</a>
                         <a href="?tuchoi=<?php echo $job['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
                     <?php endif; ?>
                 </td>
