@@ -29,7 +29,7 @@ $idnguoidung = $_SESSION['user_id'];
         <div class="col-md-4">
             <div class="card text-center bg-warning text-white">
                 <div class="card-body">
-                    <h5><a href="sv_danhsach.php" class="text-white">Tìm việc làm</a></h5>
+                    <h5><a href="vl_danhsach.php" class="text-white">Tìm việc làm</a></h5>
                 </div>
             </div>
         </div>
