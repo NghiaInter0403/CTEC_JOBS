@@ -11,6 +11,9 @@ $sql = "SELECT vl.* FROM vieclam vl WHERE vl.trangthai = 'daduyet' ";
 if ($tukhoa) {
     $sql .= " AND (vl.tieude LIKE '%$tukhoa%' OR vl.tencongty LIKE '%$tukhoa%')";
 }
+if($nganhnghe){
+    $sql .=" AND (vl.nganhnghe LIKE '%$nganhnghe%')";
+}
 if ($diadiem) {
     $sql .= " AND vl.diadiem LIKE '%$diadiem%'";
 }
