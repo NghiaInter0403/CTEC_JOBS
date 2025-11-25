@@ -28,7 +28,7 @@
 ├── sv_hoso.php
 ├── sv_lichsu.php
 ├── sv_nopdon.php
-├── sv_trangchu.php
+├── sv_trangchu.php (nghĩa đã sửa)
 ├── thongke.php
 ├── vl_chitiet.php
 └── vl_danhsach.php
