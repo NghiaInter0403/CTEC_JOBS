@@ -23,7 +23,7 @@
 ├── ketnoi.php
 ├── login.php (Nghĩa đã đổi)
 ├── style.css
-├── sv_chitiet.php
+├── sv_chitiet.php (Nghĩa đã đổi)
 ├── sv_danhsach.php
 ├── sv_hoso.php
 ├── sv_lichsu.php
