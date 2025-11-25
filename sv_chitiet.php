@@ -21,7 +21,7 @@ if ($_POST) {
     }
 
     $sql = "INSERT INTO hosoungvien (idnguoidung, sodienthoai, diachi, duongdancv, kynang) 
-            VALUES ('$user_id', '$sodienthoai', '$diachi', '$duongdancv', '$kynang')
+            VALUES ('$idnguoidung', '$sodienthoai', '$diachi', '$duongdancv', '$kynang')
             ON DUPLICATE KEY UPDATE 
             sodienthoai='$sodienthoai', diachi='$diachi', kynang='$kynang'" . ($duongdancv ? ", duongdancv='$duongdancv'" : "");
 
