@@ -49,7 +49,7 @@ $result = mysqli_query($conn, $sql);
                     <?php if ($vieclam['trangthai'] == 'choxuly'): ?>
                         <!-- <a href="?choxuly=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-success">Chờ xử lý</a> -->
                         <a href="?daduyet=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-success">Duyệt</a>
-                        <a href="?tuchoi=<?php echo $job['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
+                        <a href="?tuchoi=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
                     <?php endif; ?>
                 </td>
                 <td> <form action="ad_xoatin.php" method="POST" style="display:inline;">
