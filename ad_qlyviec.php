@@ -37,7 +37,7 @@ $result = mysqli_query($conn, $sql);
         <body>
             <?php while ($vieclam = mysqli_fetch_assoc($result)): ?>
             <tr>
-                <td><?php echo $job['tieude']; ?></td>
+                <td><?php echo $vieclam['tieude']; ?></td>
                 <td><?php echo $job['tencongty']; ?></td>
                 <td><?php echo $job['mota']; ?></td>
                 <td>
