@@ -3,9 +3,9 @@ session_start();
 include 'ketnoi.php';
 
 // Tìm kiếm
-$tukhoa = $_GET['keyword'] ?? '';
-$diadiem = $_GET['location'] ?? '';
-
+$tukhoa = $_GET['tukhoa'] ?? '';
+$diadiem = $_GET['diadiem'] ?? '';
+$nganhnghe =$_GET['nganhnghe']?? '';
 $sql = "SELECT vl.* FROM vieclam vl WHERE vl.trangthai = 'daduyet' ";
 
 if ($tukhoa) {
@@ -29,13 +29,26 @@ $result = mysqli_query($conn, $sql);
     <!-- Form tìm kiếm -->
     <form method="GET" class="mb-4">
         <div class="row g-2">
-            <div class="col-md-5">
-                <input type="text" name="keyword" class="form-control"
+            <div class="col-md-4">
+                <input type="text" name="tukhoa" class="form-control"
                        placeholder="Tìm theo từ khóa..."
                        value="<?php $keyword ?>">
             </div>
-            <div class="col-md-5">
-                <input type="text" name="location" class="form-control"
+             <div class="col-md-3">
+                <select name="nganhnghe" class="form-select">
+                    <option value="">Tất cả ngành nghề</option>
+                    <option value="IT" <?php if($nganhnghe=='IT') echo 'selected'; ?>>Công nghệ thông tin</option>
+                    <option value="Marketing" <?php if($nganhnghe=='Marketing') echo 'selected'; ?>>Marketing</option>
+                    <option value="Kinh doanh" <?php if($nganhnghe=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
+                    <option value="Kinh doanh" <?php if($nganhnghe=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
+                    <option value="Kinh doanh" <?php if($nganhnghe=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
+                    <option value="Kinh doanh" <?php if($nganhnghe=='Gia Sư') echo 'selected'; ?>>Gia SƯ</option>
+                    <option value="Kinh doanh" <?php if($nganhnghe=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
+                    <option value="Kinh doanh" <?php if($nganhnghe=='Freelancer') echo 'selected'; ?>>Freelancer</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <input type="text" name="diadiem" class="form-control"
                        placeholder="Khu vực..."
                        value="<?php $diadiem ?>">
             </div>
