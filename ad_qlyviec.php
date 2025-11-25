@@ -38,7 +38,7 @@ $result = mysqli_query($conn, $sql);
             <?php while ($vieclam = mysqli_fetch_assoc($result)): ?>
             <tr>
                 <td><?php echo $vieclam['tieude']; ?></td>
-                <td><?php echo $job['tencongty']; ?></td>
+                <td><?php echo $vieclam ['tencongty']; ?></td>
                 <td><?php echo $job['mota']; ?></td>
                 <td>
                     <span class="badge bg-<?php echo $job['trangthai'] == 'daduyet' ? 'success' : ($job['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
