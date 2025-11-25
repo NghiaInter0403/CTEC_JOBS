@@ -39,7 +39,7 @@ $result = mysqli_query($conn, $sql);
             <tr>
                 <td><?php echo $vieclam['tieude']; ?></td>
                 <td><?php echo $vieclam ['tencongty']; ?></td>
-                <td><?php echo $job['mota']; ?></td>
+                <td><?php echo $vieclam ['mota']; ?></td>
                 <td>
                     <span class="badge bg-<?php echo $job['trangthai'] == 'daduyet' ? 'success' : ($job['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
                         <?php echo ucfirst($job['trangthai']); ?>
