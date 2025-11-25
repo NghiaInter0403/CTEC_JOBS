@@ -35,21 +35,21 @@ $result = mysqli_query($conn, $sql);
             </tr>
         </thead>
         <body>
-            <?php while ($job = mysqli_fetch_assoc($result)): ?>
+            <?php while ($vieclam = mysqli_fetch_assoc($result)): ?>
             <tr>
-                <td><?php echo $job['tieude']; ?></td>
-                <td><?php echo $job['tencongty']; ?></td>
-                <td><?php echo $job['mota']; ?></td>
+                <td><?php echo $vieclam['tieude']; ?></td>
+                <td><?php echo $vieclam ['tencongty']; ?></td>
+                <td><?php echo $vieclam ['mota']; ?></td>
                 <td>
-                    <span class="badge bg-<?php echo $job['trangthai'] == 'daduyet' ? 'success' : ($job['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
-                        <?php echo ucfirst($job['trangthai']); ?>
+                    <span class="badge bg-<?php echo $vieclam ['trangthai'] == 'daduyet' ? 'success' : ($vieclam ['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
+                        <?php echo ucfirst($vieclam ['trangthai']); ?>
                     </span>
                 </td>
                 <td>
-                    <?php if ($job['trangthai'] == 'choxuly'): ?>
-                        <!-- <a href="?choxuly=<?php echo $job['id']; ?>" class="btn btn-sm btn-success">Chờ xử lý</a> -->
-                        <a href="?daduyet=<?php echo $job['id']; ?>" class="btn btn-sm btn-success">Duyệt</a>
-                        <a href="?tuchoi=<?php echo $job['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
+                    <?php if ($vieclam['trangthai'] == 'choxuly'): ?>
+                        <!-- <a href="?choxuly=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-success">Chờ xử lý</a> -->
+                        <a href="?daduyet=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-success">Duyệt</a>
+                        <a href="?tuchoi=<?php echo $vieclam ['id']; ?>" class="btn btn-sm btn-danger">Từ chối</a>
                     <?php endif; ?>
                 </td>
                 <td> <form action="ad_xoatin.php" method="POST" style="display:inline;">
