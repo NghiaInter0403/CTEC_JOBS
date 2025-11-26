@@ -16,16 +16,16 @@ $check = mysqli_query($conn,
 );
 
 if (mysqli_num_rows($check) > 0) {
-    header("Location: vl_chitiet.php?id=$job_id&msg=already");
+    header("Location: vl_chitiet.php?id=$id_vieclam&msg=already");
     exit;
 }
 
 // Lưu đơn ứng tuyển
 $sql = "INSERT INTO donungvien (idvieclam, idsinhvien, ngaynop, trangthai)
-        VALUES ('$job_id', '$student_id', NOW(), 'choxuly')";
+        VALUES ('$id_vieclam', '$idnguoidung', NOW(), 'choxuly')";
 
 mysqli_query($conn, $sql);
 
-header("Location: vl_chitiet.php?id=$job_id&msg=success");
+header("Location: vl_chitiet.php?id=$id_vieclam&msg=success");
 exit;
 ?>
