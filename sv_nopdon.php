@@ -7,8 +7,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
     exit;
 }
 
-$student_id = $_SESSION['user_id'];
-$job_id = $_GET['id'];
+$idnguoidung = $_SESSION['user_id'];
+$id_vieclam = $_GET['id'];
 
 // Kiểm tra đã ứng tuyển chưa
 $check = mysqli_query($conn, 
