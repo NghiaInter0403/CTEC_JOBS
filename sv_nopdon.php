@@ -12,7 +12,7 @@ $id_vieclam = $_GET['id'];
 
 // Kiểm tra đã ứng tuyển chưa
 $check = mysqli_query($conn, 
-    "SELECT * FROM donungvien WHERE idsinhvien='$student_id' AND idvieclam='$job_id'"
+    "SELECT * FROM donungvien WHERE idsinhvien='$idnguoidung' AND idvieclam='$id_vieclam'"
 );
 
 if (mysqli_num_rows($check) > 0) {
