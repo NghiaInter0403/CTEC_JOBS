@@ -25,7 +25,7 @@
 ├── style.css
 ├── sv_chitiet.php (Nghĩa đã đổi)
 ├── sv_danhsach.php (Nghĩa đã đổi)
-├── sv_hoso.php
+├── sv_hoso.php (Nghĩa đã đổi)
 ├── sv_lichsu.php
 ├── sv_nopdon.php
 ├── sv_trangchu.php (nghĩa đã sửa)
