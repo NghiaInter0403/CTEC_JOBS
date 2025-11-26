@@ -11,11 +11,11 @@ $idnguoidung = $_SESSION['user_id'];
 $id_vieclam = $_GET['id'];
 
 // Kiểm tra đã ứng tuyển chưa
-$check = mysqli_query($conn, 
+$kiemtra = mysqli_query($conn, 
     "SELECT * FROM donungvien WHERE idsinhvien='$idnguoidung' AND idvieclam='$id_vieclam'"
 );
 
-if (mysqli_num_rows($check) > 0) {
+if (mysqli_num_rows($kiemtra) > 0) {
     header("Location: vl_chitiet.php?id=$id_vieclam&msg=already");
     exit;
 }
