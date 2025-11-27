@@ -14,7 +14,7 @@
 ├── cty_suatin.php
 ├── cty_trangchu.php
 ├── cty_ungvien.php
-├── cty_xoatin.php
+├── cty_xoatin.php(đã đổi)
 ├── dangki.php (nghĩa đã đổi)
 ├── dangxuat.php
 ├── include_footer.php
