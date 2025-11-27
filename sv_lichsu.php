@@ -12,7 +12,7 @@ $sql = "SELECT a.*, j.tieude, j.tencongty, j.mucluong, a.trangthai
         JOIN vieclam j ON a.idvieclam = j.id 
         WHERE a.idsinhvien = '$id_nguoidung'
         ORDER BY a.ngaynop DESC";
-$result = mysqli_query($conn, $sql);
+$ketqua = mysqli_query($conn, $sql);
 ?>
 
 <?php include 'include_header.php'; ?>
