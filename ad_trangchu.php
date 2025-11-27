@@ -9,8 +9,8 @@ include 'ketnoi.php';
 // Thống kê nhanh
 $soluong_viec = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam"))['tongso'];
 $trangthai_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam WHERE trangthai='choxuly'"))['tongso'];
-$total_applications = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM donungvien"))['tongso'];
-$total_students = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='sinhvien'"))['tongso'];
+$soluong_ungvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM donungvien"))['tongso'];
+$soluong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='sinhvien'"))['tongso'];
 $total_employers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='nhatuyendung'"))['tongso'];
 
 // Tin tuyển dụng mới nhất (chờ duyệt)
