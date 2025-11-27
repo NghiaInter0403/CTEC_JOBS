@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Việc Làm Sinh Viên</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,13 +19,13 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 20px;">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="index.php">Trang chủ</a></li>
-                <li class="nav-item"><a class="nav-link" href="vl_danhsach.php">Tin tuyển dụng</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php"><i class="bi bi-house-fill"></i> Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="vl_danhsach.php"><i class="bi bi-newspaper"></i> Tin tuyển dụng</a></li>
                 <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Liên Hệ
+                            <i class="bi bi-globe"></i> Liên Hệ
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="https://www.ctec.edu.vn/ctec/" target="_blank"> Trang chủ CTEC</a></li>
@@ -39,7 +39,7 @@
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Xin chào, <?php echo $_SESSION['name']; ?>
+                            <i class="bi bi-person-circle"></i> <?php echo $_SESSION['name']; ?>
                         </a>
                         <ul class="dropdown-menu">
 
@@ -66,4 +66,5 @@
             </ul>
         </div>
     </div>
+    
 </nav>
