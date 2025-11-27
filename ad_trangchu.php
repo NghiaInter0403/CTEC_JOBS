@@ -78,7 +78,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                     </div>
                     <small>
                         <span class="badge bg-light text-dark"><?php echo $soluong_sinhvien; ?> SV</span>
-                        <span class="badge bg-light text-dark"><?php echo $total_employers; ?> NTD</span>
+                        <span class="badge bg-light text-dark"><?php echo $soluong_nhatuyendung; ?> NTD</span>
                     </small>
                 </div>
             </div>
@@ -95,9 +95,9 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                     </h5>
                 </div>
                 <div class="card-body p-0">
-                    <?php if (mysqli_num_rows($recent_jobs) > 0): ?>
+                    <?php if (mysqli_num_rows($vieclam_choduyet) > 0): ?>
                     <div class="list-group list-group-flush">
-                        <?php while ($job = mysqli_fetch_assoc($recent_jobs)): ?>
+                        <?php while ($job = mysqli_fetch_assoc($vieclam_choduyet)): ?>
                         <a href="ad_qlyviec.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                             <div>
                                 <strong><?php echo $job['tieude']; ?></strong><br>
