@@ -50,7 +50,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
                         <h5 class="card-title">Tin chờ duyệt</h5>
-                        <h3 class="mb-0"><?php echo $pending_jobs; ?></h3>
+                        <h3 class="mb-0"><?php echo $trangthai_vieclam; ?></h3>
                     </div>
                     <small><i class="fas fa-clock"></i> Đang chờ</small>
                 </div>
@@ -62,7 +62,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
                         <h5 class="card-title">Ứng tuyển</h5>
-                        <h3 class="mb-0"><?php echo $total_applications; ?></h3>
+                        <h3 class="mb-0"><?php echo $soluong_ungvien; ?></h3>
                     </div>
                     <small><i class="fas fa-users"></i> Đơn ứng tuyển</small>
                 </div>
@@ -74,7 +74,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
                         <h5 class="card-title">Người dùng</h5>
-                        <h3 class="mb-0"><?php echo $total_students + $total_employers; ?></h3>
+                        <h3 class="mb-0"><?php echo $total_students + $soluong_nhatuyendung; ?></h3>
                     </div>
                     <small>
                         <span class="badge bg-light text-dark"><?php echo $total_students; ?> SV</span>
