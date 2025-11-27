@@ -17,7 +17,7 @@ $soluong_nhatuyendung = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) 
 $vieclam_choduyet = mysqli_query($conn, "SELECT j.*, u.hoten as nhatuyendung FROM vieclam j JOIN nguoidung u ON j.idnhatuyendung = u.id WHERE j.trangthai='choxuly' ORDER BY j.ngaydang DESC LIMIT 5");
 
 // Ứng viên mới nhất
-$recent_apps = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FROM donungvien a JOIN vieclam j ON a.idvieclam = j.id JOIN nguoidung u ON a.idsinhvien = u.id ORDER BY a.ngaynop DESC LIMIT 5");
+$ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FROM donungvien a JOIN vieclam j ON a.idvieclam = j.id JOIN nguoidung u ON a.idsinhvien = u.id ORDER BY a.ngaynop DESC LIMIT 5");
 ?>
 
 <?php include 'include_header.php'; ?>
