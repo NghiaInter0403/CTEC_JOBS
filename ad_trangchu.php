@@ -8,7 +8,7 @@ include 'ketnoi.php';
 
 // Thống kê nhanh
 $total_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam"))['tongso'];
-$pending_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam WHERE trangthai='choxuly'"))['tongso'];
+$trangthai_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam WHERE trangthai='choxuly'"))['tongso'];
 $total_applications = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM donungvien"))['tongso'];
 $total_students = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='sinhvien'"))['tongso'];
 $total_employers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='nhatuyendung'"))['tongso'];
