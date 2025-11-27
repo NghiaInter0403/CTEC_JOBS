@@ -11,7 +11,7 @@ $soluong_viec = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongs
 $trangthai_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam WHERE trangthai='choxuly'"))['tongso'];
 $soluong_ungvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM donungvien"))['tongso'];
 $soluong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='sinhvien'"))['tongso'];
-$total_employers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='nhatuyendung'"))['tongso'];
+$soluong_nhatuyendung = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='nhatuyendung'"))['tongso'];
 
 // Tin tuyển dụng mới nhất (chờ duyệt)
 $recent_jobs = mysqli_query($conn, "SELECT j.*, u.hoten as nhatuyendung FROM vieclam j JOIN nguoidung u ON j.idnhatuyendung = u.id WHERE j.trangthai='choxuly' ORDER BY j.ngaydang DESC LIMIT 5");
