@@ -5,12 +5,12 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
     exit;
 }
 include 'ketnoi.php';
-$student_id = $_SESSION['user_id'];
+$id_nguoidung = $_SESSION['user_id'];
 
 $sql = "SELECT a.*, j.tieude, j.tencongty, j.mucluong, a.trangthai 
         FROM donungvien a 
         JOIN vieclam j ON a.idvieclam = j.id 
-        WHERE a.idsinhvien = '$student_id'
+        WHERE a.idsinhvien = '$id_nguoidung'
         ORDER BY a.ngaynop DESC";
 $result = mysqli_query($conn, $sql);
 ?>
