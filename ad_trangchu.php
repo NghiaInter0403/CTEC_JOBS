@@ -128,7 +128,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body p-0">
                     <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
                     <div class="list-group list-group-flush">
-                        <?php while ($app = mysqli_fetch_assoc($recent_apps)): ?>
+                        <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
                         <div class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
                                 <strong><?php echo $app['sinhvien']; ?></strong><br>
