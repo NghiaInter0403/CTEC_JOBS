@@ -74,10 +74,10 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
                         <h5 class="card-title">Người dùng</h5>
-                        <h3 class="mb-0"><?php echo $total_students + $soluong_nhatuyendung; ?></h3>
+                        <h3 class="mb-0"><?php echo $soluong_sinhvien + $soluong_nhatuyendung; ?></h3>
                     </div>
                     <small>
-                        <span class="badge bg-light text-dark"><?php echo $total_students; ?> SV</span>
+                        <span class="badge bg-light text-dark"><?php echo $soluong_sinhvien; ?> SV</span>
                         <span class="badge bg-light text-dark"><?php echo $total_employers; ?> NTD</span>
                     </small>
                 </div>
