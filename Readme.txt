@@ -30,6 +30,6 @@
 ├── sv_nopdon.php (nghĩa đã đổi)
 ├── sv_trangchu.php (nghĩa đã sửa)
 ├── thongke.php (nghĩa đã đổi)
-├── vl_chitiet.php
+├── vl_chitiet.php (Nghĩa đã đổi)
 └── vl_danhsach.php
 ```
