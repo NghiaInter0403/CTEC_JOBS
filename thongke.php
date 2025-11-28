@@ -41,7 +41,7 @@ $tong_cty = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke F
             </div>
         </div>
          <div class="col-md-3">
-            <div class="card text-center bg-warning text-ogrance">
+            <div class="card text-center bg-info text-white">
                 <div class="card-body">
                     <h4><?php echo $tong_cty; ?></h4>
                     <p>Công Ty</p>
