@@ -29,7 +29,7 @@ $ketqua = mysqli_query($conn, $sql);
             </tr>
         </thead>
         <body>
-            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+            <?php while ($row = mysqli_fetch_assoc($ketqua)): ?>
             <tr>
                 <td><?php echo $row['tieude']; ?></td>
                 <td><?php echo $row['tencongty']; ?></td>
