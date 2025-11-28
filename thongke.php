@@ -9,6 +9,7 @@ include 'ketnoi.php';
 $tong_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM vieclam WHERE trangthai='daduyet'"))['thongke'];
 $tong_ungtuyen = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM donungvien"))['thongke'];
 $tong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM nguoidung WHERE vaitro='sinhvien'"))['thongke'];
+$tong_cty = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM nguoidung WHERE vaitro='nhatuyendung'"))['thongke'];
 ?>
 
 <?php include 'include_header.php'; ?>
@@ -36,6 +37,14 @@ $tong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thon
                 <div class="card-body">
                     <h4><?php echo $tong_sinhvien; ?></h4>
                     <p>Sinh viên</p>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-3">
+            <div class="card text-center bg-warning text-ogrance">
+                <div class="card-body">
+                    <h4><?php echo $tong_cty; ?></h4>
+                    <p>Công Ty</p>
                 </div>
             </div>
         </div>

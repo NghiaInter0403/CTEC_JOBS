@@ -38,7 +38,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
                         <h5 class="card-title">Tổng tin tuyển dụng</h5>
-                        <h3 class="mb-0"><?php echo $total_jobs; ?></h3>
+                        <h3 class="mb-0"><?php echo $soluong_viec; ?></h3>
                     </div>
                     <small><i class="fas fa-briefcase"></i> Tất cả</small>
                 </div>
