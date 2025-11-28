@@ -3,17 +3,17 @@ session_start();
 include 'ketnoi.php';
 
 // Tìm kiếm & lọc
-$tukhoa = $_GET['keyword'] ?? '';
-$category = $_GET['category'] ?? '';
-$location = $_GET['location'] ?? '';
+$tukhoa = $_GET['tukhoa'] ?? '';
+$nganh = $_GET['nganh'] ?? '';
+$diadiem = $_GET['diadiem'] ?? '';
 
 $sql = "SELECT vl.*, nd.hoten as company FROM vieclam vl JOIN nguoidung nd ON vl.idnhatuyendung = nd.id WHERE vl.trangthai = 'daduyet' ";
 if ($tukhoa) $sql .= " AND (vl.tieude LIKE '%$tukhoa%' OR vl.tencongty LIKE '%$tukhoa%')";
-if ($category) $sql .= " AND vl.nganhnghe = '$category'";
-if ($location) $sql .= " AND vl.diadiem = '$location'";
+if ($nganh) $sql .= " AND vl.nganhnghe = '$nganh'";
+if ($diadiem) $sql .= " AND vl.diadiem = '$diadiem'";
 $sql .= " ORDER BY vl.ngaydang DESC";
 
-$result = mysqli_query($conn, $sql);
+$ketqua = mysqli_query($conn, $sql);
 ?>
 
 <?php include 'include_header.php'; ?>
@@ -25,23 +25,23 @@ $result = mysqli_query($conn, $sql);
     <form method="GET" class="mb-4">
         <div class="row g-2">
             <div class="col-md-4">
-                <input type="text" name="keyword" class="form-control" placeholder="Tìm theo từ khóa..." value="<?php echo $tukhoa; ?>">
+                <input type="text" name="tukhoa" class="form-control" placeholder="Tìm theo từ khóa..." value="<?php echo $tukhoa; ?>">
             </div>
             <div class="col-md-3">
-                <select name="category" class="form-select">
+                <select name="nganh" class="form-select">
                     <option value="">Tất cả ngành nghề</option>
-                    <option value="IT" <?php if($category=='IT') echo 'selected'; ?>>Công nghệ thông tin</option>
-                    <option value="Marketing" <?php if($category=='Marketing') echo 'selected'; ?>>Marketing</option>
-                    <option value="Kinh doanh" <?php if($category=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
-                    <option value="Kinh doanh" <?php if($category=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
-                    <option value="Kinh doanh" <?php if($category=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
-                    <option value="Kinh doanh" <?php if($category=='Gia Sư') echo 'selected'; ?>>Gia SƯ</option>
-                    <option value="Kinh doanh" <?php if($category=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
-                    <option value="Kinh doanh" <?php if($category=='Freelancer') echo 'selected'; ?>>Freelancer</option>
+                    <option value="IT" <?php if($nganh=='IT') echo 'selected'; ?>>Công nghệ thông tin</option>
+                    <option value="Marketing" <?php if($nganh=='Marketing') echo 'selected'; ?>>Marketing</option>
+                    <option value="Kinh doanh" <?php if($nganh=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
+                    <option value="Kinh doanh" <?php if($nganh=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
+                    <option value="Kinh doanh" <?php if($nganh=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
+                    <option value="Kinh doanh" <?php if($nganh=='Gia Sư') echo 'selected'; ?>>Gia SƯ</option>
+                    <option value="Kinh doanh" <?php if($nganh=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
+                    <option value="Kinh doanh" <?php if($nganh=='Freelancer') echo 'selected'; ?>>Freelancer</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <input type="text" name="location" class="form-control" placeholder="Tìm khu vực..." value="<?php echo $location; ?>">
+                <input type="text" name="diadiem" class="form-control" placeholder="Tìm khu vực..." value="<?php echo $diadiem; ?>">
             </div>
             <div class="col-md-2">
                 <button type="submit" class="btn btn-primary w-100">Tìm</button>
@@ -50,14 +50,14 @@ $result = mysqli_query($conn, $sql);
     </form>
 
     <div class="row">
-        <?php while ($job = mysqli_fetch_assoc($result)): ?>
+        <?php while ($vieclam = mysqli_fetch_assoc($ketqua)): ?>
         <div class="col-md-6 mb-3">
             <div class="card">
                 <div class="card-body">
-                    <h5 style="color:blue"><?php echo $job['tieude']; ?></h5>
-                    <p><strong><?php echo $job['tencongty']; ?></strong></p>
-                    <p>Lương: <?php echo $job['mucluong']; ?> | <?php echo $job['diadiem']; ?></p>
-                    <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
+                    <h5 style="color:blue"><?php echo $vieclam['tieude']; ?></h5>
+                    <p><strong><?php echo $vieclam['tencongty']; ?></strong></p>
+                    <p>Lương: <?php echo $vieclam['mucluong']; ?> | <?php echo $vieclam['diadiem']; ?></p>
+                    <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
                 </div>
             </div>
         </div>
