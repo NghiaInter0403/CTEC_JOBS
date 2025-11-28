@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'ketnoi.php';
-// job_id = id_vieclam/ job = vieclam
 $id_vieclam = $_GET['id'] ?? 0;
 $sql = "SELECT vl.*, nd.hoten as tencongty FROM vieclam vl JOIN nguoidung nd ON vl.idnhatuyendung = nd.id WHERE vl.id = '$id_vieclam' AND vl.trangthai = 'daduyet'";
 $vieclam = mysqli_fetch_assoc(mysqli_query($conn, $sql));
