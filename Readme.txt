@@ -29,7 +29,7 @@
 ├── sv_lichsu.php (Nghĩa đã đổi)
 ├── sv_nopdon.php (nghĩa đã đổi)
 ├── sv_trangchu.php (nghĩa đã sửa)
-├── thongke.php
+├── thongke.php (nghĩa đã đổi)
 ├── vl_chitiet.php
 └── vl_danhsach.php
 ```
