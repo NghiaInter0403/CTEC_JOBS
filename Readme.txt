@@ -31,5 +31,5 @@
 ├── sv_trangchu.php (nghĩa đã sửa)
 ├── thongke.php (nghĩa đã đổi)
 ├── vl_chitiet.php (Nghĩa đã đổi)
-└── vl_danhsach.php
+└── vl_danhsach.php (nghĩa đã đổi)
 ```
