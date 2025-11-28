@@ -160,24 +160,19 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 </div>
                 <div class="card-body">
                     <div class="row g-3">
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <a href="ad_qlyviec.php" class="btn btn-outline-primary w-100 p-3">
                                 Duyệt tin tuyển dụng
                             </a>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <a href="ad_qlyuser.php" class="btn btn-outline-danger w-100 p-3">
                                 Quản lý người dùng
                             </a>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <a href="thongke.php" class="btn btn-outline-info w-100 p-3">
                                 Thống kê & Báo cáo
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="notifications.php" class="btn btn-outline-warning w-100 p-3">
-                                Gửi thông báo
                             </a>
                         </div>
                     </div>
