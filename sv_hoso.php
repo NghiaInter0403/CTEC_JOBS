@@ -49,6 +49,7 @@ $hoso = mysqli_fetch_assoc(mysqli_query($conn, $sql_hoso));
 
         <a href="sv_chitiet.php" class="btn btn-primary mt-3">Cập nhật hồ sơ</a>
     </div>
+    <a href="sv_trangchu.php" class="btn btn-outline-secondary float-end">Quay lại</a>
 </div>
 
 <?php include 'include_footer.php'; ?>

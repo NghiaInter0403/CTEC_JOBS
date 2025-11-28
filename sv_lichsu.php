@@ -45,8 +45,11 @@ $ketqua = mysqli_query($conn, $sql);
                     </span>
                 </td>
             </tr>
+            
             <?php endwhile; ?>
+            <a href="sv_trangchu.php" class="btn btn-outline-secondary float-end">Quay lại</a>
         </body>
     </table>
+    
 </div>
 <?php include 'include_footer.php'; ?>
