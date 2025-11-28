@@ -54,5 +54,6 @@ if ($_POST) {
         </div>
         <button type="submit" class="btn btn-primary">Lưu hồ sơ</button>
     </form>
+    <a href="sv_trangchu.php" class="btn btn-outline-secondary float-end">Quay lại</a>
 </div>
 <?php include 'include_footer.php'; ?>
