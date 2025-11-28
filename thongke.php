@@ -6,9 +6,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'quantrivien') {
 }
 include 'ketnoi.php';
 // $total_jobs = $tong_vieclam $total_applications= $tong_ungtuyen $total_students = $tong_sinhvien
-$tong_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE trangthai='daduyet'"))['total'];
-$tong_ungtuyen = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM donungvien"))['total'];
-$tong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM nguoidung WHERE vaitro='sinhvien'"))['total'];
+$tong_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM vieclam WHERE trangthai='daduyet'"))['thongke'];
+$tong_ungtuyen = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM donungvien"))['thongke'];
+$tong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as thongke FROM nguoidung WHERE vaitro='sinhvien'"))['thongke'];
 ?>
 
 <?php include 'include_header.php'; ?>
