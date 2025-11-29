@@ -75,72 +75,81 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
     <div class="row">
         <!-- Tin của tôi -->
         <div class="col-lg-6 mb-4">
-            <div class="card h-auto">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Tin tuyển dụng của tôi</h5>
-                </div>
-                <div class="card-body p-0">
-                    <?php if (mysqli_num_rows($my_jobs) > 0): ?>
-                    <div class="list-group list-group-flush">
-                        <?php while ($job = mysqli_fetch_assoc($my_jobs)): ?>
-                        <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong><?php echo $job['tieude']; ?></strong><br>
-                                <small class="text-muted"><?php echo $job['tencongty']; ?> • <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?></small>
-                            </div>
-                            <div>
-                                <span class="badge bg-<?php echo $job['trangthai']=='daduyet'?'success':($job['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
-                                    <?php echo ucfirst($job['trangthai']); ?>
-                                </span>
-                                <a href="cty_suatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-secondary ms-1">Sửa</a>
-                                <a href="cty_xoatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-danger ms-1" onclick="return confirm('Xóa tin này?')">Xóa</a>
-                            </div>
-                        </a>
-                        <?php endwhile; ?>
+    <div class="card h-auto">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Tin tuyển dụng của tôi</h5>
+        </div>
+        <div class="card-body p-0">
+            <?php if (mysqli_num_rows($my_jobs) > 0): ?>
+            <!-- List group cố định chiều cao + scroll -->
+            <div class="list-group list-group-flush" style="max-height: 350px; overflow-y: auto;">
+                <?php while ($job = mysqli_fetch_assoc($my_jobs)): ?>
+                <a href="vl_chitiet.php?id=<?php echo $job['id']; ?>" 
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong><?php echo $job['tieude']; ?></strong><br>
+                        <small class="text-muted"><?php echo $job['tencongty']; ?> • <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?></small>
                     </div>
-                    <?php else: ?>
-                    <p class="text-center text-muted py-4">Chưa có tin nào</p>
-                    <?php endif; ?>
-                    <div class="card-footer bg-light text-center">
-                        <a href="cty_dangtuyen.php" class="btn btn-sm btn-outline-primary">Đăng tin mới</a>
+                    <div>
+                        <span class="badge bg-<?php echo $job['trangthai']=='daduyet'?'success':($job['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
+                            <?php echo ucfirst($job['trangthai']=='daduyet'?'Đã duyệt':($job['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý')); ?>
+                        </span>
+                        <a href="cty_suatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-secondary ms-1">Sửa</a>
+                        <a href="cty_xoatin.php?id=<?php echo $job['id']; ?>" class="btn btn-sm btn-outline-danger ms-1" onclick="return confirm('Xóa tin này?')">Xóa</a>
                     </div>
-                </div>
+                </a>
+                <?php endwhile; ?>
+            </div>
+            <!-- Kết thúc list-group -->
+            <?php else: ?>
+                <p class="text-center text-muted py-4">Chưa có tin nào</p>
+            <?php endif; ?>
+            <div class="card-footer bg-light text-center">
+                <a href="cty_dangtuyen.php" class="btn btn-sm btn-outline-primary">Đăng tin mới</a>
             </div>
         </div>
+    </div>
+</div>
+
 
         <!-- Ứng viên mới -->
-        <div class="col-lg-6 mb-4">
-            <div class="card h-auto">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">Ứng viên mới nhất</h5>
-                </div>
-                <div class="card-body p-0">
-                    <?php if (mysqli_num_rows($recent_apps) > 0): ?>
-                    <div class="list-group list-group-flush">
-                        <?php while ($app = mysqli_fetch_assoc($recent_apps)): ?>
-                        <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong><?php echo $app['sinhvien']; ?></strong><br>
-                                <small class="text-muted"><?php echo $app['tieude']; ?> • <?php echo date('d/m H:i', strtotime($app['ngaynop'])); ?></small>
-                            </div>
-                            <div>
-                                <?php if ($app['duongdancv']): ?>
-                                    <a href="<?php echo $app['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
-                                <?php endif; ?>
-                                <span class="badge bg-warning ms-1"><?php echo ucfirst($app['trangthai']); ?></span>
-                            </div>
-                        </div>
-                        <?php endwhile; ?>
+       <div class="col-lg-6 mb-4">
+    <div class="card h-auto">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Ứng viên mới nhất</h5>
+        </div>
+        <div class="card-body p-0">
+            <?php if (mysqli_num_rows($recent_apps) > 0): ?>  
+            <!-- Thêm scroll + cố định chiều cao -->
+            <div class="list-group list-group-flush" style="max-height: 350px; overflow-y: auto;">
+                <?php while ($app = mysqli_fetch_assoc($recent_apps)): ?>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong><?php echo $app['sinhvien']; ?></strong><br>
+                        <small class="text-muted">
+                            <?php echo $app['tieude']; ?> • <?php echo date('d/m H:i', strtotime($app['ngaynop'])); ?>
+                        </small>
                     </div>
-                    <?php else: ?>
-                    <p class="text-center text-muted py-4">Chưa có ứng viên</p>
-                    <?php endif; ?>
-                    <div class="card-footer bg-light text-center">
-                        <a href="cty_ungvien.php" class="btn btn-sm btn-outline-success">Xem tất cả</a>
+                    <div>
+                        <?php if ($app['duongdancv']): ?>
+                            <a href="<?php echo $app['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
+                        <?php endif; ?>
+                        <span class="badge bg-warning ms-1"><?php echo ucfirst($app['trangthai']); ?></span>
                     </div>
                 </div>
+                <?php endwhile; ?> 
+            </div>
+            <!-- Kết thúc list-group cuộn -->
+            <?php else: ?>
+                <p class="text-center text-muted py-4">Chưa có ứng viên</p>
+            <?php endif; ?>
+            <div class="card-footer bg-light text-center">
+                <a href="cty_ungvien.php" class="btn btn-sm btn-outline-success">Xem tất cả</a>
             </div>
         </div>
+    </div>
+</div>
+
     </div>
 
     <!-- Menu nhanh -->
