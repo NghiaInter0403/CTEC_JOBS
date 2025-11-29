@@ -86,58 +86,74 @@ $result = mysqli_query($conn, $sql);
     <?php if(mysqli_num_rows($result) > 0): ?>
         <div class="list-group">
             <?php while($app = mysqli_fetch_assoc($result)): ?>
-                <div class="list-group-item mb-2">
+                <div class="list-group-item mb-3 p-3">
+
+                <div class="row">
                     <!-- Hiển thị thông tin -->
-                    <h5><?php echo htmlspecialchars($app['student_name']); ?></h5>
+                    <div class="col-md-6">
+                        <h5><?php echo htmlspecialchars($app['student_name']); ?></h5>
 
-                    <p><strong>Ứng tuyển vào:</strong> <?php echo htmlspecialchars($app['job_title']); ?></p>
+                        <p><strong>Ứng tuyển vào:</strong> <?php echo htmlspecialchars($app['job_title']); ?></p>
+                        <p><strong>Ngày nộp:</strong> 
+                            <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                        </p>
 
-                    <p><strong>Ngày nộp:</strong> 
-                        <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
-                    </p>
+                        <p>
+                            <strong>SĐT:</strong> <?php echo htmlspecialchars($app['sodienthoai'] ?? '-'); ?><br>
+                            <strong>Địa chỉ:</strong> <?php echo htmlspecialchars($app['diachi'] ?? '-'); ?><br>
+                            <strong>Kỹ năng:</strong> <?php echo htmlspecialchars($app['kynang'] ?? '-'); ?>
+                        </p>
 
-                    <p>
-                        <strong>SĐT:</strong> <?php echo htmlspecialchars($app['sodienthoai'] ?? '-'); ?><br>
-                        <strong>Địa chỉ:</strong> <?php echo htmlspecialchars($app['diachi'] ?? '-'); ?><br>
-                        <strong>Kỹ năng:</strong> <?php echo htmlspecialchars($app['kynang'] ?? '-'); ?>
-                    </p>
-                    <!-- Hiển thị trạng thái -->
-                    <span class="badge bg-<?php 
-                        echo $app['trangthai']=='choxuly'?'warning':
-                             ($app['trangthai']=='chapnhan'?'success':'danger'); ?>">
-                        <?php echo ucfirst($app['trangthai']); ?>
-                    </span>
-                    <!-- Hiển thị CV -->
-                    <div class="float-end">
-                        <?php if(!empty($app['duongdancv'])): ?>
-                        <a href="<?php echo $app['duongdancv']; ?>" 
-                           target="_blank">
-                            <img src="<?= $app['duongdancv'] ?>" 
-                            alt="Hình ảnh đính kèm"
-                            style="max-width: 400px; height: auto; border: 1px solid #ccc; border-radius: 6px;">
-                        </a>
-                        <!-- Nút thao tác -->
-                        <?php endif; ?>
-                        <?php if ($app['trangthai'] == 'choxuly'): ?>
-                            <a href="cty_ungvien.php?accept=<?php echo $app['don_id']; ?>" 
-                               class="btn btn-sm btn-success me-1">
-                               Đồng ý
-                            </a>
-
-                            <a href="cty_ungvien.php?deny=<?php echo $app['don_id']; ?>" 
-                               class="btn btn-sm btn-warning me-1">
-                               Từ chối
-                            </a>
-                        <?php endif; ?>
-
-                        <a href="cty_ungvien.php?delete=<?php echo $app['don_id']; ?>" 
-                           onclick="return confirm('Bạn có chắc chắn muốn xóa ứng viên này?')"
-                           class="btn btn-sm btn-danger">
-                           Xóa
-                        </a>
+                        <!--Hiển thị trạng thái -->
+                        <span class="badge bg-<?php 
+                            echo $app['trangthai']=='choxuly'?'warning':
+                                ($app['trangthai']=='chapnhan'?'success':'danger'); ?>">
+                            <?php echo ucfirst($app['trangthai'] == 'choxuly'?'Chờ xử lý':
+                            ($app['trangthai']=='chapnhan'?'Chấp nhận':'Từ chối')); ?>
+                        </span>
                     </div>
 
+                    <!-- Hiển thị CV -->
+                    <div class="col-md-6 text-center">
+                        <?php if (!empty($app['duongdancv'])): ?>
+                            <a href="<?php echo $app['duongdancv']; ?>" target="_blank">
+                                <img src="<?= $app['duongdancv'] ?>" 
+                                    alt="Hình ảnh đính kèm"
+                                    class="img-fluid border rounded shadow-sm"
+                                    style="max-height: 260px;">
+                            </a>
+                        <?php else: ?>
+                            <p class="text-muted">Không có CV đính kèm</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
+
+                <!-- CÁC NÚT XỬ LÝ BÊN DƯỚI -->
+                <div class="mt-3 text-center">
+
+                    <?php if ($app['trangthai'] == 'choxuly'): ?>
+
+                        <a href="cty_ungvien.php?accept=<?= $app['don_id']; ?>" 
+                        class="btn btn-success btn-sm px-3 me-2">
+                        Đồng ý
+                        </a>
+
+                        <a href="cty_ungvien.php?deny=<?= $app['don_id']; ?>" 
+                        class="btn btn-warning btn-sm px-3 me-2">
+                        Từ chối
+                        </a>
+
+                    <?php endif; ?>
+
+                    <a href="cty_ungvien.php?delete=<?= $app['don_id']; ?>" 
+                    onclick="return confirm('Bạn có chắc chắn muốn xóa ứng viên này?')"
+                    class="btn btn-danger btn-sm px-3">
+                    Xóa
+                    </a>
+
+                </div>
+
+            </div>
             <?php endwhile; ?>
         </div>
     <?php else: ?>
