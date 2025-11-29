@@ -36,13 +36,15 @@
         </div>
             </ul>
             <ul class="navbar-nav">
+                <!-- hiển thị người dùng -->
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             <i class="bi bi-person-circle"></i> <?php echo $_SESSION['name']; ?>
                         </a>
                         <ul class="dropdown-menu">
-
+                            <!-- câu điều kiện để echo menu -->
+                             <!-- phân biệt bằng vaitro -->
                             <?php if ($_SESSION['role'] == 'sinhvien'): ?>
                                 <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
                                 <li><a class="dropdown-item" href="sv_hoso.php">Xem hồ sơ</a></li>
