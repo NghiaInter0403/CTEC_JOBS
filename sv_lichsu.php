@@ -41,7 +41,7 @@ $ketqua = mysqli_query($conn, $sql);
                              ($row['trangthai'] == 'tuchoi' ? 'danger' :
                              ($row['trangthai'] == 'daxem' ? 'info' : 'warning'));
                     ?>">
-                        <?php echo ucfirst($row['trangthai']); ?>
+                        <?php echo ucfirst($row['trangthai']=='chapnhan'?'Chấp nhận':($row['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý')); ?>
                     </span>
                 </td>
             </tr>
