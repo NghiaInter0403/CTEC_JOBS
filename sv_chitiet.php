@@ -42,7 +42,7 @@ if ($_POST) {
         </div>
         <div class="mb-3">
             <label>Địa chỉ</label>
-            <textarea name="diachi" class="form-control" rows="3"></textarea>
+            <textarea name="diachi" class="form-control" rows="3" ></textarea>
         </div>
         <div class="mb-3">
             <label>Kỹ năng</label>
