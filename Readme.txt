@@ -16,7 +16,7 @@
 ├── cty_ungvien.php
 ├── cty_xoatin.php(đã đổi)
 ├── dangki.php (nghĩa đã đổi)
-├── dangxuat.php
+├── dangxuat.php (Nghĩa đã đổi)
 ├── include_footer.php
 ├── include_header.php
 ├── index.php (nghĩa đã đổi)
