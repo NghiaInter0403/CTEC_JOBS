@@ -114,12 +114,11 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
         </div>
 
         <!-- Ứng viên mới -->
-       <div class="col-lg-6 mb-4">
-    <div class="card h-auto">
+    <div class="col-lg-6 mb-4">
+        <div class="card h-auto">
         <div class="card-header bg-success text-white">
             <h5 class="mb-0">Ứng viên mới nhất</h5>
         </div>
-
         <div class="card-body p-0">
             <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
                 <div class="list-group list-group-flush ungvien-scroll" 
