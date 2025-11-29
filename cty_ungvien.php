@@ -4,8 +4,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
     header("Location: login.php");
     exit;
 }
-// đổi biến /employer_id = id_nhatuyendung /  $delete_id = xoa_id/ $sql_check = $kiemtra_xoa/  $res_check= thuchien_xoa
-// $success = thanhcong/  $error= thatbai
 include 'ketnoi.php';
 $id_nhatuyendung = $_SESSION['user_id'];
 
