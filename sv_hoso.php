@@ -38,9 +38,12 @@ $hoso = mysqli_fetch_assoc(mysqli_query($conn, $sql_hoso));
 
         <h5 class="fw-bold mt-4">CV đính kèm</h5>
         <?php if (!empty($hoso['duongdancv'])): ?>
-            <a href="<?= $hoso['duongdancv'] ?>" target="_blank" class="btn btn-outline-primary">
-                Xem CV
+            <a href="<?= $hoso['duongdancv'] ?>" target="_blank">
+                <img src="<?= $hoso['duongdancv'] ?>" 
+                alt="Hình ảnh đính kèm"
+                style="max-width: 400px; height: auto; border: 1px solid #ccc; border-radius: 6px;">
             </a>
+     
         <?php else: ?>
             <p class="text-muted">Chưa upload CV</p>
         <?php endif; ?>
