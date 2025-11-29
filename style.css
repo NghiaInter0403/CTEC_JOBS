@@ -277,3 +277,15 @@ footer a:hover {
     font-style: italic;
     opacity: 0.9;
 }
+.ungvien-scroll {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.ungvien-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ungvien-scroll::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}

@@ -118,37 +118,48 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
         </div>
 
         <!-- Ứng viên mới -->
-        <div class="col-lg-6 mb-4">
-            <div class="card h-auto">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">
-                        Ứng viên mới nhất
-                    </h5>
-                </div>
-                <div class="card-body p-0">
-                    <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
-                    <div class="list-group list-group-flush">
-                        <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
+       <div class="col-lg-6 mb-4">
+    <div class="card h-auto">
+        <div class="card-header bg-success text-white">
+            <h5 class="mb-0">Ứng viên mới nhất</h5>
+        </div>
+
+        <div class="card-body p-0">
+            <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
+                <div class="list-group list-group-flush ungvien-scroll" 
+                     style="height: 350px; overflow-y: auto;">
+                    <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
                         <div class="list-group-item d-flex justify-content-between align-items-center">
                             <div>
                                 <strong><?php echo $app['sinhvien']; ?></strong><br>
-                                <small class="text-muted"><?php echo $app['tieude']; ?> • <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?></small>
+                                <small class="text-muted">
+                                    <?php echo $app['tieude']; ?> • 
+                                    <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                                </small>
                             </div>
-                            <span class="badge bg-<?php echo $app['trangthai']=='chapnhan'?'success':($app['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
-                                <?php echo ucfirst($app['trangthai']=='chapnhan'?'Chấp nhận':($app['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý')); ?>
+
+                            <span class="badge bg-<?=
+                                $app['trangthai']=='chapnhan' ? 'success' :
+                                ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
+                            ?> rounded-pill">
+                                <?= 
+                                    $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
+                                    ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
+                                ?>
                             </span>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                    <?php else: ?>
-                    <p class="text-center text-muted py-4">Chưa có ứng viên</p>
-                    <?php endif; ?>
-                    <div class="card-footer bg-light text-center">
-                        <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
-                    </div>
+                        </div>
+                    <?php endwhile; ?>
                 </div>
+            <?php else: ?>
+                <p class="text-center text-muted py-4">Chưa có ứng viên</p>
+            <?php endif; ?>
+            <div class="card-footer bg-light text-center">
+                <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
             </div>
         </div>
+    </div>
+</div>
+
     </div>
 
     <!-- Menu nhanh -->
