@@ -87,6 +87,7 @@ $result = mysqli_query($conn, $sql);
         <div class="list-group">
             <?php while($app = mysqli_fetch_assoc($result)): ?>
                 <div class="list-group-item mb-2">
+                    <!-- Hiển thị thông tin -->
                     <h5><?php echo htmlspecialchars($app['student_name']); ?></h5>
 
                     <p><strong>Ứng tuyển vào:</strong> <?php echo htmlspecialchars($app['job_title']); ?></p>
@@ -100,17 +101,13 @@ $result = mysqli_query($conn, $sql);
                         <strong>Địa chỉ:</strong> <?php echo htmlspecialchars($app['diachi'] ?? '-'); ?><br>
                         <strong>Kỹ năng:</strong> <?php echo htmlspecialchars($app['kynang'] ?? '-'); ?>
                     </p>
-
-                    
-
                     <!-- Hiển thị trạng thái -->
                     <span class="badge bg-<?php 
                         echo $app['trangthai']=='choxuly'?'warning':
                              ($app['trangthai']=='chapnhan'?'success':'danger'); ?>">
                         <?php echo ucfirst($app['trangthai']); ?>
                     </span>
-
-                    <!-- Nút thao tác -->
+                    <!-- Hiển thị CV -->
                     <div class="float-end">
                         <?php if(!empty($app['duongdancv'])): ?>
                         <a href="<?php echo $app['duongdancv']; ?>" 
@@ -119,6 +116,7 @@ $result = mysqli_query($conn, $sql);
                             alt="Hình ảnh đính kèm"
                             style="max-width: 400px; height: auto; border: 1px solid #ccc; border-radius: 6px;">
                         </a>
+                        <!-- Nút thao tác -->
                         <?php endif; ?>
                         <?php if ($app['trangthai'] == 'choxuly'): ?>
                             <a href="cty_ungvien.php?accept=<?php echo $app['don_id']; ?>" 
