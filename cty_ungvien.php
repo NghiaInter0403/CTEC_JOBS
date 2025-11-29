@@ -101,11 +101,7 @@ $result = mysqli_query($conn, $sql);
                         <strong>Kỹ năng:</strong> <?php echo htmlspecialchars($app['kynang'] ?? '-'); ?>
                     </p>
 
-                    <?php if(!empty($app['duongdancv'])): ?>
-                        <a href="<?php echo $app['duongdancv']; ?>" 
-                           target="_blank" 
-                           class="btn btn-sm btn-info">Xem CV</a>
-                    <?php endif; ?>
+                    
 
                     <!-- Hiển thị trạng thái -->
                     <span class="badge bg-<?php 
@@ -116,7 +112,14 @@ $result = mysqli_query($conn, $sql);
 
                     <!-- Nút thao tác -->
                     <div class="float-end">
-
+                        <?php if(!empty($app['duongdancv'])): ?>
+                        <a href="<?php echo $app['duongdancv']; ?>" 
+                           target="_blank">
+                            <img src="<?= $app['duongdancv'] ?>" 
+                            alt="Hình ảnh đính kèm"
+                            style="max-width: 400px; height: auto; border: 1px solid #ccc; border-radius: 6px;">
+                        </a>
+                        <?php endif; ?>
                         <?php if ($app['trangthai'] == 'choxuly'): ?>
                             <a href="cty_ungvien.php?accept=<?php echo $app['don_id']; ?>" 
                                class="btn btn-sm btn-success me-1">
