@@ -26,11 +26,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
     <!-- Chào mừng -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['name']; ?></strong> (Admin)</h2>
-        <a href="notifications.php" class="btn btn-warning btn-sm">
-            Gửi thông báo
-        </a>
     </div>
-
     <!-- Thẻ thống kê -->
     <div class="row g-3 mb-4">
         <div class="col-md-3">
