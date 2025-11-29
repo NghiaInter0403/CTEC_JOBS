@@ -86,25 +86,29 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
         <div class="col-lg-6 mb-4">
             <div class="card h-auto">
                 <div class="card-header bg-warning text-white">
-                    <h5 class="mb-0 ">
+                    <h5 class="mb-0">
                         Tin tuyển dụng chờ duyệt
                     </h5>
                 </div>
                 <div class="card-body p-0">
                     <?php if (mysqli_num_rows($vieclam_choduyet) > 0): ?>
-                    <div class="list-group list-group-flush">
-                        <?php while ($job = mysqli_fetch_assoc($vieclam_choduyet)): ?>
-                        <a href="ad_qlyviec.php" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong><?php echo $job['tieude']; ?></strong><br>
-                                <small class="text-muted"><?php echo $job['nhatuyendung']; ?> • <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?></small>
-                            </div>
-                            <span class="badge bg-warning rounded-pill">Chờ duyệt</span>
-                        </a>
-                        <?php endwhile; ?>
-                    </div>
+                        <div class="list-group list-group-flush" style="height: 350px; overflow-y: auto;">
+                            <?php while ($job = mysqli_fetch_assoc($vieclam_choduyet)): ?>
+                                <a href="ad_qlyviec.php"
+                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong><?php echo $job['tieude']; ?></strong><br>
+                                        <small class="text-muted">
+                                            <?php echo $job['nhatuyendung']; ?> • 
+                                            <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?>
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-warning rounded-pill">Chờ duyệt</span>
+                                </a>
+                            <?php endwhile; ?>
+                        </div>
                     <?php else: ?>
-                    <p class="text-center text-muted py-4">Không có tin nào chờ duyệt</p>
+                        <p class="text-center text-muted py-4">Không có tin nào chờ duyệt</p>
                     <?php endif; ?>
                     <div class="card-footer bg-light text-center">
                         <a href="ad_qlyviec.php" class="btn btn-sm btn-outline-primary">Xem tất cả</a>
@@ -113,50 +117,49 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
             </div>
         </div>
 
-        <!-- Ứng viên mới -->
-    <div class="col-lg-6 mb-4">
-        <div class="card h-auto">
-        <div class="card-header bg-success text-white">
-            <h5 class="mb-0">Ứng viên mới nhất</h5>
-        </div>
-        <div class="card-body p-0">
-            <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
-                <div class="list-group list-group-flush ungvien-scroll" 
-                     style="height: 350px; overflow-y: auto;">
-                    <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
-                        <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong><?php echo $app['sinhvien']; ?></strong><br>
-                                <small class="text-muted">
-                                    <?php echo $app['tieude']; ?> • 
-                                    <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
-                                </small>
-                            </div>
 
-                            <span class="badge bg-<?=
-                                $app['trangthai']=='chapnhan' ? 'success' :
-                                ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
-                            ?> rounded-pill">
-                                <?= 
-                                    $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
-                                    ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
-                                ?>
-                            </span>
-                        </div>
-                    <?php endwhile; ?>
+        <!-- Ứng viên mới -->
+        <div class="col-lg-6 mb-4">
+            <div class="card h-auto">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Ứng viên mới nhất</h5>
+            </div>
+            <div class="card-body p-0">
+                <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
+                    <div class="list-group list-group-flush ungvien-scroll" 
+                        style="height: 350px; overflow-y: auto;">
+                        <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong><?php echo $app['sinhvien']; ?></strong><br>
+                                    <small class="text-muted">
+                                        <?php echo $app['tieude']; ?> • 
+                                        <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                                    </small>
+                                </div>
+
+                                <span class="badge bg-<?=
+                                    $app['trangthai']=='chapnhan' ? 'success' :
+                                    ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
+                                ?> rounded-pill">
+                                    <?= 
+                                        $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
+                                        ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
+                                    ?>
+                                </span>
+                            </div>
+                        <?php endwhile; ?>
+                    </div>
+                <?php else: ?>
+                    <p class="text-center text-muted py-4">Chưa có ứng viên</p>
+                <?php endif; ?>
+                <div class="card-footer bg-light text-center">
+                    <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
                 </div>
-            <?php else: ?>
-                <p class="text-center text-muted py-4">Chưa có ứng viên</p>
-            <?php endif; ?>
-            <div class="card-footer bg-light text-center">
-                <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
             </div>
         </div>
     </div>
 </div>
-
-    </div>
-
     <!-- Menu nhanh -->
     <div class="row">
         <div class="col-12">
