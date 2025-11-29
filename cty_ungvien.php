@@ -77,10 +77,9 @@ $thuchien_danhsach = mysqli_query($conn, $danhsach);
 
 <div class="container mt-4">
     <h3>Danh sách ứng viên</h3>
-
     <?php if(isset($thanhcong)) echo "<div class='alert alert-success'>$thanhcong</div>"; ?>
     <?php if(isset($thatbai)) echo "<div class='alert alert-danger'>$thatbai</div>"; ?>
-
+    
     <?php if(mysqli_num_rows($thuchien_danhsach) > 0): ?>
         <div class="list-group">
             <?php while($ungtuyen = mysqli_fetch_assoc($thuchien_danhsach)): ?>
