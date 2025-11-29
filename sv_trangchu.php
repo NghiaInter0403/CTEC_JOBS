@@ -34,5 +34,12 @@ $idnguoidung = $_SESSION['user_id'];
             </div>
         </div>
     </div>
+    <div class="col-md-12" style="margin-top: 30px;">
+            <div class="card text-center bg-info text-white">
+                <div class="card-body">
+                    <h5><a href="sv_hoso.php" class="text-white">Xem hồ sơ bản thân</a></h5>
+                </div>
+            </div>
+        </div>
 </div>
 <?php include 'include_footer.php'; ?>
