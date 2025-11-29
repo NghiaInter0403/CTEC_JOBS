@@ -14,10 +14,10 @@ $soluong_sinhvien = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as t
 $soluong_nhatuyendung = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM nguoidung WHERE vaitro='nhatuyendung'"))['tongso'];
 
 // Tin tuyển dụng mới nhất (chờ duyệt)
-$vieclam_choduyet = mysqli_query($conn, "SELECT j.*, u.hoten as nhatuyendung FROM vieclam j JOIN nguoidung u ON j.idnhatuyendung = u.id WHERE j.trangthai='choxuly' ORDER BY j.ngaydang DESC LIMIT 5");
+$vieclam_choduyet = mysqli_query($conn, "SELECT j.*, u.hoten as nhatuyendung FROM vieclam j JOIN nguoidung u ON j.idnhatuyendung = u.id WHERE j.trangthai='choxuly' ORDER BY j.ngaydang DESC");
 
 // Ứng viên mới nhất
-$ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FROM donungvien a JOIN vieclam j ON a.idvieclam = j.id JOIN nguoidung u ON a.idsinhvien = u.id ORDER BY a.ngaynop DESC LIMIT 5");
+$ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FROM donungvien a JOIN vieclam j ON a.idvieclam = j.id JOIN nguoidung u ON a.idsinhvien = u.id ORDER BY a.ngaynop DESC");
 ?>
 
 <?php include 'include_header.php'; ?>
@@ -121,44 +121,46 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
         <!-- Ứng viên mới -->
         <div class="col-lg-6 mb-4">
             <div class="card h-auto">
-            <div class="card-header bg-success text-white">
-                <h5 class="mb-0">Ứng viên mới nhất</h5>
-            </div>
-            <div class="card-body p-0">
-                <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
-                    <div class="list-group list-group-flush ungvien-scroll" 
-                        style="height: 350px; overflow-y: auto;">
-                        <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
-                            <div class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <strong><?php echo $app['sinhvien']; ?></strong><br>
-                                    <small class="text-muted">
-                                        <?php echo $app['tieude']; ?> • 
-                                        <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
-                                    </small>
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Ứng viên mới nhất</h5>
+                </div>
+                <div class="card-body p-0">
+                    <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
+                    
+                        <div class="list-group list-group-flush ungvien-scroll" 
+                            style="max-height: 350px; overflow-y: auto;">
+                            
+                            <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong><?php echo $app['sinhvien']; ?></strong><br>
+                                        <small class="text-muted">
+                                            <?php echo $app['tieude']; ?> • 
+                                            <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-<?=
+                                        $app['trangthai']=='chapnhan' ? 'success' :
+                                        ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
+                                    ?> rounded-pill">
+                                        <?= 
+                                            $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
+                                            ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
+                                        ?>
+                                    </span>
                                 </div>
+                            <?php endwhile; ?>
+                        </div>
+                    <?php else: ?>
+                        <p class="text-center text-muted py-4">Chưa có ứng viên</p>
+                    <?php endif; ?>
 
-                                <span class="badge bg-<?=
-                                    $app['trangthai']=='chapnhan' ? 'success' :
-                                    ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
-                                ?> rounded-pill">
-                                    <?= 
-                                        $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
-                                        ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
-                                    ?>
-                                </span>
-                            </div>
-                        <?php endwhile; ?>
+                    <div class="card-footer bg-light text-center">
+                        <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
                     </div>
-                <?php else: ?>
-                    <p class="text-center text-muted py-4">Chưa có ứng viên</p>
-                <?php endif; ?>
-                <div class="card-footer bg-light text-center">
-                    <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
                 </div>
             </div>
         </div>
-    </div>
 </div>
     <!-- Menu nhanh -->
     <div class="row">
