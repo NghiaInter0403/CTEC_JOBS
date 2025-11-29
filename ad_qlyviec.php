@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo $vieclam ['mota']; ?></td>
                 <td>
                     <span class="badge bg-<?php echo $vieclam ['trangthai'] == 'daduyet' ? 'success' : ($vieclam ['trangthai'] == 'tuchoi' ? 'danger' : 'warning'); ?>">
-                        <?php echo ucfirst($vieclam ['trangthai']); ?>
+                        <?php echo ucfirst($vieclam ['trangthai'])=='daduyet'?'Đã duyệt':($vieclam['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý'); ?>
                     </span>
                 </td>
                 <td>
