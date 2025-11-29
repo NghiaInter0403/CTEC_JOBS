@@ -23,7 +23,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
     JOIN nguoidung nd ON duv.idsinhvien = nd.id 
     LEFT JOIN hosoungvien hsuv ON nd.id = hsuv.idnguoidung 
     WHERE vl.idnhatuyendung = '$employer_id' 
-    ORDER BY duv.ngaynop DESC LIMIT 5");
+    ORDER BY duv.ngaynop DESC LIMIT 10");
 ?>
 
 <?php include 'include_header.php'; ?>
