@@ -4,75 +4,75 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
     header("Location: login.php");
     exit;
 }
-
+// đổi biến /employer_id = id_nhatuyendung /  $delete_id = xoa_id/ $sql_check = $kiemtra_xoa/  $res_check= thuchien_xoa
+// $success = thanhcong/  $error= thatbai
 include 'ketnoi.php';
-$employer_id = $_SESSION['user_id'];
+$id_nhatuyendung = $_SESSION['user_id'];
 
-/* ===================== XỬ LÝ XÓA ===================== */
-if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $delete_id = $_GET['delete'];
+//XỬ LÝ XÓA
+if (isset($_GET['xoa']) && is_numeric($_GET['xoa'])) {
+    $xoa_id = $_GET['xoa'];
 
-    $sql_check = "SELECT duv.id FROM donungvien duv 
+   $kiemtra_xoa = "SELECT duv.id FROM donungvien duv 
                   JOIN vieclam vl ON duv.idvieclam = vl.id 
-                  WHERE duv.id='$delete_id' AND vl.idnhatuyendung='$employer_id'";
+                  WHERE duv.id='$xoa_id' AND vl.idnhatuyendung='$id_nhatuyendung'";
 
-    $res_check = mysqli_query($conn, $sql_check);
+    $thuchien_xoa = mysqli_query($conn, $kiemtra_xoa);
 
-    if (mysqli_num_rows($res_check) > 0) {
-        mysqli_query($conn, "DELETE FROM donungvien WHERE id='$delete_id'");
-        $success = "Xóa ứng viên thành công!";
+    if (mysqli_num_rows($thuchien_xoa) > 0) {
+        mysqli_query($conn, "DELETE FROM donungvien WHERE id='$xoa_id'");
+        $thanhcong = "Xóa ứng viên thành công!";
     } else {
-        $error = "Không thể xóa ứng viên này.";
+        $thatbai = "Không thể xóa ứng viên này.";
     }
 }
 
-/* ===================== XỬ LÝ ĐỒNG Ý ===================== */
-if (isset($_GET['accept']) && is_numeric($_GET['accept'])) {
-    $don_id = $_GET['accept'];
+// XỬ LÝ ĐỒNG Ý
+if (isset($_GET['dongy']) && is_numeric($_GET['dongy'])) {
+    $don_id = $_GET['dongy'];
 
-    $sql_check = "SELECT duv.id FROM donungvien duv 
+    $kiemtra_dongy = "SELECT duv.id FROM donungvien duv 
                   JOIN vieclam vl ON duv.idvieclam = vl.id 
-                  WHERE duv.id='$don_id' AND vl.idnhatuyendung='$employer_id'";
+                  WHERE duv.id='$don_id' AND vl.idnhatuyendung='$id_nhatuyendung'";
 
-    $res_check = mysqli_query($conn, $sql_check);
+    $thuchien_dongy = mysqli_query($conn, $kiemtra_dongy);
 
-    if (mysqli_num_rows($res_check) > 0) {
+    if (mysqli_num_rows($thuchien_dongy) > 0) {
         mysqli_query($conn, "UPDATE donungvien SET trangthai='chapnhan' WHERE id='$don_id'");
-        $success = "Đã đồng ý hồ sơ!";
+        $thanhcong = "Đã đồng ý hồ sơ!";
     } else {
-        $error = "Không có quyền duyệt hồ sơ này.";
+        $thatbai = "Không có quyền duyệt hồ sơ này.";
     }
 }
 
-/* ===================== XỬ LÝ TỪ CHỐI ===================== */
-if (isset($_GET['deny']) && is_numeric($_GET['deny'])) {
-    $don_id = $_GET['deny'];
-
-    $sql_check = "SELECT duv.id FROM donungvien duv 
+// XỬ LÝ TỪ CHỐI
+if (isset($_GET['tuchoi']) && is_numeric($_GET['tuchoi'])) {
+    $don_id = $_GET['tuchoi'];
+    $kiemtra_tuchoi = "SELECT duv.id FROM donungvien duv 
                   JOIN vieclam vl ON duv.idvieclam = vl.id 
-                  WHERE duv.id='$don_id' AND vl.idnhatuyendung='$employer_id'";
+                  WHERE duv.id='$don_id' AND vl.idnhatuyendung='$id_nhatuyendung'";
 
-    $res_check = mysqli_query($conn, $sql_check);
+    $thuchien_tuchoi = mysqli_query($conn, $kiemtra_tuchoi);
 
-    if (mysqli_num_rows($res_check) > 0) {
+    if (mysqli_num_rows($thuchien_tuchoi) > 0) {
         mysqli_query($conn, "UPDATE donungvien SET trangthai='tuchoi' WHERE id='$don_id'");
-        $success = "Đã từ chối hồ sơ!";
+        $thanhcong = "Đã từ chối hồ sơ!";
     } else {
-        $error = "Không có quyền từ chối hồ sơ này.";
+        $thatbai = "Không có quyền từ chối hồ sơ này.";
     }
 }
 
-/* ===================== LẤY DANH SÁCH ỨNG VIÊN ===================== */
-$sql = "SELECT duv.*, duv.id as don_id, vl.tieude AS job_title, sv.hoten AS student_name, 
+// LẤY DANH SÁCH ỨNG VIÊN
+$danhsach = "SELECT duv.*, duv.id as don_id, vl.tieude AS tieude_jobs, sv.hoten AS hoten_sv, 
         hs.duongdancv, hs.sodienthoai, hs.diachi, hs.kynang
         FROM donungvien duv
         JOIN vieclam vl ON duv.idvieclam = vl.id
         JOIN nguoidung sv ON duv.idsinhvien = sv.id
         LEFT JOIN hosoungvien hs ON sv.id = hs.idnguoidung
-        WHERE vl.idnhatuyendung = '$employer_id'
+        WHERE vl.idnhatuyendung = '$id_nhatuyendung'
         ORDER BY duv.ngaynop DESC";
 
-$result = mysqli_query($conn, $sql);
+$thuchien_danhsach = mysqli_query($conn, $danhsach);
 ?>
 
 <?php include 'include_header.php'; ?>
@@ -80,44 +80,41 @@ $result = mysqli_query($conn, $sql);
 <div class="container mt-4">
     <h3>Danh sách ứng viên</h3>
 
-    <?php if(isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
-    <?php if(isset($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
+    <?php if(isset($thanhcong)) echo "<div class='alert alert-success'>$thanhcong</div>"; ?>
+    <?php if(isset($thatbai)) echo "<div class='alert alert-danger'>$thatbai</div>"; ?>
 
-    <?php if(mysqli_num_rows($result) > 0): ?>
+    <?php if(mysqli_num_rows($thuchien_danhsach) > 0): ?>
         <div class="list-group">
-            <?php while($app = mysqli_fetch_assoc($result)): ?>
+            <?php while($ungtuyen = mysqli_fetch_assoc($thuchien_danhsach)): ?>
                 <div class="list-group-item mb-3 p-3">
-
                 <div class="row">
                     <!-- Hiển thị thông tin -->
                     <div class="col-md-6">
-                        <h5><?php echo htmlspecialchars($app['student_name']); ?></h5>
-
-                        <p><strong>Ứng tuyển vào:</strong> <?php echo htmlspecialchars($app['job_title']); ?></p>
+                        <h5><?php echo htmlspecialchars($ungtuyen['hoten_sv']); ?></h5>
+                        <p><strong>Ứng tuyển vào:</strong> <?php echo htmlspecialchars($ungtuyen['tieude_jobs']); ?></p>
                         <p><strong>Ngày nộp:</strong> 
-                            <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                            <?php echo date('d/m/Y H:i', strtotime($ungtuyen['ngaynop'])); ?>
                         </p>
 
                         <p>
-                            <strong>SĐT:</strong> <?php echo htmlspecialchars($app['sodienthoai'] ?? '-'); ?><br>
-                            <strong>Địa chỉ:</strong> <?php echo htmlspecialchars($app['diachi'] ?? '-'); ?><br>
-                            <strong>Kỹ năng:</strong> <?php echo htmlspecialchars($app['kynang'] ?? '-'); ?>
+                            <strong>SĐT:</strong> <?php echo htmlspecialchars($ungtuyen['sodienthoai'] ?? '-'); ?><br>
+                            <strong>Địa chỉ:</strong> <?php echo htmlspecialchars($ungtuyen['diachi'] ?? '-'); ?><br>
+                            <strong>Kỹ năng:</strong> <?php echo htmlspecialchars($ungtuyen['kynang'] ?? '-'); ?>
                         </p>
 
                         <!--Hiển thị trạng thái -->
                         <span class="badge bg-<?php 
-                            echo $app['trangthai']=='choxuly'?'warning':
-                                ($app['trangthai']=='chapnhan'?'success':'danger'); ?>">
-                            <?php echo ucfirst($app['trangthai'] == 'choxuly'?'Chờ xử lý':
-                            ($app['trangthai']=='chapnhan'?'Chấp nhận':'Từ chối')); ?>
+                            echo $ungtuyen['trangthai']=='choxuly'?'warning':
+                                ($ungtuyen['trangthai']=='chapnhan'?'success':'danger'); ?>">
+                            <?php echo ucfirst($ungtuyen['trangthai'] == 'choxuly'?'Chờ xử lý':
+                            ($ungtuyen['trangthai']=='chapnhan'?'Chấp nhận':'Từ chối')); ?>
                         </span>
                     </div>
-
                     <!-- Hiển thị CV -->
                     <div class="col-md-6 text-center">
-                        <?php if (!empty($app['duongdancv'])): ?>
-                            <a href="<?php echo $app['duongdancv']; ?>" target="_blank">
-                                <img src="<?= $app['duongdancv'] ?>" 
+                        <?php if (!empty($ungtuyen['duongdancv'])): ?>
+                            <a href="<?php echo $ungtuyen['duongdancv']; ?>" target="_blank">
+                                <img src="<?= $ungtuyen['duongdancv'] ?>" 
                                     alt="Hình ảnh đính kèm"
                                     class="img-fluid border rounded shadow-sm"
                                     style="max-height: 260px;">
@@ -131,21 +128,21 @@ $result = mysqli_query($conn, $sql);
                 <!-- CÁC NÚT XỬ LÝ BÊN DƯỚI -->
                 <div class="mt-3 text-center">
 
-                    <?php if ($app['trangthai'] == 'choxuly'): ?>
+                    <?php if ($ungtuyen['trangthai'] == 'choxuly'): ?>
 
-                        <a href="cty_ungvien.php?accept=<?= $app['don_id']; ?>" 
+                        <a href="cty_ungvien.php?dongy=<?= $ungtuyen['don_id']; ?>" 
                         class="btn btn-success btn-sm px-3 me-2">
                         Đồng ý
                         </a>
 
-                        <a href="cty_ungvien.php?deny=<?= $app['don_id']; ?>" 
+                        <a href="cty_ungvien.php?tuchoi=<?= $ungtuyen['don_id']; ?>" 
                         class="btn btn-warning btn-sm px-3 me-2">
                         Từ chối
                         </a>
 
                     <?php endif; ?>
 
-                    <a href="cty_ungvien.php?delete=<?= $app['don_id']; ?>" 
+                    <a href="cty_ungvien.php?xoa=<?= $ungtuyen['don_id']; ?>" 
                     onclick="return confirm('Bạn có chắc chắn muốn xóa ứng viên này?')"
                     class="btn btn-danger btn-sm px-3">
                     Xóa
