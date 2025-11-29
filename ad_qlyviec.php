@@ -23,6 +23,7 @@ $result = mysqli_query($conn, $sql);
 <?php include 'include_header.php'; ?>
 <div class="container mt-4">
     <h3>Quản lý tin tuyển dụng</h3>
+    <a href="ad_trangchu.php" class="btn btn-outline-secondary float-end">Quay lại</a>
     <table class="table table-bordered">
         <thead>
             <tr>
