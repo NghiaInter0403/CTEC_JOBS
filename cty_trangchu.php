@@ -5,13 +5,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
     exit;
 }
 include 'ketnoi.php';
-$employer_id = $_SESSION['user_id'];
+$id_nhatuyendung = $_SESSION['user_id'];
 
 // Thống kê
-$total_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$employer_id'"))['total'];
-$approved_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$employer_id' AND trangthai = 'daduyet'"))['total'];
-$pending_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$employer_id' AND trangthai = 'choxuly'"))['total'];
-$total_applicants = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM donungvien dut JOIN vieclam vl ON dut.idvieclam = vl.id WHERE vl.idnhatuyendung = '$employer_id'"))['total'];
+$total_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$id_nhatuyendung'"))['total'];
+$approved_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$id_nhatuyendung' AND trangthai = 'daduyet'"))['total'];
+$pending_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$id_nhatuyendung' AND trangthai = 'choxuly'"))['total'];
+$total_applicants = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM donungvien dut JOIN vieclam vl ON dut.idvieclam = vl.id WHERE vl.idnhatuyendung = '$id_nhatuyendung'"))['total'];
 
 // Tin tuyển dụng của tôi
 $my_jobs = mysqli_query($conn, "SELECT * FROM vieclam WHERE idnhatuyendung = '$employer_id' ORDER BY ngaydang DESC LIMIT 5");
