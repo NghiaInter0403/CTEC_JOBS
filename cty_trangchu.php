@@ -119,22 +119,22 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
             <h5 class="mb-0">Ứng viên mới nhất</h5>
         </div>
         <div class="card-body p-0">
-            <?php if (mysqli_num_rows($recent_apps) > 0): ?>  
+            <?php if (mysqli_num_rows($ungvien_moi) > 0): ?>  
             <!-- Thêm scroll + cố định chiều cao -->
             <div class="list-group list-group-flush" style="max-height: 350px; overflow-y: auto;">
-                <?php while ($app = mysqli_fetch_assoc($recent_apps)): ?>
+                <?php while ($ungtuyen = mysqli_fetch_assoc($ungvien_moi)): ?>
                 <div class="list-group-item d-flex justify-content-between align-items-center">
                     <div>
-                        <strong><?php echo $app['sinhvien']; ?></strong><br>
+                        <strong><?php echo $ungtuyen['sinhvien']; ?></strong><br>
                         <small class="text-muted">
-                            <?php echo $app['tieude']; ?> • <?php echo date('d/m H:i', strtotime($app['ngaynop'])); ?>
+                            <?php echo $ungtuyen['tieude']; ?> • <?php echo date('d/m H:i', strtotime($ungtuyen['ngaynop'])); ?>
                         </small>
                     </div>
                     <div>
                         <?php if ($app['duongdancv']): ?>
-                            <a href="<?php echo $app['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
+                            <a href="<?php echo $ungtuyen['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
                         <?php endif; ?>
-                        <span class="badge bg-warning ms-1"><?php echo ucfirst($app['trangthai']); ?></span>
+                        <span class="badge bg-warning ms-1"><?php echo ucfirst($ungtuyen['trangthai']); ?></span>
                     </div>
                 </div>
                 <?php endwhile; ?> 
