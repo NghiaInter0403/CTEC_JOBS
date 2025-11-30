@@ -14,7 +14,7 @@ $pending_jobs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total
 $total_applicants = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM donungvien dut JOIN vieclam vl ON dut.idvieclam = vl.id WHERE vl.idnhatuyendung = '$id_nhatuyendung'"))['total'];
 
 // Tin tuyển dụng của tôi
-$my_jobs = mysqli_query($conn, "SELECT * FROM vieclam WHERE idnhatuyendung = '$employer_id' ORDER BY ngaydang DESC LIMIT 5");
+$my_jobs = mysqli_query($conn, "SELECT * FROM vieclam WHERE idnhatuyendung = '$id_nhatuyendung' ORDER BY ngaydang DESC LIMIT 5");
 
 // Ứng viên mới nhất
 $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvien, hsuv.duongdancv 
@@ -22,7 +22,7 @@ $recent_apps = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
     JOIN vieclam vl ON duv.idvieclam = vl.id 
     JOIN nguoidung nd ON duv.idsinhvien = nd.id 
     LEFT JOIN hosoungvien hsuv ON nd.id = hsuv.idnguoidung 
-    WHERE vl.idnhatuyendung = '$employer_id' 
+    WHERE vl.idnhatuyendung = '$id_nhatuyendung' 
     ORDER BY duv.ngaynop DESC LIMIT 10");
 ?>
 
