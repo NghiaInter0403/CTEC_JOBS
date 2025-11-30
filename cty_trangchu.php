@@ -131,7 +131,7 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                         </small>
                     </div>
                     <div>
-                        <?php if ($app['duongdancv']): ?>
+                        <?php if ($ungtuyen['duongdancv']): ?>
                             <a href="<?php echo $ungtuyen['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
                         <?php endif; ?>
                         <span class="badge bg-warning ms-1"><?php echo ucfirst($ungtuyen['trangthai']); ?></span>
