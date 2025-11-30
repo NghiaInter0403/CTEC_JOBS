@@ -12,7 +12,7 @@
 ├── ad_xoatin.php(đã đổi)
 ├── cty_dangtuyen.php
 ├── cty_suatin.php
-├── cty_trangchu.php
+├── cty_trangchu.php (đã đổi)
 ├── cty_ungvien.php (đã đổi)
 ├── cty_xoatin.php(đã đổi)
 ├── dangki.php (nghĩa đã đổi)
