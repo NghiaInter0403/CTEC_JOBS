@@ -13,14 +13,14 @@ $vieclam = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 if (!$vieclam) exit("Không có quyền!");
 
 if ($_POST) {
-    $tieude = $_POST['title'];
-    $tencongty = $_POST['company'];
-    $luong = $_POST['salary'];
-    $diadiem = $_POST['location'];
-    $nganhnghe = $_POST['category'];
-    $mota = $_POST['description'];
-    $yeucau = $_POST['requirements'];
-    $email_lienhe = $_POST['contact_email'];
+    $tieude = $_POST['tieude'];
+    $tencongty = $_POST['tencongty'];
+    $luong = $_POST['luong'];
+    $diadiem = $_POST['diadiem'];
+    $nganhnghe = $_POST['nganhnghe'];
+    $mota = $_POST['mota'];
+    $yeucau = $_POST['yeucau'];
+    $email_lienhe = $_POST['email_lienhe'];
 
     $truyvan_viec = "UPDATE vieclam SET tieude='$tieude', tencongty='$tencongty', mucluong='$luong', diadiem='$diadiem', 
             nganhnghe='$nganhnghe', mota='$mota', yeucau='$yeucau', 
@@ -38,25 +38,25 @@ if ($_POST) {
 
     <form method="POST">
         <!-- Giống form post-job.php -->
-        <div class="mb-3"><label>Vị trí</label><input type="text" name="title" class="form-control" value="<?php echo $job['tieude']; ?>" required></div>
-        <div class="mb-3"><label>Công ty</label><input type="text" name="company" class="form-control" value="<?php echo $job['tencongty']; ?>" required></div>
-        <div class="mb-3"><label>Lương</label><input type="text" name="salary" class="form-control" value="<?php echo $job['mucluong']; ?>" required></div>
-        <div class="mb-3"><label>Khu vực</label><input type="text" name="location" class="form-control" value="<?php echo $job['diadiem']; ?>" required></div>
+        <div class="mb-3"><label>Vị trí</label><input type="text" name="tieude" class="form-control" value="<?php echo $vieclam['tieude']; ?>" required></div>
+        <div class="mb-3"><label>Công ty</label><input type="text" name="tencongty" class="form-control" value="<?php echo $vieclam['tencongty']; ?>" required></div>
+        <div class="mb-3"><label>Lương</label><input type="text" name="luong" class="form-control" value="<?php echo $vieclam['mucluong']; ?>" required></div>
+        <div class="mb-3"><label>Khu vực</label><input type="text" name="diadiem" class="form-control" value="<?php echo $vieclam['diadiem']; ?>" required></div>
         <div class="mb-3"><label>Ngành nghề</label>
-            <select name="category" class="form-select" required>
-                <option value="Công Nghệ Thông Tin" <?php if($job['nganhnghe']=='IT') echo 'selected'; ?>>Công Nghệ Thông Tin</option>
-                <option value="Marketing" <?php if($job['nganhnghe']=='Marketing') echo 'selected'; ?>>Marketing</option>
-                <option value="Kinh doanh" <?php if($job['nganhnghe']=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
-                <option value="Nông Nghiệp" <?php if($job['nganhnghe']=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
-                <option value="Kế Toán" <?php if($job['nganhnghe']=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
-                <option value="Gia Sư" <?php if($job['nganhnghe']=='Gia Sư') echo 'selected'; ?>>Gia Sư</option>
-                <option value="Bán Thời Gian" <?php if($job['nganhnghe']=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
-                 <option value="Freelancer" <?php if($job['nganhnghe']=='Freelancer') echo 'selected'; ?>>Freelancer</option>
+            <select name="nganhnghe" class="form-select" required>
+                <option value="Công Nghệ Thông Tin" <?php if($vieclam['nganhnghe']=='IT') echo 'selected'; ?>>Công Nghệ Thông Tin</option>
+                <option value="Marketing" <?php if($vieclam['nganhnghe']=='Marketing') echo 'selected'; ?>>Marketing</option>
+                <option value="Kinh doanh" <?php if($vieclam['nganhnghe']=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
+                <option value="Nông Nghiệp" <?php if($vieclam['nganhnghe']=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
+                <option value="Kế Toán" <?php if($vieclam['nganhnghe']=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
+                <option value="Gia Sư" <?php if($vieclam['nganhnghe']=='Gia Sư') echo 'selected'; ?>>Gia Sư</option>
+                <option value="Bán Thời Gian" <?php if($vieclam['nganhnghe']=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
+                 <option value="Freelancer" <?php if($vieclam['nganhnghe']=='Freelancer') echo 'selected'; ?>>Freelancer</option>
             </select>
         </div>
-        <div class="mb-3"><label>Mô tả</label><textarea name="description" class="form-control" rows="4" required><?php echo $job['mota']; ?></textarea></div>
-        <div class="mb-3"><label>Yêu cầu</label><textarea name="requirements" class="form-control" rows="4" required><?php echo $job['yeucau']; ?></textarea></div>
-        <div class="mb-3"><label>Email liên hệ</label><input type="email" name="contact_email" class="form-control" value="<?php echo $job['emaillienhe']; ?>" required></div>
+        <div class="mb-3"><label>Mô tả</label><textarea name="mota" class="form-control" rows="4" required><?php echo $vieclam['mota']; ?></textarea></div>
+        <div class="mb-3"><label>Yêu cầu</label><textarea name="yeucau" class="form-control" rows="4" required><?php echo $vieclam['yeucau']; ?></textarea></div>
+        <div class="mb-3"><label>Email liên hệ</label><input type="email" name="email_lienhe" class="form-control" value="<?php echo $vieclam['emaillienhe']; ?>" required></div>
         <button type="submit" class="btn btn-primary">Cập nhật</button>
         <a href="cty_trangchu.php" class="btn btn-secondary">Hủy</a>
     </form>
