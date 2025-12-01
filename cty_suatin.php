@@ -33,7 +33,8 @@ if ($_POST) {
 <?php include 'include_header.php'; ?>
 <div class="container mt-4">
     <h3>Chỉnh sửa tin tuyển dụng</h3>
-    <?php if (isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
+    <!-- nếu thành công thì hiện cái khung màu xanh -->
+    <?php if (isset($thanhcong)) echo "<div class='alert alert-success'>$thanhcong</div>"; ?>
 
     <form method="POST">
         <!-- Giống form post-job.php -->
