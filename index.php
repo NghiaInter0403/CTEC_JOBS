@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tìm Việc Làm Sinh Viên - Part-time, Thực Tập, Việc Làm Thêm Mới Nhất</title>
+    <meta name="description" content="Tuyển dụng việc làm thêm cho sinh viên: part-time, thực tập có lương, việc làm bán thời gian tại Hà Nội, TP.HCM và các tỉnh. Cập nhật mới mỗi ngày!">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tìm Việc Làm Sinh Viên - Part-time & Thực Tập">
+    <meta property="og:description" content="Hàng nghìn việc làm thêm dành cho sinh viên, cập nhật liên tục 2025">
+    <meta property="og:type" content="website">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
 <!-- kết nối csdl và bắt đầu session -->
 <?php 
 session_start(); 
@@ -55,3 +73,5 @@ include 'include_header.php';
 </div>
 
 <?php include 'include_footer.php'; ?>
+</body>
+</html>
