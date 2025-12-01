@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
 }
 include 'ketnoi.php';
 $id_nhatuyendung = $_SESSION['user_id'];
-$job_id = $_GET['id'];
+$id_vieclam = $_GET['id'];
 
 $sql = "SELECT * FROM vieclam WHERE id = '$job_id' AND idnhatuyendung = '$id_nhatuyendung'";
 $job = mysqli_fetch_assoc(mysqli_query($conn, $sql));
