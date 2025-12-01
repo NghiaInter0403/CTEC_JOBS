@@ -25,7 +25,7 @@ if ($_POST) {
     $truyvan_viec = "UPDATE vieclam SET tieude='$tieude', tencongty='$tencongty', mucluong='$luong', diadiem='$diadiem', 
             nganhnghe='$nganhnghe', mota='$mota', yeucau='$yeucau', 
             emaillienhe='$email_lienhe', trangthai='choxuly' WHERE id='$id_vieclam'";
-    mysqli_query($conn, $sql);
+    mysqli_query($conn, $truyvan_viec);
     $thanhcong = "Cập nhật thành công! Tin đang chờ duyệt lại.";
 }
 ?>
