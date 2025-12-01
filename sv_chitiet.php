@@ -42,16 +42,16 @@ if ($_POST) {
         </div>
         <div class="mb-3">
             <label>Địa chỉ</label>
-            <textarea name="diachi" class="form-control" rows="3"></textarea>
+            <textarea name="diachi" class="form-control" rows="3" ></textarea>
         </div>
         <div class="mb-3">
             <label>Kỹ năng</label>
             <textarea name="kynang" class="form-control" rows="3" placeholder="HTML, CSS, PHP, ..."></textarea>
         </div>
-        <div class="mb-3">
-            <label>Upload CV (PDF)</label>
-            <input type="file" name="cv" accept=".pdf" class="form-control">
-        </div>
+       <div class="mb-3">
+        <label>Upload CV (IMG)</label>
+        <input type="file" name="cv" accept="image/jpeg, image/png, .jpg, .jpeg, .png" class="form-control">
+       </div>
         <button type="submit" class="btn btn-primary">Lưu hồ sơ</button>
     </form>
     <a href="sv_trangchu.php" class="btn btn-outline-secondary float-end">Quay lại</a>
