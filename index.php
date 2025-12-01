@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tìm Việc Làm Sinh Viên - Part-time, Thực Tập, Việc Làm Thêm Mới Nhất</title>
-    <meta name="description" content="Tuyển dụng việc làm thêm cho sinh viên: part-time, thực tập có lương, việc làm bán thời gian tại Hà Nội, TP.HCM và các tỉnh. Cập nhật mới mỗi ngày!">
+    <meta name="description" content="Tuyển dụng việc làm thêm cho sinh viên: part-time, thực tập có lương, việc làm bán thời gian. Cập nhật mới mỗi ngày!">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
