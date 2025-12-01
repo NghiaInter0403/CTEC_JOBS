@@ -8,25 +8,25 @@ include 'ketnoi.php';
 $id_nhatuyendung = $_SESSION['user_id'];
 $id_vieclam = $_GET['id'];
 
-$truyvan_viec = "SELECT * FROM vieclam WHERE id = '$id_vieclam' AND idnhatuyendung = '$id_nhatuyendung'";
-$vieclam = mysqli_fetch_assoc(mysqli_query($conn, $truyvan_viec));
+$sql = "SELECT * FROM vieclam WHERE id = '$id_vieclam' AND idnhatuyendung = '$id_nhatuyendung'";
+$vieclam = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 if (!$vieclam) exit("Không có quyền!");
 
 if ($_POST) {
-    $title = $_POST['title'];
-    $company = $_POST['company'];
-    $salary = $_POST['salary'];
-    $location = $_POST['location'];
-    $category = $_POST['category'];
-    $description = $_POST['description'];
-    $requirements = $_POST['requirements'];
-    $contact_email = $_POST['contact_email'];
+    $tieude = $_POST['title'];
+    $tencongty = $_POST['company'];
+    $luong = $_POST['salary'];
+    $diadiem = $_POST['location'];
+    $nganhnghe = $_POST['category'];
+    $mota = $_POST['description'];
+    $yeucau = $_POST['requirements'];
+    $email_lienhe = $_POST['contact_email'];
 
-    $sql = "UPDATE vieclam SET tieude='$title', tencongty='$company', mucluong='$salary', diadiem='$location', 
-            nganhnghe='$category', mota='$description', yeucau='$requirements', 
-            emaillienhe='$contact_email', trangthai='choxuly' WHERE id='$job_id'";
+    $truyvan_viec = "UPDATE vieclam SET tieude='$tieude', tencongty='$tencongty', mucluong='$luong', diadiem='$diadiem', 
+            nganhnghe='$nganhnghe', mota='$mota', yeucau='$yeucau', 
+            emaillienhe='$email_lienhe', trangthai='choxuly' WHERE id='$id_vieclam'";
     mysqli_query($conn, $sql);
-    $success = "Cập nhật thành công! Tin đang chờ duyệt lại.";
+    $thanhcong = "Cập nhật thành công! Tin đang chờ duyệt lại.";
 }
 ?>
 
