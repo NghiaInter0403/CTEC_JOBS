@@ -11,7 +11,7 @@
 ├── ad_trangchu.php(đã đổi)
 ├── ad_xoatin.php(đã đổi)
 ├── cty_dangtuyen.php
-├── cty_suatin.php
+├── cty_suatin.php (dadoi)
 ├── cty_trangchu.php (đã đổi)
 ├── cty_ungvien.php (đã đổi)
 ├── cty_xoatin.php(đã đổi)
