@@ -8,8 +8,8 @@ include 'ketnoi.php';
 $id_nhatuyendung = $_SESSION['user_id'];
 $id_vieclam = $_GET['id'];
 
-$sql = "SELECT * FROM vieclam WHERE id = '$job_id' AND idnhatuyendung = '$id_nhatuyendung'";
-$job = mysqli_fetch_assoc(mysqli_query($conn, $sql));
+$truyvan_viec = "SELECT * FROM vieclam WHERE id = '$id_vieclam' AND idnhatuyendung = '$id_nhatuyendung'";
+$vieclam = mysqli_fetch_assoc(mysqli_query($conn, $sql));
 if (!$job) exit("Không có quyền!");
 
 if ($_POST) {
