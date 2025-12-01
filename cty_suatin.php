@@ -9,8 +9,8 @@ $id_nhatuyendung = $_SESSION['user_id'];
 $id_vieclam = $_GET['id'];
 
 $truyvan_viec = "SELECT * FROM vieclam WHERE id = '$id_vieclam' AND idnhatuyendung = '$id_nhatuyendung'";
-$vieclam = mysqli_fetch_assoc(mysqli_query($conn, $sql));
-if (!$job) exit("Không có quyền!");
+$vieclam = mysqli_fetch_assoc(mysqli_query($conn, $truyvan_viec));
+if (!$vieclam) exit("Không có quyền!");
 
 if ($_POST) {
     $title = $_POST['title'];
