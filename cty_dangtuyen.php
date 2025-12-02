@@ -5,13 +5,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
     exit;
 }
 include 'ketnoi.php';
-$employer_id = $_SESSION['user_id'];
+$id_nhatuyendung = $_SESSION['user_id'];
 
 if ($_POST) {
-    $title = $_POST['tieude'];
-    $company = $_POST['tencongty'];
-    $salary = $_POST['mucluong'];
-    $location = $_POST['diadiem'];
+    $tieude = $_POST['tieude'];
+    $tencongty = $_POST['tencongty'];
+    $mucluong = $_POST['mucluong'];
+    $diadiem = $_POST['diadiem'];
     $category = $_POST['nganhnghe'];
     $description = $_POST['mota'];
     $requirements = $_POST['yeucau'];
