@@ -12,10 +12,10 @@ if ($_POST) {
     $tencongty = $_POST['tencongty'];
     $mucluong = $_POST['mucluong'];
     $diadiem = $_POST['diadiem'];
-    $category = $_POST['nganhnghe'];
-    $description = $_POST['mota'];
-    $requirements = $_POST['yeucau'];
-    $contact_email = $_POST['emaillienhe'];
+    $nganhnghe = $_POST['nganhnghe'];
+    $mota = $_POST['mota'];
+    $yeucau = $_POST['yeucau'];
+    $email_lienhe = $_POST['emaillienhe'];
 
     $sql = "INSERT INTO vieclam (idnhatuyendung, tieude, tencongty, mucluong,diadiem, nganhnghe, mota, yeucau, emaillienhe)
             VALUES ('$employer_id', '$title', '$company', '$salary', '$location', '$category', '$description', '$requirements', '$contact_email')";
