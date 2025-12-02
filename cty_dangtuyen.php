@@ -17,10 +17,10 @@ if ($_POST) {
     $yeucau = $_POST['yeucau'];
     $email_lienhe = $_POST['emaillienhe'];
 
-    $sql = "INSERT INTO vieclam (idnhatuyendung, tieude, tencongty, mucluong,diadiem, nganhnghe, mota, yeucau, emaillienhe)
-            VALUES ('$employer_id', '$title', '$company', '$salary', '$location', '$category', '$description', '$requirements', '$contact_email')";
-    mysqli_query($conn, $sql);
-    $success = "Đăng tin thành công! Đang chờ duyệt.";
+    $dangtin = "INSERT INTO vieclam (idnhatuyendung, tieude, tencongty, mucluong,diadiem, nganhnghe, mota, yeucau, emaillienhe)
+            VALUES ('$id_nhatuyendung', '$tieude', '$tencongty', '$mucluong', '$diadiem', '$nganhnghe', '$mota', '$yeucau', '$email_lienhe')";
+    mysqli_query($conn, $dangtin);
+    $thanhcong = "Đăng tin thành công! Đang chờ duyệt.";
 }
 ?>
 
