@@ -27,7 +27,7 @@ if ($_POST) {
 <?php include 'include_header.php'; ?>
 <div class="container mt-4">
     <h3>Đăng tin tuyển dụng</h3>
-    <?php if (isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
+    <?php if (isset($thanhcong)) echo "<div class='alert alert-success'>$thanhcong</div>"; ?>
 
     <form method="POST">
         <div class="row">
