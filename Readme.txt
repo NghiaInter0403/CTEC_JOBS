@@ -10,7 +10,7 @@
 ├── ad_qlyviec.php(đã đổi)
 ├── ad_trangchu.php(đã đổi)
 ├── ad_xoatin.php(đã đổi)
-├── cty_dangtuyen.php
+├── cty_dangtuyen.php (đã đổi)
 ├── cty_suatin.php (dadoi)
 ├── cty_trangchu.php (đã đổi)
 ├── cty_ungvien.php (đã đổi)
