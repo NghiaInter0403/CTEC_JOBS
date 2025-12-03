@@ -5,8 +5,8 @@ include 'ketnoi.php';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email    = trim($_POST['email']);        // <-- Lấy đúng tên field
-    $matkhau = $_POST['matkhau'];           // <-- ĐÃ SỬA: dùng 'password'
+    $email    = trim($_POST['email']);
+    $matkhau = $_POST['matkhau'];           
 
     // === DÙNG PREPARED STATEMENT ĐỂ AN TOÀN ===
     $stmt = $conn->prepare("SELECT id, hoten, matkhau, vaitro FROM nguoidung WHERE email = ?");
