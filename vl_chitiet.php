@@ -35,9 +35,9 @@ mysqli_query($conn, "INSERT INTO thongke (trang) VALUES ('Việc làm_$id_viecla
             <hr>
             <p><strong>Liên hệ:</strong> <?php echo $vieclam['emaillienhe']; ?></p>
 
-            <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'sinhvien'): ?>
+            <?php if (isset($_SESSION['vaitro']) && $_SESSION['vaitro'] == 'sinhvien'): ?>
                 <?php
-                $id_sinhvien = $_SESSION['user_id'];
+                $id_sinhvien = $_SESSION['id_nguoidung'];
                 $ungtuyen = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM donungvien WHERE idvieclam = '$id_vieclam' AND idsinhvien = '$id_sinhvien'"));
                 ?>
                 <?php if ($ungtuyen == 0): ?>
