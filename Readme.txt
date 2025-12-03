@@ -8,7 +8,7 @@
 ├── Readme.txt
 ├── ad_qlyuser.php
 ├── ad_qlyviec.php
-├── ad_trangchu.php(đã đổi)
+├── ad_trangchu.php
 ├── ad_xoatin.php(đã đổi)
 ├── cty_dangtuyen.php (đã đổi)
 ├── cty_suatin.php (dadoi)
