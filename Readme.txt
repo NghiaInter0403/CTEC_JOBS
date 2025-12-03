@@ -11,7 +11,7 @@
 ├── ad_trangchu.php
 ├── ad_xoatin.php
 ├── cty_dangtuyen.php
-├── cty_suatin.php (dadoi)
+├── cty_suatin.php
 ├── include_footer.php 
 ├── include_header.php (Nghĩa đã đổi)
 ├── index.php (nghĩa đã đổi)
