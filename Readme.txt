@@ -24,7 +24,7 @@
 ├── sv_lichsu.php 
 ├── sv_nopdon.php 
 ├── sv_trangchu.php
-├── thongke.php (nghĩa đã đổi)
+├── thongke.php 
 ├── vl_chitiet.php (Nghĩa đã đổi)
 └── vl_danhsach.php (nghĩa đã đổi)
 ```
