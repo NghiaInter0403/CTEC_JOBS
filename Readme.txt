@@ -9,7 +9,7 @@
 ├── ad_qlyuser.php
 ├── ad_qlyviec.php
 ├── ad_trangchu.php
-├── ad_xoatin.php(đã đổi)
+├── ad_xoatin.php
 ├── cty_dangtuyen.php (đã đổi)
 ├── cty_suatin.php (dadoi)
 ├── include_footer.php 
