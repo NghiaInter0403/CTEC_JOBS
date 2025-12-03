@@ -2,12 +2,12 @@
 session_start();
 include 'ketnoi.php';
 
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
+if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'sinhvien') {
     header("Location: login.php");
     exit;
 }
 
-$idnguoidung = $_SESSION['user_id'];
+$idnguoidung = $_SESSION['id_nguoidung'];
 $id_vieclam = $_GET['id'];
 
 // Kiểm tra đã ứng tuyển chưa
