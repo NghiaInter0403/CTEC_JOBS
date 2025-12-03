@@ -19,7 +19,7 @@
 ├── login.php
 ├── style.css
 ├── sv_chitiet.php 
-├── sv_danhsach.php (Nghĩa đã đổi)
+├── sv_danhsach.php
 ├── sv_hoso.php (Nghĩa đã đổi)
 ├── sv_lichsu.php (Nghĩa đã đổi)
 ├── sv_nopdon.php (nghĩa đã đổi)
