@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
+if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'sinhvien') {
     header("Location: login.php");
     exit;
 }
 include 'ketnoi.php';
-$idnguoidung = $_SESSION['user_id'];
+$idnguoidung = $_SESSION['id_nguoidung'];
 
 if ($_POST) {
     $sodienthoai = $_POST['sodienthoai'];
@@ -26,14 +26,14 @@ if ($_POST) {
             sodienthoai='$sodienthoai', diachi='$diachi', kynang='$kynang'" . ($duongdancv ? ", duongdancv='$duongdancv'" : "");
 
     mysqli_query($conn, $sql);
-    $success = "Cập nhật hồ sơ thành công!";
+    $thanhcong = "Cập nhật hồ sơ thành công!";
 }
 ?>
 
 <?php include 'include_header.php'; ?>
 <div class="container mt-4">
     <h3>Cập nhật hồ sơ cá nhân</h3>
-    <?php if (isset($success)) echo "<div class='alert alert-success'>$success</div>"; ?>
+    <?php if (isset($thanhcong)) echo "<div class='alert alert-success'>$thanhcong</div>"; ?>
 
     <form method="POST" enctype="multipart/form-data">
         <div class="mb-3">
