@@ -130,10 +130,10 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                         <div class="list-group list-group-flush ungvien-scroll" 
                             style="max-height: 350px; overflow-y: auto;">
                             
-                            <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
+                            <?php while ($ungvien = mysqli_fetch_assoc($ungvienmoi)): ?>
                                 <div class="list-group-item d-flex justify-content-between align-items-center">
                                     <div>
-                                        <strong><?php echo $app['sinhvien']; ?></strong><br>
+                                        <strong><?php echo $ungvien['sinhvien']; ?></strong><br>
                                         <small class="text-muted">
                                             <?php echo $app['tieude']; ?> • 
                                             <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
