@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'nhatuyendung') {
+if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'nhatuyendung') {
     header("Location: login.php");
     exit;
 }
 include 'ketnoi.php';
-$id_nhatuyendung = $_SESSION['user_id'];
+$id_nhatuyendung = $_SESSION['id_nguoidung'];
 
 // Thống kê
 $tongtin = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as total FROM vieclam WHERE idnhatuyendung = '$id_nhatuyendung'"))['total'];
