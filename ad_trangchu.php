@@ -97,9 +97,9 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                                 <a href="ad_qlyviec.php"
                                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                     <div>
-                                        <strong><?php echo $job['tieude']; ?></strong><br>
+                                        <strong><?php echo $vieclam['tieude']; ?></strong><br>
                                         <small class="text-muted">
-                                            <?php echo $job['nhatuyendung']; ?> • 
+                                            <?php echo $vieclam['nhatuyendung']; ?> • 
                                             <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?>
                                         </small>
                                     </div>
