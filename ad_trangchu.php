@@ -135,8 +135,8 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                                     <div>
                                         <strong><?php echo $ungvien['sinhvien']; ?></strong><br>
                                         <small class="text-muted">
-                                            <?php echo $app['tieude']; ?> • 
-                                            <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                                            <?php echo $ungvien['tieude']; ?> • 
+                                            <?php echo date('d/m/Y H:i', strtotime($ungvien['ngaynop'])); ?>
                                         </small>
                                     </div>
                                     <span class="badge bg-<?=
