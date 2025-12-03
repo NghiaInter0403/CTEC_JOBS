@@ -27,7 +27,6 @@ if ($_POST) {
 
         if ($stmt->execute()) {
             $thanhcong = "Đăng ký thành công! Vui lòng đăng nhập.";
-            // Có thể chuyển hướng sau 2 giây
             header("refresh:2;url=login.php");
         } else {
             $thatbai = "Có lỗi xảy ra. Vui lòng thử lại.";
