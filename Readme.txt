@@ -26,5 +26,5 @@
 ├── sv_trangchu.php
 ├── thongke.php 
 ├── vl_chitiet.php 
-└── vl_danhsach.php (nghĩa đã đổi)
+└── vl_danhsach.php 
 ```
