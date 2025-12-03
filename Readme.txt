@@ -6,7 +6,7 @@
 │   ├── file upload
 │   
 ├── Readme.txt
-├── ad_qlyuser.php(đã đổi)
+├── ad_qlyuser.php
 ├── ad_qlyviec.php(đã đổi)
 ├── ad_trangchu.php(đã đổi)
 ├── ad_xoatin.php(đã đổi)
