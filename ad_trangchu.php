@@ -25,7 +25,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
 <div class="container mt-4">
     <!-- Chào mừng -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['name']; ?></strong> (Admin)</h2>
+        <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['hoten']; ?></strong> (Admin)</h2>
     </div>
     <!-- Thẻ thống kê -->
     <div class="row g-3 mb-4">
@@ -93,7 +93,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body p-0">
                     <?php if (mysqli_num_rows($vieclam_choduyet) > 0): ?>
                         <div class="list-group list-group-flush" style="height: 350px; overflow-y: auto;">
-                            <?php while ($job = mysqli_fetch_assoc($vieclam_choduyet)): ?>
+                            <?php while ($vieclam = mysqli_fetch_assoc($vieclam_choduyet)): ?>
                                 <a href="ad_qlyviec.php"
                                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                     <div>
