@@ -8,7 +8,7 @@ include 'ketnoi.php';
 
 // Xóa user
 if (isset($_GET['xoa'])) {
-    $idnguoidung = $_GET['delete'];
+    $idnguoidung = $_GET['xoa'];
     mysqli_query($conn, "DELETE FROM nguoidung WHERE id = '$idnguoidung' AND vaitro != 'quantrivien'");
 }
 
