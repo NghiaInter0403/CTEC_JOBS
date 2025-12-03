@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $tendata = "ctecjobs";
-$user = "root";
+$nguoidung = "root";
 $matkhau = "";
     $conn = mysqli_connect($host, $user, $matkhau, $tendata);
     if (!$conn) {
