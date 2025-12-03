@@ -6,30 +6,25 @@
 │   ├── file upload
 │   
 ├── Readme.txt
-├── ad_qlyuser.php(đã đổi)
-├── ad_qlyviec.php(đã đổi)
-├── ad_trangchu.php(đã đổi)
-├── ad_xoatin.php(đã đổi)
-├── cty_dangtuyen.php (đã đổi)
-├── cty_suatin.php (dadoi)
-├── cty_trangchu.php (đã đổi)
-├── cty_ungvien.php (đã đổi)
-├── cty_xoatin.php(đã đổi)
-├── dangki.php (nghĩa đã đổi)
-├── dangxuat.php (Nghĩa đã đổi)
+├── ad_qlyuser.php
+├── ad_qlyviec.php
+├── ad_trangchu.php
+├── ad_xoatin.php
+├── cty_dangtuyen.php
+├── cty_suatin.php
 ├── include_footer.php 
-├── include_header.php (Nghĩa đã đổi)
-├── index.php (nghĩa đã đổi)
+├── include_header.php 
+├── index.php
 ├── ketnoi.php
-├── login.php (Nghĩa đã đổi)
+├── login.php
 ├── style.css
-├── sv_chitiet.php (Nghĩa đã đổi)
-├── sv_danhsach.php (Nghĩa đã đổi)
-├── sv_hoso.php (Nghĩa đã đổi)
-├── sv_lichsu.php (Nghĩa đã đổi)
-├── sv_nopdon.php (nghĩa đã đổi)
-├── sv_trangchu.php (nghĩa đã sửa)
-├── thongke.php (nghĩa đã đổi)
-├── vl_chitiet.php (Nghĩa đã đổi)
-└── vl_danhsach.php (nghĩa đã đổi)
+├── sv_chitiet.php 
+├── sv_danhsach.php
+├── sv_hoso.php 
+├── sv_lichsu.php 
+├── sv_nopdon.php 
+├── sv_trangchu.php
+├── thongke.php 
+├── vl_chitiet.php 
+└── vl_danhsach.php 
 ```

@@ -1,9 +1,9 @@
 <?php
 $host = "localhost";
-$dbname = "ctecjobs";
+$namedb = "ctecjobs";
 $user = "root";
-$pass = "";
-    $conn = mysqli_connect($host, $user, $pass, $dbname);
+$password = "";
+    $conn = mysqli_connect($host, $user, $password, $namedb);
     if (!$conn) {
     die("Kết nối thất bại: " . mysqli_connect_error());
 }
