@@ -37,25 +37,25 @@
             </ul>
             <ul class="navbar-nav">
                 <!-- hiển thị người dùng -->
-                <?php if (isset($_SESSION['user_id'])): ?>
+                <?php if (isset($_SESSION['id_nguoidung'])): ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="bi bi-person-circle"></i> <?php echo $_SESSION['name']; ?>
+                            <i class="bi bi-person-circle"></i> <?php echo $_SESSION['hoten']; ?>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- câu điều kiện để echo menu -->
                              <!-- phân biệt bằng vaitro -->
-                            <?php if ($_SESSION['role'] == 'sinhvien'): ?>
+                            <?php if ($_SESSION['vaitro'] == 'sinhvien'): ?>
                                 <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
                                 <li><a class="dropdown-item" href="sv_hoso.php">Xem hồ sơ</a></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
-                            <?php elseif ($_SESSION['role'] == 'nhatuyendung'): ?>
+                            <?php elseif ($_SESSION['vaitro'] == 'nhatuyendung'): ?>
                                 <li><a class="dropdown-item" href="cty_trangchu.php">Trang chủ</a></li>
                                 <li><a class="dropdown-item" href="cty_dangtuyen.php">Đăng tin</a></li>
                                 <li><a class="dropdown-item" href="cty_ungvien.php">Xem ứng viên</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
-                            <?php elseif ($_SESSION['role'] == 'quantrivien'): ?>
+                            <?php elseif ($_SESSION['vaitro'] == 'quantrivien'): ?>
                                 <li><a class="dropdown-item" href="ad_trangchu.php">Quản trị</a></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                             <?php endif; ?>
