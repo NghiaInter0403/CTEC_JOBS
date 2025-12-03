@@ -141,11 +141,11 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                                     </div>
                                     <span class="badge bg-<?=
                                         $ungvien['trangthai']=='chapnhan' ? 'success' :
-                                        ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
+                                        ($ungvien['trangthai']=='tuchoi' ? 'danger' : 'warning')
                                     ?> rounded-pill">
                                         <?= 
-                                            $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
-                                            ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
+                                            $ungvien['trangthai']=='chapnhan' ? 'Chấp nhận' :
+                                            ($ungvien['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
                                         ?>
                                     </span>
                                 </div>
