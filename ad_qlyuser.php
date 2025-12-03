@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'quantrivien') {
 include 'ketnoi.php';
 
 // Xóa user
-if (isset($_GET['delete'])) {
+if (isset($_GET['xoa'])) {
     $idnguoidung = $_GET['delete'];
     mysqli_query($conn, "DELETE FROM nguoidung WHERE id = '$idnguoidung' AND vaitro != 'quantrivien'");
 }
