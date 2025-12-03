@@ -40,7 +40,7 @@ $result = mysqli_query($conn, $sql);
                 <td><?php echo $nguoidung['vaitro'] == 'sinhvien' ? 'Sinh viên' : 'Nhà tuyển dụng'; ?></td>
                 <td><?php echo date('d/m/Y', strtotime($nguoidung['ngaytao'])); ?></td>
                 <td>
-                    <a href="?delete=<?php echo $nguoidung['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Xóa?')">Xóa</a>
+                    <a href="?xoa=<?php echo $nguoidung['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Xóa?')">Xóa</a>
                 </td>
             </tr>
             <?php endwhile; ?>
