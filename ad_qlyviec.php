@@ -54,7 +54,7 @@ $result = mysqli_query($conn, $sql);
                     <?php endif; ?>
                 </td>
                 <td> <form action="ad_xoatin.php" method="POST" style="display:inline;">
-                     <input type="hidden" name="id" value="<?php echo $job['id']; ?>">
+                     <input type="hidden" name="id" value="<?php echo $vieclam['id']; ?>">
                      <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?');">
                      Xóa
                       </button>
