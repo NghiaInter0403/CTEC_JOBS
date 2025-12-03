@@ -140,7 +140,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                                         </small>
                                     </div>
                                     <span class="badge bg-<?=
-                                        $app['trangthai']=='chapnhan' ? 'success' :
+                                        $ungvien['trangthai']=='chapnhan' ? 'success' :
                                         ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
                                     ?> rounded-pill">
                                         <?= 
