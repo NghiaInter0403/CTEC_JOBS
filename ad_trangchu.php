@@ -100,7 +100,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                                         <strong><?php echo $vieclam['tieude']; ?></strong><br>
                                         <small class="text-muted">
                                             <?php echo $vieclam['nhatuyendung']; ?> • 
-                                            <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?>
+                                            <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?>
                                         </small>
                                     </div>
                                     <span class="badge bg-warning rounded-pill">Chờ duyệt</span>
