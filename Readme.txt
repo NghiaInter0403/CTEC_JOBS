@@ -12,11 +12,6 @@
 ├── ad_xoatin.php(đã đổi)
 ├── cty_dangtuyen.php (đã đổi)
 ├── cty_suatin.php (dadoi)
-├── cty_trangchu.php (đã đổi)
-├── cty_ungvien.php (đã đổi)
-├── cty_xoatin.php(đã đổi)
-├── dangki.php (nghĩa đã đổi)
-├── dangxuat.php (Nghĩa đã đổi)
 ├── include_footer.php 
 ├── include_header.php (Nghĩa đã đổi)
 ├── index.php (nghĩa đã đổi)
