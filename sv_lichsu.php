@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
+if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'sinhvien') {
     header("Location: login.php");
     exit;
 }
 include 'ketnoi.php';
-$id_nguoidung = $_SESSION['user_id'];
+$id_nguoidung = $_SESSION['id_nguoidung'];
 
 $sql = "SELECT a.*, j.tieude, j.tencongty, j.mucluong, a.trangthai 
         FROM donungvien a 
