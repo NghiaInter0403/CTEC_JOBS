@@ -25,7 +25,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
 <div class="container mt-4">
     <!-- Chào mừng -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['name']; ?></strong> (Admin)</h2>
+        <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['hoten']; ?></strong> (Admin)</h2>
     </div>
     <!-- Thẻ thống kê -->
     <div class="row g-3 mb-4">
@@ -93,14 +93,14 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body p-0">
                     <?php if (mysqli_num_rows($vieclam_choduyet) > 0): ?>
                         <div class="list-group list-group-flush" style="height: 350px; overflow-y: auto;">
-                            <?php while ($job = mysqli_fetch_assoc($vieclam_choduyet)): ?>
+                            <?php while ($vieclam = mysqli_fetch_assoc($vieclam_choduyet)): ?>
                                 <a href="ad_qlyviec.php"
                                 class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                     <div>
-                                        <strong><?php echo $job['tieude']; ?></strong><br>
+                                        <strong><?php echo $vieclam['tieude']; ?></strong><br>
                                         <small class="text-muted">
-                                            <?php echo $job['nhatuyendung']; ?> • 
-                                            <?php echo date('d/m/Y', strtotime($job['ngaydang'])); ?>
+                                            <?php echo $vieclam['nhatuyendung']; ?> • 
+                                            <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?>
                                         </small>
                                     </div>
                                     <span class="badge bg-warning rounded-pill">Chờ duyệt</span>
@@ -130,22 +130,22 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                         <div class="list-group list-group-flush ungvien-scroll" 
                             style="max-height: 350px; overflow-y: auto;">
                             
-                            <?php while ($app = mysqli_fetch_assoc($ungvienmoi)): ?>
+                            <?php while ($ungvien = mysqli_fetch_assoc($ungvienmoi)): ?>
                                 <div class="list-group-item d-flex justify-content-between align-items-center">
                                     <div>
-                                        <strong><?php echo $app['sinhvien']; ?></strong><br>
+                                        <strong><?php echo $ungvien['sinhvien']; ?></strong><br>
                                         <small class="text-muted">
-                                            <?php echo $app['tieude']; ?> • 
-                                            <?php echo date('d/m/Y H:i', strtotime($app['ngaynop'])); ?>
+                                            <?php echo $ungvien['tieude']; ?> • 
+                                            <?php echo date('d/m/Y H:i', strtotime($ungvien['ngaynop'])); ?>
                                         </small>
                                     </div>
                                     <span class="badge bg-<?=
-                                        $app['trangthai']=='chapnhan' ? 'success' :
-                                        ($app['trangthai']=='tuchoi' ? 'danger' : 'warning')
+                                        $ungvien['trangthai']=='chapnhan' ? 'success' :
+                                        ($ungvien['trangthai']=='tuchoi' ? 'danger' : 'warning')
                                     ?> rounded-pill">
                                         <?= 
-                                            $app['trangthai']=='chapnhan' ? 'Chấp nhận' :
-                                            ($app['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
+                                            $ungvien['trangthai']=='chapnhan' ? 'Chấp nhận' :
+                                            ($ungvien['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
                                         ?>
                                     </span>
                                 </div>
