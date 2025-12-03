@@ -11,7 +11,7 @@ if (isset($_GET['xoa'])) {
     $idnguoidung = $_GET['xoa'];
     mysqli_query($conn, "DELETE FROM nguoidung WHERE id = '$idnguoidung' AND vaitro != 'quantrivien'");
 }
-
+// hiển thị userr
 $sql = "SELECT * FROM nguoidung WHERE vaitro != 'quantrivien' ORDER BY ngaytao DESC";
 $result = mysqli_query($conn, $sql);
 ?>
