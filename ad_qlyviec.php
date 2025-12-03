@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['idnguoidung']) || $_SESSION['vaitro'] != 'quantrivien') {
+if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'quantrivien') {
     header("Location: login.php");
     exit;
 }
