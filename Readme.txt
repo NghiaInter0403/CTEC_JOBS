@@ -14,7 +14,7 @@
 ├── cty_suatin.php
 ├── include_footer.php 
 ├── include_header.php 
-├── index.php (nghĩa đã đổi)
+├── index.php
 ├── ketnoi.php
 ├── login.php (Nghĩa đã đổi)
 ├── style.css
