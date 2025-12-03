@@ -1,13 +1,13 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'sinhvien') {
+if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'sinhvien') {
     header("Location: login.php");
     exit;
 }
 
 include 'ketnoi.php';
 
-$idnguoidung = $_SESSION['user_id'];
+$idnguoidung = $_SESSION['id_nguoidung'];
 
 // Lấy thông tin tài khoản
 $sql_sv = "SELECT * FROM nguoidung WHERE id = '$idnguoidung'";
