@@ -22,7 +22,7 @@
 ├── sv_danhsach.php
 ├── sv_hoso.php 
 ├── sv_lichsu.php 
-├── sv_nopdon.php (nghĩa đã đổi)
+├── sv_nopdon.php 
 ├── sv_trangchu.php (nghĩa đã sửa)
 ├── thongke.php (nghĩa đã đổi)
 ├── vl_chitiet.php (Nghĩa đã đổi)
