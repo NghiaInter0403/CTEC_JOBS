@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($nguoidung && password_verify($matkhau, $nguoidung['matkhau'])) {
         // === LƯU SESSION ===
-        $_SESSION['user_id'] = $nguoidung['id'];
-        $_SESSION['name']    = $nguoidung['hoten'];
-        $_SESSION['role']    = $nguoidung['vaitro'];  // Lưu vaitro gốc
+        $_SESSION['id_nguoidung'] = $nguoidung['id'];
+        $_SESSION['hoten']    = $nguoidung['hoten'];
+        $_SESSION['vaitro']    = $nguoidung['vaitro'];
 
         // === CHUYỂN HƯỚNG THEO VAI TRÒ (dùng giá trị trong CSDL) ===
         switch ($nguoidung['vaitro']) {
