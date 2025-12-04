@@ -33,11 +33,11 @@ $ketqua = mysqli_query($conn, $sql);
                     <option value="IT" <?php if($nganh=='IT') echo 'selected'; ?>>Công nghệ thông tin</option>
                     <option value="Marketing" <?php if($nganh=='Marketing') echo 'selected'; ?>>Marketing</option>
                     <option value="Kinh doanh" <?php if($nganh=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
-                    <option value="Kinh doanh" <?php if($nganh=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
-                    <option value="Kinh doanh" <?php if($nganh=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
-                    <option value="Kinh doanh" <?php if($nganh=='Gia Sư') echo 'selected'; ?>>Gia SƯ</option>
-                    <option value="Kinh doanh" <?php if($nganh=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
-                    <option value="Kinh doanh" <?php if($nganh=='Freelancer') echo 'selected'; ?>>Freelancer</option>
+                    <option value="Nông Nghiệp" <?php if($nganh=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
+                    <option value="Kế Toán" <?php if($nganh=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
+                    <option value="Gia Sư" <?php if($nganh=='Gia Sư') echo 'selected'; ?>>Gia SƯ</option>
+                    <option value="Bán Thời Gian" <?php if($nganh=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
+                    <option value="Freelancer" <?php if($nganh=='Freelancer') echo 'selected'; ?>>Freelancer</option>
                 </select>
             </div>
             <div class="col-md-3">
