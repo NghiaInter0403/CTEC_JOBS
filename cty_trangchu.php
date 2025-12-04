@@ -133,7 +133,9 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
                         <?php if ($ungtuyen['duongdancv']): ?>
                             <a href="<?php echo $ungtuyen['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
                         <?php endif; ?>
-                        <span class="badge bg-warning ms-1"><?php echo ucfirst($ungtuyen['trangthai']); ?></span>
+                         <span class="badge bg-<?php echo $ungtuyen['trangthai']=='daduyet'?'success':($ungtuyen['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
+                            <?php echo ucfirst($ungtuyen['trangthai']=='daduyet'?'Đã duyệt':($ungtuyen['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý')); ?>
+                        </span>
                     </div>
                 </div>
                 <?php endwhile; ?> 
