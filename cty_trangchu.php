@@ -34,7 +34,6 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
             Đăng tin mới
         </a>
     </div>
-
     <!-- Thẻ thống kê -->
     <div class="row g-3 mb-4">
         <div class="col-md-3">
