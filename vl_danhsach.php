@@ -30,7 +30,7 @@ $ketqua = mysqli_query($conn, $sql);
             <div class="col-md-3">
                 <select name="nganh" class="form-select">
                     <option value="">Tất cả ngành nghề</option>
-                    <option value="IT" <?php if($nganh=='Công nghệ thông tin') echo 'selected'; ?>>Công nghệ thông tin</option>
+                    <option value="Công nghệ thông tin" <?php if($nganh=='Công nghệ thông tin') echo 'selected'; ?>>Công nghệ thông tin</option>
                     <option value="Marketing" <?php if($nganh=='Marketing') echo 'selected'; ?>>Marketing</option>
                     <option value="Kinh doanh" <?php if($nganh=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
                     <option value="Nông Nghiệp" <?php if($nganh=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
