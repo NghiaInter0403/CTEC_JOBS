@@ -44,7 +44,7 @@ if ($_POST) {
         <div class="mb-3"><label>Khu vực</label><input type="text" name="diadiem" class="form-control" value="<?php echo $vieclam['diadiem']; ?>" required></div>
         <div class="mb-3"><label>Ngành nghề</label>
             <select name="nganhnghe" class="form-select" required>
-                <option value="Công Nghệ Thông Tin" <?php if($vieclam['nganhnghe']=='IT') echo 'selected'; ?>>Công Nghệ Thông Tin</option>
+                <option value="Công Nghệ Thông Tin" <?php if($vieclam['nganhnghe']=='Công nghệ thông tin') echo 'selected'; ?>>Công Nghệ Thông Tin</option>
                 <option value="Marketing" <?php if($vieclam['nganhnghe']=='Marketing') echo 'selected'; ?>>Marketing</option>
                 <option value="Kinh doanh" <?php if($vieclam['nganhnghe']=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
                 <option value="Nông Nghiệp" <?php if($vieclam['nganhnghe']=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>

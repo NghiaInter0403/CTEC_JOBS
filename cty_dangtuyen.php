@@ -53,7 +53,7 @@ if ($_POST) {
         <div class="mb-3">
             <label>Ngành nghề</label>
             <select name="nganhnghe" class="form-select" required>
-                <option value="IT">Công nghệ thông tin</option>
+                <option value="Công nghệ thông tin">Công nghệ thông tin</option>
                 <option value="Marketing">Marketing</option>
                 <option value="Kinh doanh">Kinh doanh</option>
                 <option value="Nông Nghiệp">Nông Nghiệp</option>
