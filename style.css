@@ -1,5 +1,5 @@
 
-/* 1. CƠ BẢN */
+/* CƠ BẢN */
 * {
     box-sizing: border-box;
 }
@@ -10,7 +10,7 @@ body {
     color: #2c3e50;
     line-height: 1.6;
 }
-/* 2. NAVBAR */
+/* NAVBAR */
 .navbar {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 0.8rem 0;
@@ -53,7 +53,7 @@ body {
     background: #3498db;
     color: white;
 }
-/* 3. JUMBOTRON - TRANG CHỦ */
+/* JUMBOTRON - TRANG CHỦ */
 .jumbotron {
     background: linear-gradient(120deg, #3498db, #2980b9);
     color: white;
@@ -83,7 +83,7 @@ body {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
-/* 4. CARD - TIN TUYỂN DỤNG */
+/* CARD - TIN TUYỂN DỤNG */
 .card {
     border: none;
     border-radius: 12px;
@@ -115,7 +115,7 @@ body {
     font-weight: 500;
     padding: 0.5rem 1rem;
 }
-/* 5. FORM ĐĂNG NHẬP / ĐĂNG KÝ */
+/* FORM ĐĂNG NHẬP / ĐĂNG KÝ */
 .card-header {
     background: linear-gradient(90deg, #3498db, #2980b9);
     color: white;
@@ -145,7 +145,7 @@ body {
     background: linear-gradient(90deg, #2980b9, #1c6ea4);
     transform: translateY(-2px);
 }
-/* 6. BẢNG (TABLE) */
+/*BẢNG (TABLE) */
 .table {
     background: white;
     border-radius: 12px;
@@ -163,14 +163,14 @@ body {
 .table tbody tr:hover {
     background-color: #f8f9fa;
 }
-/* 7. BADGE TRẠNG THÁI */
+/* THẺ TRẠNG THÁI */
 .badge {
     font-weight: 600;
     padding: 0.5em 0.8em;
     border-radius: 50px;
     font-size: 0.8rem;
 }
-/* 8. ALERT THÔNG BÁO */
+/* ALERT THÔNG BÁO */
 .alert {
     border: none;
     border-radius: 12px;
@@ -189,7 +189,7 @@ body {
     background: linear-gradient(90deg, #c0392b, #e74c3c);
     color: white;
 }
-/* 9. FOOTER */
+/* FOOTER */
 footer {
     background: linear-gradient(90deg, #2c3e50, #34495e);
     color: #ecf0f1;
@@ -207,7 +207,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* 10. DASHBOARD CARDS */
+/* THẺ TRANG CHỦ */
 .bg-primary, .bg-success, .bg-warning, .bg-info {
     color: white;
     border-radius: 12px;
@@ -220,7 +220,7 @@ footer a:hover {
 .bg-warning { background: linear-gradient(135deg, #f39c12, #e67e22); }
 .bg-info    { background: linear-gradient(135deg, #17a2b8, #138496); }
 
-/* 11. RESPONSIVE */
+/*RESPONSIVE */
 @media (max-width: 768px) {
     .jumbotron h1 {
         font-size: 2rem;
@@ -236,7 +236,7 @@ footer a:hover {
     }
 }
 
-/* 12. HIỆU ỨNG LOADING (TÙY CHỌN) */
+/*HIỆU ỨNG LOADING */
 .loading {
     display: inline-block;
     width: 20px;
@@ -252,7 +252,7 @@ footer a:hover {
     100% { transform: rotate(360deg); }
 }
 
-/* 13. NÚT ỨNG TUYỂN ĐẸP */
+/*NÚT ỨNG TUYỂN ĐẸP */
 .btn-success {
     background: linear-gradient(90deg, #27ae60, #2ecc71);
     border: none;
@@ -266,7 +266,7 @@ footer a:hover {
     transform: translateY(-2px);
 }
 
-/* 14. CHI TIẾT CÔNG VIỆC */
+/* CHI TIẾT CÔNG VIỆC */
 .card-header h3 {
     margin: 0;
     font-size: 1.5rem;

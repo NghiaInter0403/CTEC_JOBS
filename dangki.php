@@ -10,6 +10,15 @@ if ($_POST) {
     $matkhau = $_POST['matkhau'];
     $vaitro = $_POST['vaitro'];
 
+  // kiểm tra trống mấy ô nhập liệu
+    if (empty($hoten) || empty($email) || empty($matkhau) || empty($vaitro)) {
+        $thatbai = "Vui lòng điền đầy đủ thông tin!";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $thatbai = "Địa chỉ email không hợp lệ!";
+    } elseif (strlen($matkhau) < 6) {
+        $thatbai = "Mật khẩu phải có ít nhất 6 ký tự!";
+    }
+    else {
     // Kiểm tra email đã tồn tại
     $check = $conn->prepare("SELECT id FROM nguoidung WHERE email = ?");
     $check->bind_param("s", $email);
@@ -21,7 +30,7 @@ if ($_POST) {
     } else {
         // Mã hóa mật khẩu
         $mahoamk = password_hash($matkhau, PASSWORD_DEFAULT);
-        // Insert dùng Prepared Statement
+        // Insert dữ liệu
         $stmt = $conn->prepare("INSERT INTO nguoidung (hoten, email, matkhau, vaitro) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $hoten, $email, $mahoamk, $vaitro);
 
@@ -34,6 +43,7 @@ if ($_POST) {
         $stmt->close();
     }
     $check->close();
+}
 }
 ?>
 <?php include 'include_header.php'; ?>
@@ -65,6 +75,7 @@ if ($_POST) {
                     <!-- Form đăng ký -->
                     <?php if (!$thanhcong): ?>
                     <form method="POST" novalidate>
+                        
                         <div class="mb-3">
                             <label class="form-label fw-bold">Họ và tên</label>
                             <input type="text" name="hoten" class="form-control" 
