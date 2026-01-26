@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email    = trim($_POST['email']);
     $matkhau = $_POST['matkhau'];           
 
-    // === DÙNG PREPARED STATEMENT ĐỂ AN TOÀN ===
+    // DÙNG PREPARED STATEMENT ĐỂ AN TOÀN
     $stmt = $conn->prepare("SELECT id, hoten, matkhau, vaitro FROM nguoidung WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -16,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nguoidung = $result->fetch_assoc();
 
     if ($nguoidung && password_verify($matkhau, $nguoidung['matkhau'])) {
-        // === LƯU SESSION ===
+        // LƯU SESSION
         $_SESSION['id_nguoidung'] = $nguoidung['id'];
         $_SESSION['hoten']    = $nguoidung['hoten'];
         $_SESSION['vaitro']    = $nguoidung['vaitro'];
 
-        // === CHUYỂN HƯỚNG THEO VAI TRÒ (dùng giá trị trong CSDL) ===
+        //CHUYỂN HƯỚNG THEO VAI TRÒ
         switch ($nguoidung['vaitro']) {
             case 'sinhvien':
                 header("Location: sv_trangchu.php");
