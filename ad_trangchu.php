@@ -27,6 +27,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['hoten']; ?></strong> (Admin)</h2>
     </div>
+
     <!-- Thẻ thống kê -->
     <div class="row g-3 mb-4">
         <div class="col-md-3">
@@ -86,7 +87,7 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
         <div class="col-lg-6 mb-4">
             <div class="card h-auto">
                 <div class="card-header bg-warning text-white">
-                    <h5 class="mb-0">
+                    <h5 class="mb-0 ">
                         Tin tuyển dụng chờ duyệt
                     </h5>
                 </div>
