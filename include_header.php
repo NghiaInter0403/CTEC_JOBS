@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -8,8 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <style>
+        /* Chỉ can thiệp vào kích thước chữ của các đường link trong navbar */
+        .navbar-nav .nav-link {
+            font-size: 24px !important; 
+        }
+        /* Phóng to cả các icon tương ứng */
+        .navbar-nav .nav-link i {
+            font-size: 26px !important;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -19,7 +26,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 20px;">
+        <div class="collapse navbar-collapse" id="navbarNav" style="font-size: 24px;">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php" style="color:black"><i class="bi bi-house-fill"  style="color:black"></i> Trang chủ</a></li>
                 <li class="nav-item"><a class="nav-link" href="vl_danhsach.php" style="color:black"><i class="bi bi-newspaper" style="color:black"></i> Tin tuyển dụng</a></li>
@@ -32,19 +39,15 @@
                             <li><a class="dropdown-item" href="https://www.facebook.com/truongcdktktct?locale=vi_VN"  target="_blank">Facebook CTEC</a></li>
                             <li><a class="dropdown-item" href="https://www.facebook.com/pcthssvctec?locale=vi_VN"  target="_blank">Phòng CTHSSV</a></li>
                         </ul>
-                <div class="dropdown">
-        </div>
+                </li>
             </ul>
             <ul class="navbar-nav">
-                <!-- hiển thị người dùng -->
                 <?php if (isset($_SESSION['id_nguoidung'])): ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="color:black">
                             <i class="bi bi-person-circle" style="color:black"></i> <?php echo $_SESSION['hoten']; ?>
                         </a>
                         <ul class="dropdown-menu">
-                            <!-- câu điều kiện để echo menu -->
-                             <!-- phân biệt bằng vaitro -->
                             <?php if ($_SESSION['vaitro'] == 'sinhvien'): ?>
                                 <li><a class="dropdown-item" href="sv_trangchu.php">Trang cá nhân</a></li>
                                 <li><a class="dropdown-item" href="sv_hoso.php">Xem hồ sơ</a></li>
@@ -59,16 +62,17 @@
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                             <?php elseif ($_SESSION['vaitro'] == 'quantrivien'): ?>
                                 <li><a class="dropdown-item" href="ad_trangchu.php">Quản trị</a></li>
-                                <li><a class="dropdown-item" href="doimatkhau.php">Đổi mật khẩu</a></li>
+                                 <li><a class="dropdown-item" href="doimatkhau.php">Đổi mật khẩu</a></li>
                                 <li><a class="dropdown-item" href="dangxuat.php">Đăng xuất</a></li>
                             <?php endif; ?>
-                           </ul>
+                            </ul>
                     </li>
                 <?php else: ?>
-                    <li class="nav-item"><a class="nav-link" href="login.php">Đăng nhập</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php" style="color:black">Đăng nhập</a></li>
                 <?php endif; ?>
             </ul>
         </div>
     </div>
-    
 </nav>
+</body>
+</html>

@@ -26,7 +26,7 @@
                 <hr class="border-secondary my-3">
 
                 <p class="mb-1 fw-bold">Nhóm phát triển:</p>
-                <ul class="list-unstyled mb-2">`
+                <ul class="list-unstyled mb-2">     
                     <li><b>Nhóm trưởng</b>: Huỳnh Tấn Phát - MSSV: 23CTHA0383</li>
                     <li><b>Thành viên</b>: Phan Hiếu Nghĩa - MSSV: 23CTHA0372</li>
                 </ul>

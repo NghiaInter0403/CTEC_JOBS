@@ -9,7 +9,7 @@
     
     <!-- Open Graph -->
     <meta property="og:title" content="Tìm Việc Làm Sinh Viên - Part-time & Thực Tập">
-    <meta property="og:description" content="Hàng nghìn việc làm thêm dành cho sinh viên, cập nhật liên tục 2025">
+    <meta property="og:description" content="Hàng nghìn việc làm thêm dành cho sinh viên, cập nhật liên tục">
     <meta property="og:type" content="website">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,10 +24,10 @@ include 'include_header.php';
 ?>
 
 <div class="container mt-5">
-    <div class="jumbotron text-center bg-light p-5 rounded shadow-sm">
-        <h1 class="display-4 fw-bold text-white">Tìm Việc Làm Dành Cho Sinh Viên</h1>
-        <p class="lead text-white fw-medium">Thực tập • Việc làm thêm • Part-time • Full-time</p>
-        <a href="vl_danhsach.php" class="btn btn-primary btn-lg px-5 py-3">
+    <div class="jumbotron text-center bg-light p-5 rounded shadow-sm" >
+        <h1 class="display-4 fw-bold text-black">Tìm Việc Làm Dành Cho Sinh Viên</h1>
+        <p class="lead text-black fw-medium">Thực tập • Việc làm thêm • Part-time • Full-time</p>
+        <a href="vl_danhsach.php" class="btn btn-primary btn-lg px-5 py-3" style="color: black;">
             Xem việc làm ngay
         </a>
     </div>
