@@ -173,8 +173,8 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <a href="ad_qlyviec.php" class="btn btn-outline-primary w-100 p-3">
-                                Duyệt tin tuyển dụng
+                            <a href="dangki.php" class="btn btn-outline-primary w-100 p-3">
+                                Tạo tài khoản 
                             </a>
                         </div>
                         <div class="col-md-4">

@@ -4,46 +4,46 @@ include 'ketnoi.php';
 
 $thanhcong = $thatbai = '';
 
-if ($_POST) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hoten = trim($_POST['hoten']);
     $email = trim($_POST['email']);
     $matkhau = $_POST['matkhau'];
     $vaitro = $_POST['vaitro'];
 
-  // kiểm tra trống mấy ô nhập liệu
+    // Kiểm tra trống các ô nhập liệu
     if (empty($hoten) || empty($email) || empty($matkhau) || empty($vaitro)) {
         $thatbai = "Vui lòng điền đầy đủ thông tin!";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $thatbai = "Địa chỉ email không hợp lệ!";
-    } elseif (strlen($matkhau) < 6) {
+    } 
+    elseif (strlen($matkhau) < 6) {
         $thatbai = "Mật khẩu phải có ít nhất 6 ký tự!";
     }
     else {
-    // Kiểm tra email đã tồn tại
-    $check = $conn->prepare("SELECT id FROM nguoidung WHERE email = ?");
-    $check->bind_param("s", $email);
-    $check->execute();
-    $check->store_result();
+        // Kiểm tra email đã tồn tại
+        $check = $conn->prepare("SELECT id FROM nguoidung WHERE email = ?");
+        $check->bind_param("s", $email);
+        $check->execute();
+        $check->store_result();
 
-    if ($check->num_rows > 0) {
-        $error = "Email này đã được sử dụng!";
-    } else {
-        // Mã hóa mật khẩu
-        $mahoamk = password_hash($matkhau, PASSWORD_DEFAULT);
-        // Insert dữ liệu
-        $stmt = $conn->prepare("INSERT INTO nguoidung (hoten, email, matkhau, vaitro) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $hoten, $email, $mahoamk, $vaitro);
-
-        if ($stmt->execute()) {
-            $thanhcong = "Đăng ký thành công! Vui lòng đăng nhập.";
-            header("refresh:2;url=login.php");
+        if ($check->num_rows > 0) {
+            // Đã sửa từ $error thành $thatbai để hiển thị được lỗi
+            $thatbai = "Tài khoản (Email) này đã được sử dụng!"; 
         } else {
-            $thatbai = "Có lỗi xảy ra. Vui lòng thử lại.";
+            // Mã hóa mật khẩu
+            $mahoamk = password_hash($matkhau, PASSWORD_DEFAULT);
+            // Insert dữ liệu
+            $stmt = $conn->prepare("INSERT INTO nguoidung (hoten, email, matkhau, vaitro) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $hoten, $email, $mahoamk, $vaitro);
+
+            if ($stmt->execute()) {
+                $thanhcong = "Tạo tài khoản thành công! Vui lòng đợi.";
+                header("refresh:2;url=ad_trangchu.php");
+            } else {
+                $thatbai = "Có lỗi xảy ra. Vui lòng thử lại.";
+            }
+            $stmt->close();
         }
-        $stmt->close();
+        $check->close();
     }
-    $check->close();
-}
 }
 ?>
 <?php include 'include_header.php'; ?>
@@ -52,27 +52,24 @@ if ($_POST) {
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg border-0">
-                <div class="card-header bg-primary text-white text-center">
-                    <h4 class="mb-0">Đăng ký tài khoản</h4>
+                <div class="card-header bg-primary text-center">
+                    <h4 class="mb-0" style="color: black;">Đăng ký tài khoản</h4>
                 </div>
                 <div class="card-body p-4">
 
-                    <!-- Thông báo thành công -->
                     <?php if ($thanhcong): ?>
                         <div class="alert alert-success text-center">
                             <i class="fas fa-check-circle"></i> <?php echo $thanhcong; ?>
-                            <br><small>Đang chuyển đến trang đăng nhập...</small>
+                            <br><small>Đang chuyển đến trang chủ...</small>
                         </div>
                     <?php endif; ?>
 
-                    <!-- Thông báo lỗi -->
                     <?php if ($thatbai): ?>
-                        <div class="alert alert-danger">
-                            <?php echo $thatbai; ?>
+                        <div class="alert alert-danger text-center">
+                            <i class="fas fa-exclamation-triangle"></i> <?php echo $thatbai; ?>
                         </div>
                     <?php endif; ?>
 
-                    <!-- Form đăng ký -->
                     <?php if (!$thanhcong): ?>
                     <form method="POST" novalidate>
                         
@@ -84,8 +81,8 @@ if ($_POST) {
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Email</label>
-                            <input type="email" name="email" class="form-control" 
+                            <label class="form-label fw-bold">Tên đăng nhập</label>
+                            <input type="text" name="email" class="form-control" 
                                    value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" 
                                    required>
                         </div>
@@ -97,29 +94,30 @@ if ($_POST) {
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Bạn là</label>
+                            <label class="form-label fw-bold">Vai trò</label>
                             <select name="vaitro" class="form-select" required>
-                        <option value="sinhvien"
-                        <?php echo (isset($_POST['vaitro']) && $_POST['vaitro']=='sinhvien') ? 'selected' : ''; ?>>
-                        Sinh viên
-                        </option>
-                        <option value="nhatuyendung"
-                        <?php echo (isset($_POST['vaitro']) && $_POST['vaitro']=='nhatuyendung') ? 'selected' : ''; ?>>
-                        Nhà tuyển dụng
-                        </option>
-                     </select>
+                                <option value="sinhvien"
+                                <?php echo (isset($_POST['vaitro']) && $_POST['vaitro']=='sinhvien') ? 'selected' : ''; ?>>
+                                Sinh viên
+                                </option>
+                                <option value="nhatuyendung"
+                                <?php echo (isset($_POST['vaitro']) && $_POST['vaitro']=='nhatuyendung') ? 'selected' : ''; ?>>
+                                Nhà tuyển dụng
+                                </option>
+                            </select>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 fw-bold">
-                            Đăng ký ngay
+                        <button type="submit" class="btn btn-primary w-100 fw-bold" style="color: black;">
+                            Tạo tài khoản
                         </button>
+                        <a href="admin_import_user.php" class="btn btn-success w-100 fw-bold mt-3" style="color: black; text-decoration: none;">
+                            <i class="fas fa-file-excel"></i> Tạo tài khoản theo danh sách
+                        </a>
+                        <a href="ad_trangchu.php" class="btn btn-outline-secondary w-100 fw-bold mt-3" style="color: black; text-decoration: none;">
+                             Quay lại
+                        </a>
                     </form>
                     <?php endif; ?>
-
-                    <p class="mt-3 text-center text-muted">
-                        Đã có tài khoản? 
-                        <a href="login.php" class="text-primary fw-bold">Đăng nhập</a>
-                    </p>
                 </div>
             </div>
         </div>
