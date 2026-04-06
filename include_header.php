@@ -63,7 +63,6 @@
                     </li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="login.php">Đăng nhập</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dangki.php">Đăng ký</a></li>
                 <?php endif; ?>
             </ul>
         </div>

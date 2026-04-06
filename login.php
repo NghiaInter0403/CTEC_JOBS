@@ -64,8 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <!-- Form đăng nhập -->
                     <form method="POST" novalidate>
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Email</label>
-                            <input type="email" name="email" class="form-control" 
+                            <label class="form-label fw-bold">Tên đăng nhập</label>
+                            <input name="email" class="form-control" 
                                    value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" 
                                    required autofocus>
                         </div>
@@ -79,11 +79,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             Đăng nhập
                         </button>
                     </form>
-
-                    <p class="mt-3 text-center text-muted">
-                        Chưa có tài khoản? 
-                        <a href="dangki.php" class="text-primary fw-bold">Đăng ký ngay</a>
-                    </p>
                 </div>
             </div>
         </div>

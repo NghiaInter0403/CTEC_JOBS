@@ -26,13 +26,13 @@
                 <hr class="border-secondary my-3">
 
                 <p class="mb-1 fw-bold">Nhóm phát triển:</p>
-                <ul class="list-unstyled mb-2">
+                <ul class="list-unstyled mb-2">`
                     <li><b>Nhóm trưởng</b>: Huỳnh Tấn Phát - MSSV: 23CTHA0383</li>
                     <li><b>Thành viên</b>: Phan Hiếu Nghĩa - MSSV: 23CTHA0372</li>
                 </ul>
 
                 <p class="mb-1"><strong>Liên hệ:</strong> 0352.755.926 - 0333.161.534</p>
-                <p class="mb-0"><strong>Công nghệ:</strong> HTML, CSS, Bootstrap 5, PHP, MySQLi, Git & GitHub</p>
+                <p class="mb-0"><strong>Công nghệ:</strong> HTML, CSS, Bootstrap 5, PHP, MySQL, Git & GitHub</p>
             </div>
         </div>
         <div class="text-center mt-4 pt-3 border-top border-secondary">
