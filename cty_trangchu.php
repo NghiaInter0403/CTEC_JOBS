@@ -29,145 +29,134 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <!-- thay đổic -->
-        <h2>Xin chào, <strong><?php echo $_SESSION['hoten']; ?></strong></h2> 
-        <a href="cty_dangtuyen.php" class="btn btn-success">
-            Đăng tin mới
+        <h1 class="display-6 fw-bold mb-0">Xin chào, <span class="text-primary"><?php echo $_SESSION['hoten']; ?></span></h1> 
+        <a href="cty_dangtuyen.php" class="btn btn-success btn-lg fw-bold text-black">
+            <i class="bi bi-plus-circle me-1"></i> Đăng tin mới
         </a>
     </div>
-    <!-- Thẻ thống kê -->
-    <div class="row g-3 mb-4">
+
+    <div class="row g-3 mb-4 text-center">
         <div class="col-md-3">
-            <div class="card text-white bg-primary h-100">
-                <div class="card-body">
-                    <h5>Tổng tin</h5>
-                    <h3 class="mb-0"><?php echo $tongtin; ?></h3>
+            <div class="card text-white bg-primary h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <h5 class="text-uppercase fw-bold opacity-75">Tổng tin</h5>
+                    <h2 class="display-4 fw-bold mb-0"><?php echo $tongtin; ?></h2>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card text-white bg-success h-100">
-                <div class="card-body">
-                    <h5>Đã duyệt</h5>
-                    <h3 class="mb-0"><?php echo $daduyet; ?></h3>
+            <div class="card text-white bg-success h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <h5 class="text-uppercase fw-bold opacity-75">Đã duyệt</h5>
+                    <h2 class="display-4 fw-bold mb-0"><?php echo $daduyet; ?></h2>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card text-white bg-warning h-100">
-                <div class="card-body">
-                    <h5>Chờ duyệt</h5>
-                    <h3 class="mb-0"><?php echo $choduyet; ?></h3>
+            <div class="card text-white bg-warning h-100 border-0 shadow-sm text-dark">
+                <div class="card-body py-4">
+                    <h5 class="text-uppercase fw-bold opacity-75">Chờ duyệt</h5>
+                    <h2 class="display-4 fw-bold mb-0"><?php echo $choduyet; ?></h2>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card text-white bg-info h-100">
-                <div class="card-body">
-                    <h5>Ứng viên</h5>
-                    <h3 class="mb-0"><?php echo $tong_ungvien; ?></h3>
+            <div class="card text-white bg-info h-100 border-0 shadow-sm">
+                <div class="card-body py-4">
+                    <h5 class="text-uppercase fw-bold opacity-75">Ứng viên</h5>
+                    <h2 class="display-4 fw-bold mb-0"><?php echo $tong_ungvien; ?></h2>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <!-- Tin của tôi -->
         <div class="col-lg-6 mb-4">
-    <div class="card h-auto">
-        <div class="card-header bg-primary text-white">
-            <h5 class="mb-0">Tin tuyển dụng của tôi</h5>
-        </div>
-        <div class="card-body p-0">
-            <?php if (mysqli_num_rows($tin_cty) > 0): ?>
-            <!-- List group cố định chiều cao + scroll -->
-            <div class="list-group list-group-flush" style="max-height: 350px; overflow-y: auto;">
-                <?php while ($vieclam = mysqli_fetch_assoc($tin_cty)): ?>
-                <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" 
-                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong><?php echo $vieclam['tieude']; ?></strong><br>
-                        <small class="text-muted"><?php echo $vieclam['tencongty']; ?> • <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?></small>
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white py-3">
+                    <h4 class="mb-0 fw-bold"><i class="bi bi-list-task me-2"></i>Tin tuyển dụng của tôi</h4>
+                </div>
+                <div class="card-body p-0">
+                    <?php if (mysqli_num_rows($tin_cty) > 0): ?>
+                    <div class="list-group list-group-flush" style="max-height: 400px; overflow-y: auto;">
+                        <?php while ($vieclam = mysqli_fetch_assoc($tin_cty)): ?>
+                        <div class="list-group-item list-group-item-action p-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="fs-5 text-dark d-block mb-1"><?php echo $vieclam['tieude']; ?></strong>
+                                    <span class="fs-6 text-muted"><i class="bi bi-calendar3"></i> <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?></span>
+                                </div>
+                                <div class="text-end">
+                                    <span class="badge fs-6 mb-2 d-block bg-<?php echo $vieclam['trangthai']=='daduyet'?'success':($vieclam['trangthai']=='tuchoi'?'danger':'warning'); ?>">
+                                        <?php echo $vieclam['trangthai']=='daduyet'?'Đã duyệt':($vieclam['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý'); ?>
+                                    </span>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="cty_suatin.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-outline-secondary">Sửa</a>
+                                        <a href="cty_xoatin.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-outline-danger" onclick="return confirm('Xóa tin này?')">Xóa</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endwhile; ?>
                     </div>
-                    <div>
-                        <span class="badge bg-<?php echo $vieclam['trangthai']=='daduyet'?'success':($vieclam['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
-                            <?php echo ucfirst($vieclam['trangthai']=='daduyet'?'Đã duyệt':($vieclam['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý')); ?>
-                        </span>
-                        <a href="cty_suatin.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-sm btn-outline-secondary ms-1">Sửa</a>
-                        <a href="cty_xoatin.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-sm btn-outline-danger ms-1" onclick="return confirm('Xóa tin này?')">Xóa</a>
-                    </div>
-                </a>
-                <?php endwhile; ?>
+                    <?php else: ?>
+                        <p class="text-center fs-5 text-muted py-5">Chưa có tin tuyển dụng nào</p>
+                    <?php endif; ?>
+                </div>
             </div>
-            <!-- Kết thúc list-group -->
-            <?php else: ?>
-                <p class="text-center text-muted py-4">Chưa có tin nào</p>
-            <?php endif; ?>
-            <div class="card-footer bg-light text-center">
-                <a href="cty_dangtuyen.php" class="btn btn-sm btn-outline-primary">Đăng tin mới</a>
+        </div>
+
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white py-3">
+                    <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Ứng viên mới nhất</h4>
+                </div>
+                <div class="card-body p-0">
+                    <?php if (mysqli_num_rows($ungvien_moi) > 0): ?> 
+                    <div class="list-group list-group-flush" style="max-height: 400px; overflow-y: auto;">
+                        <?php while ($ungtuyen = mysqli_fetch_assoc($ungvien_moi)): ?>
+                        <div class="list-group-item p-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="fs-5 text-dark"><?php echo $ungtuyen['sinhvien']; ?></strong><br>
+                                    <span class="fs-6 text-muted">Ứng tuyển: <strong><?php echo $ungtuyen['tieude']; ?></strong></span>
+                                </div>
+                                <div class="text-end">
+                                    <div class="mb-1">
+                                        <?php if ($ungtuyen['duongdancv']): ?>
+                                            <a href="<?php echo $ungtuyen['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info fw-bold">Xem CV</a>
+                                        <?php endif; ?>
+                                    </div>
+                                    <span class="badge fs-6 bg-<?php echo $ungtuyen['trangthai']=='daduyet'?'success':($ungtuyen['trangthai']=='tuchoi'?'danger':'warning'); ?>">
+                                        <?php echo $ungtuyen['trangthai']=='daduyet'?'Đã duyệt':($ungtuyen['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý'); ?>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endwhile; ?> 
+                    </div>
+                    <?php else: ?>
+                        <p class="text-center fs-5 text-muted py-5">Chưa có ứng viên mới nộp đơn</p>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-
-        <!-- Ứng viên mới -->
-       <div class="col-lg-6 mb-4">
-    <div class="card h-auto">
-        <div class="card-header bg-success text-white">
-            <h5 class="mb-0">Ứng viên mới nhất</h5>
+    <div class="card shadow-sm border-0 mb-5">
+        <div class="card-header bg-dark text-white py-3">
+            <h4 class="mb-0 fw-bold text-black">Quản lý nhanh</h4>
         </div>
-        <div class="card-body p-0">
-            <?php if (mysqli_num_rows($ungvien_moi) > 0): ?>  
-            <!-- Thêm scroll + cố định chiều cao -->
-            <div class="list-group list-group-flush" style="max-height: 350px; overflow-y: auto;">
-                <?php while ($ungtuyen = mysqli_fetch_assoc($ungvien_moi)): ?>
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong><?php echo $ungtuyen['sinhvien']; ?></strong><br>
-                        <small class="text-muted">
-                            <?php echo $ungtuyen['tieude']; ?> • <?php echo date('d/m H:i', strtotime($ungtuyen['ngaynop'])); ?>
-                        </small>
-                    </div>
-                    <div>
-                        <?php if ($ungtuyen['duongdancv']): ?>
-                            <a href="<?php echo $ungtuyen['duongdancv']; ?>" target="_blank" class="btn btn-sm btn-info">CV</a>
-                        <?php endif; ?>
-                         <span class="badge bg-<?php echo $ungtuyen['trangthai']=='daduyet'?'success':($ungtuyen['trangthai']=='tuchoi'?'danger':'warning'); ?> rounded-pill">
-                            <?php echo ucfirst($ungtuyen['trangthai']=='daduyet'?'Đã duyệt':($ungtuyen['trangthai']=='tuchoi'?'Từ chối':'Chờ xử lý')); ?>
-                        </span>
-                    </div>
-                </div>
-                <?php endwhile; ?> 
-            </div>
-            <!-- Kết thúc list-group cuộn -->
-            <?php else: ?>
-                <p class="text-center text-muted py-4">Chưa có ứng viên</p>
-            <?php endif; ?>
-            <div class="card-footer bg-light text-center">
-                <a href="cty_ungvien.php" class="btn btn-sm btn-outline-success">Xem tất cả</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-    </div>
-
-    <!-- Menu nhanh -->
-    <div class="card">
-        <div class="card-header bg-info text-white">
-            <h5 class="mb-0">Quản lý nhanh</h5>
-        </div>
-        <div class="card-body">
-            <div class="row g-3">
+        <div class="card-body py-4">
+            <div class="row g-3 text-center">
                 <div class="col-md-4">
-                    <a href="cty_dangtuyen.php" class="btn btn-success w-100 p-3">Đăng tin mới</a>
+                    <a href="cty_dangtuyen.php" class="btn btn-success w-100 py-4 fs-4 fw-bold shadow-sm text-black">ĐĂNG TIN MỚI</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="cty_ungvien.php" class="btn btn-primary w-100 p-3">Xem ứng viên</a>
+                    <a href="cty_ungvien.php" class="btn btn-primary w-100 py-4 fs-4 fw-bold shadow-sm text-black">XEM ỨNG VIÊN</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="vl_danhsach.php" class="btn btn-outline-secondary w-100 p-3">Xem danh sách việc làm</a>
+                    <a href="vl_danhsach.php" class="btn btn-outline-dark w-100 py-4 fs-4 fw-bold shadow-sm">DS VIỆC LÀM</a>
                 </div>
             </div>
         </div>

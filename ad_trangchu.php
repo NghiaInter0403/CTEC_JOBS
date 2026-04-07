@@ -22,169 +22,157 @@ $ungvienmoi = mysqli_query($conn, "SELECT a.*, j.tieude, u.hoten as sinhvien FRO
 
 <?php include 'include_header.php'; ?>
 
+<style>
+    /* CSS bổ sung để ép kích thước chữ to hơn cho các thành phần đặc thù */
+    .card-title { font-size: 1.4rem !important; font-weight: bold; }
+    .card-body h3 { font-size: 2.5rem !important; font-weight: 800; }
+    .list-group-item strong { font-size: 1.2rem; }
+    .btn-outline-primary, .btn-outline-danger, .btn-outline-info { font-size: 1.2rem; font-weight: bold; }
+</style>
+
 <div class="container mt-4">
-    <!-- Chào mừng -->
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="mb-0">Chào mừng, <strong><?php echo $_SESSION['hoten']; ?></strong> (Admin)</h2>
+        <h1 class="display-5 fw-bold mb-0">Chào mừng, <strong><?php echo $_SESSION['hoten']; ?></strong></h1>
     </div>
 
-    <!-- Thẻ thống kê -->
-    <div class="row g-3 mb-4">
+    <div class="row g-3 mb-5">
         <div class="col-md-3">
-            <div class="card text-white bg-primary h-100">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title">Tổng tin tuyển dụng</h5>
-                        <h3 class="mb-0"><?php echo $soluong_viec; ?></h3>
-                    </div>
-                    <small><i class="fas fa-briefcase"></i> Tất cả</small>
+            <div class="card text-white bg-primary h-100 shadow">
+                <div class="card-body p-4" style="color: black;">
+                    <h5 class="card-title text-uppercase opacity-75">Tổng tin tuyển dụng</h5>
+                    <h3 class="mb-2"><?php echo $soluong_viec; ?></h3>
+                    <div class="fs-5"><i class="fas fa-briefcase"></i> Hệ thống</div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-warning h-100">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title">Tin chờ duyệt</h5>
-                        <h3 class="mb-0"><?php echo $trangthai_vieclam; ?></h3>
-                    </div>
-                    <small><i class="fas fa-clock"></i> Đang chờ</small>
+            <div class="card text-white bg-warning h-100 shadow">
+                <div class="card-body p-4" style="color: black;">
+                    <h5 class="card-title text-uppercase opacity-75">Tin chờ duyệt</h5>
+                    <h3 class="mb-2"><?php echo $trangthai_vieclam; ?></h3>
+                    <div class="fs-5"><i class="fas fa-clock"></i> Đang chờ</div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-success h-100">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title">Ứng tuyển</h5>
-                        <h3 class="mb-0"><?php echo $soluong_ungvien; ?></h3>
-                    </div>
-                    <small><i class="fas fa-users"></i> Đơn ứng tuyển</small>
+            <div class="card text-white bg-success h-100 shadow">
+                <div class="card-body p-4" style="color: black;"> 
+                    <h5 class="card-title text-uppercase opacity-75">Ứng tuyển</h5>
+                    <h3 class="mb-2"><?php echo $soluong_ungvien; ?></h3>
+                    <div class="fs-5"><i class="fas fa-users"></i> Tổng số đơn</div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-3">
-            <div class="card text-white bg-info h-100">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title">Người dùng</h5>
-                        <h3 class="mb-0"><?php echo $soluong_sinhvien + $soluong_nhatuyendung; ?></h3>
-                    </div>
-                    <small>
+            <div class="card text-white bg-info h-100 shadow">
+                <div class="card-body p-4" style="color: black;">
+                    <h5 class="card-title text-uppercase opacity-75">Người dùng</h5>
+                    <h3 class="mb-2"><?php echo $soluong_sinhvien + $soluong_nhatuyendung; ?></h3>
+                    <div class="fs-5">
                         <span class="badge bg-light text-dark"><?php echo $soluong_sinhvien; ?> SV</span>
                         <span class="badge bg-light text-dark"><?php echo $soluong_nhatuyendung; ?> NTD</span>
-                    </small>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <!-- Tin chờ duyệt -->
         <div class="col-lg-6 mb-4">
-            <div class="card h-auto">
-                <div class="card-header bg-warning text-white">
-                    <h5 class="mb-0 ">
-                        Tin tuyển dụng chờ duyệt
-                    </h5>
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark py-3">
+                    <h4 class="mb-0 fw-bold"><i class="fas fa-clipboard-check me-2"></i>Tin chờ duyệt</h4>
                 </div>
                 <div class="card-body p-0">
                     <?php if (mysqli_num_rows($vieclam_choduyet) > 0): ?>
-                        <div class="list-group list-group-flush" style="height: 350px; overflow-y: auto;">
+                        <div class="list-group list-group-flush" style="height: 400px; overflow-y: auto;">
                             <?php while ($vieclam = mysqli_fetch_assoc($vieclam_choduyet)): ?>
-                                <a href="ad_qlyviec.php"
-                                class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong><?php echo $vieclam['tieude']; ?></strong><br>
-                                        <small class="text-muted">
-                                            <?php echo $vieclam['nhatuyendung']; ?> • 
-                                            <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?>
-                                        </small>
+                                <a href="ad_qlyviec.php" class="list-group-item list-group-item-action py-3">
+                                    <div class="d-flex w-100 justify-content-between align-items-center">
+                                        <div>
+                                            <strong class="text-primary"><?php echo $vieclam['tieude']; ?></strong><br>
+                                            <span class="fs-6 text-muted">
+                                                <i class="fas fa-building me-1"></i> <?php echo $vieclam['nhatuyendung']; ?> | 
+                                                <i class="fas fa-calendar-alt me-1"></i> <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?>
+                                            </span>
+                                        </div>
+                                        <span class="badge bg-warning text-dark p-2 fs-6">Duyệt ngay</span>
                                     </div>
-                                    <span class="badge bg-warning rounded-pill">Chờ duyệt</span>
                                 </a>
                             <?php endwhile; ?>
                         </div>
                     <?php else: ?>
-                        <p class="text-center text-muted py-4">Không có tin nào chờ duyệt</p>
+                        <p class="text-center fs-4 text-muted py-5">Sạch sẽ! Không có tin nào chờ duyệt</p>
                     <?php endif; ?>
-                    <div class="card-footer bg-light text-center">
-                        <a href="ad_qlyviec.php" class="btn btn-sm btn-outline-primary">Xem tất cả</a>
+                    <div class="card-footer text-center">
+                        <a href="ad_qlyviec.php" class="btn btn-primary fw-bold" style="color: black;">Quản lý tin tuyển dụng</a>
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <!-- Ứng viên mới -->
         <div class="col-lg-6 mb-4">
-            <div class="card h-auto">
-                <div class="card-header bg-success text-white">
-                    <h5 class="mb-0">Ứng viên mới nhất</h5>
+            <div class="card shadow">
+                <div class="card-header bg-success text-black py-3">
+                    <h4 class="mb-0 fw-bold"><i class="fas fa-user-graduate me-2"></i>Ứng viên mới nhất</h4>
                 </div>
                 <div class="card-body p-0">
                     <?php if (mysqli_num_rows($ungvienmoi) > 0): ?>
-                    
-                        <div class="list-group list-group-flush ungvien-scroll" 
-                            style="max-height: 350px; overflow-y: auto;">
-                            
+                        <div class="list-group list-group-flush" style="max-height: 400px; overflow-y: auto;">
                             <?php while ($ungvien = mysqli_fetch_assoc($ungvienmoi)): ?>
-                                <div class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <strong><?php echo $ungvien['sinhvien']; ?></strong><br>
-                                        <small class="text-muted">
-                                            <?php echo $ungvien['tieude']; ?> • 
-                                            <?php echo date('d/m/Y H:i', strtotime($ungvien['ngaynop'])); ?>
-                                        </small>
+                                <div class="list-group-item py-3">
+                                    <div class="d-flex w-100 justify-content-between align-items-center">
+                                        <div>
+                                            <strong class="fs-5"><?php echo $ungvien['sinhvien']; ?></strong><br>
+                                            <span class="text-muted fs-6">
+                                                Nộp vào: <strong><?php echo $ungvien['tieude']; ?></strong>
+                                            </span>
+                                        </div>
+                                        <span class="badge bg-<?= 
+                                            $ungvien['trangthai']=='chapnhan' ? 'success' : 
+                                            ($ungvien['trangthai']=='tuchoi' ? 'danger' : 'warning') 
+                                        ?> p-2 fs-6">
+                                            <?= $ungvien['trangthai']=='chapnhan' ? 'Chấp nhận' : ($ungvien['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý') ?>
+                                        </span>
                                     </div>
-                                    <span class="badge bg-<?=
-                                        $ungvien['trangthai']=='chapnhan' ? 'success' :
-                                        ($ungvien['trangthai']=='tuchoi' ? 'danger' : 'warning')
-                                    ?> rounded-pill">
-                                        <?= 
-                                            $ungvien['trangthai']=='chapnhan' ? 'Chấp nhận' :
-                                            ($ungvien['trangthai']=='tuchoi' ? 'Từ chối' : 'Chờ xử lý')
-                                        ?>
-                                    </span>
                                 </div>
                             <?php endwhile; ?>
                         </div>
                     <?php else: ?>
-                        <p class="text-center text-muted py-4">Chưa có ứng viên</p>
+                        <p class="text-center fs-4 text-muted py-5">Chưa có hoạt động ứng tuyển</p>
                     <?php endif; ?>
-
-                    <div class="card-footer bg-light text-center">
-                        <a href="thongke.php" class="btn btn-sm btn-outline-success">Xem thống kê</a>
+                    <div class="card-footer text-center">
+                        <a href="thongke.php" class="btn btn-success fw-bold" style="color: black;">Xem toàn bộ báo cáo</a>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-    <!-- Menu nhanh -->
-    <div class="row">
+    </div>
+
+    <div class="row mt-3 mb-5">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">Quản lý hệ thống</h5>
+            <div class="card shadow">
+                <div class="card-header bg-dark text-black py-3">
+                    <h4 class="mb-0 fw-bold">Phím tắt quản trị nhanh</h4>
                 </div>
-                <div class="card-body">
-                    <div class="row g-3">
+                <div class="card-body py-4">
+                    <div class="row g-4 text-center">
                         <div class="col-md-4">
-                            <a href="dangki.php" class="btn btn-outline-primary w-100 p-3">
-                                Tạo tài khoản 
+                            <a href="dangki.php" class="btn btn-outline-primary w-100 py-4 shadow-sm">
+                                <i class="fas fa-user-plus d-block mb-2 fs-2"></i> TẠO TÀI KHOẢN MỚI
                             </a>
                         </div>
                         <div class="col-md-4">
-                            <a href="ad_qlyuser.php" class="btn btn-outline-danger w-100 p-3">
-                                Quản lý người dùng
+                            <a href="ad_qlyuser.php" class="btn btn-outline-danger w-100 py-4 shadow-sm">
+                                <i class="fas fa-users-cog d-block mb-2 fs-2"></i> QUẢN LÝ NGƯỜI DÙNG
                             </a>
                         </div>
                         <div class="col-md-4">
-                            <a href="thongke.php" class="btn btn-outline-info w-100 p-3">
-                                Thống kê & Báo cáo
+                            <a href="thongke.php" class="btn btn-outline-info w-100 py-4 shadow-sm">
+                                <i class="fas fa-chart-line d-block mb-2 fs-2"></i> BÁO CÁO THỐNG KÊ
                             </a>
                         </div>
                     </div>

@@ -85,9 +85,9 @@ $ketqua = mysqli_query($conn, $sql);
             <div class="col-md-6 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 style="color:blue"><?php echo htmlspecialchars($vieclam['tieude']); ?></h5>
-                        <p><strong><?php echo htmlspecialchars($vieclam['tencongty']); ?></strong></p>
-                        <p>Lương: <?php echo htmlspecialchars($vieclam['mucluong']); ?> | <?php echo htmlspecialchars($vieclam['diadiem']); ?></p>
+                        <h2 style="color:blue"><?php echo htmlspecialchars($vieclam['tieude']); ?></h2>
+                        <h4><strong><?php echo htmlspecialchars($vieclam['tencongty']); ?></strong></h4>
+                        <h4>Lương: <?php echo htmlspecialchars($vieclam['mucluong']); ?> | <?php echo htmlspecialchars($vieclam['diadiem']); ?></h4>
                         <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
                     </div>
                 </div>

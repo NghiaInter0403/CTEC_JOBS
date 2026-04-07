@@ -11,9 +11,10 @@
     <meta property="og:title" content="Tìm Việc Làm Sinh Viên - Part-time & Thực Tập">
     <meta property="og:description" content="Hàng nghìn việc làm thêm dành cho sinh viên, cập nhật liên tục">
     <meta property="og:type" content="website">
-    
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
 </head>
 <body>
 <!-- kết nối csdl và bắt đầu session -->
@@ -32,44 +33,53 @@ include 'include_header.php';
         </a>
     </div>
 
-    <h3 class="mt-5 mb-4 text-center fw-bold">Tin tuyển dụng mới nhất</h3>
+    <h3 class="mt-5 mb-4 text-center fw-bold " style="font-size: 50px;">Tin tuyển dụng mới nhất</h3>
     <div class="row g-4">
-        <!-- truy vấn  -->
-        <?php
-        $sql = "SELECT vl.*, nd.hoten as company FROM vieclam vl JOIN nguoidung nd ON vl.idnhatuyendung = nd.id WHERE vl.trangthai = 'daduyet' ORDER BY vl.ngaydang DESC LIMIT 6";
-        $ketqua = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($ketqua) > 0):
-            while ($vieclam = mysqli_fetch_assoc($ketqua)):
-        ?>
-        <!-- kết thúc truy vấn -->
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm hover-shadow transition">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title text-primary fw-bold"><?php echo htmlspecialchars($vieclam['tieude']); ?></h5>
-                    <p class="card-text text-muted small">
-                        <i class="fas fa-building me-1"></i> <strong><?php echo htmlspecialchars($vieclam['tencongty']); ?></strong><br>
-                        <i class="fas fa-money-bill-wave me-1"></i> Lương: <?php echo htmlspecialchars($vieclam['mucluong']); ?><br>
-                        <i class="fas fa-map-marker-alt me-1"></i> <?php echo htmlspecialchars($vieclam['diadiem']); ?>
-                    </p>
-                    <!-- nút gửi id việc làm đến file vl_chitiet -->
-                    <div class="mt-auto">
-                        <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" 
-                           class="btn btn-outline-primary btn-sm w-100">
-                           Xem chi tiết
-                        </a>
-                    </div>
+    <?php
+    $sql = "SELECT vl.*, nd.hoten as company FROM vieclam vl JOIN nguoidung nd ON vl.idnhatuyendung = nd.id WHERE vl.trangthai = 'daduyet' ORDER BY vl.ngaydang DESC LIMIT 6";
+    $ketqua = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($ketqua) > 0):
+        while ($vieclam = mysqli_fetch_assoc($ketqua)):
+    ?>
+    <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow hover-shadow transition" style="border-radius: 15px;">
+            <div class="card-body d-flex flex-column p-4"> <h4 class="card-title text-primary fw-bold mb-3">
+                    <?php echo htmlspecialchars($vieclam['tieude']); ?>
+                </h4>
+                
+                <p class="card-text text-dark mb-4" style="line-height: 1.8;">
+                    <span class="d-block mb-2">
+                        <i class="fas fa-building text-secondary me-2"></i> 
+                        <strong><?php echo htmlspecialchars($vieclam['tencongty']); ?></strong>
+                    </span>
+                    <span class="d-block mb-2 text-danger fw-bold">
+                        <i class="fas fa-money-bill-wave me-2"></i> 
+                        Lương: <?php echo htmlspecialchars($vieclam['mucluong']); ?>
+                    </span>
+                    <span class="d-block">
+                        <i class="fas fa-map-marker-alt text-secondary me-2"></i> 
+                        Địa điểm: <?php echo htmlspecialchars($vieclam['diadiem']); ?>
+                    </span>
+                </p>
+                
+                <div class="mt-auto">
+                    <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" 
+                       class="btn btn-primary fw-bold w-100 py-2" style="border-radius: 10px;">
+                       Xem chi tiết việc làm
+                    </a>
                 </div>
             </div>
         </div>
-        <?php 
-            endwhile;
-        else: 
-        ?>
-        <div class="col-12 text-center py-5">
-            <p class="text-muted">Chưa có tin tuyển dụng nào.</p>
-        </div>
-        <?php endif; ?>
     </div>
+    <?php 
+        endwhile;
+    else: 
+    ?>
+    <div class="col-12 text-center py-5">
+        <h3 class="text-muted">Chưa có tin tuyển dụng nào hiện dụng.</h3>
+    </div>
+    <?php endif; ?>
+</div>
 </div>
 
 <?php include 'include_footer.php'; ?>

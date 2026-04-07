@@ -14,18 +14,10 @@ body {
 .navbar {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     padding: 0.8rem 0;
-    background: linear-gradient(90deg, #2c3e50, #3498db);
+    background-color: linear-gradient(90deg, #41464b, #3498db);
     overflow: visible !important;
     position: relative;
     z-index: 1040;
-}
-.bg-custom {
-    /* Thay mã màu #2c3e50 bằng bất kỳ màu nào bạn thích */
-    background-color: #2c3e50 !important; 
-    background-image: none !important; /* Dòng này để xóa bỏ cái dải màu xanh cũ */
-}
-.navbar-dark .nav-link {
-    color: #ffffff !important;
 }
 .navbar-brand {
     font-weight: 700;
@@ -62,8 +54,9 @@ body {
     color: white;
 }
 /* JUMBOTRON - TRANG CHỦ */
-.jumbotron {
-    background: linear-gradient(120deg, #3498db, #2980b9);
+
+.container .jumbotron {
+    background: linear-gradient(120deg, #42484b, #56595a);
     color: white;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
