@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'ketnoi.php';
+include 'zalo.php';
 $id_vieclam = $_GET['id'] ?? 0;
 
 $sql = "SELECT vl.*, nd.hoten as tencongty_nguoidung FROM vieclam vl 

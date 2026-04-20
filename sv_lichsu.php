@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'zalo.php';
 if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'sinhvien') {
     header("Location: login.php");
     exit;

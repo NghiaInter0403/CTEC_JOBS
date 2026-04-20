@@ -5,6 +5,7 @@ if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'sinhvien') {
     exit;
 }
 include 'ketnoi.php';
+include 'zalo.php';
 $idnguoidung = $_SESSION['id_nguoidung'];
 ?>
 

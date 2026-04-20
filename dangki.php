@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'ketnoi.php';
-
+include 'zalo.php';
 $thanhcong = $thatbai = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

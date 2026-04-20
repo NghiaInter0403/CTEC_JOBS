@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'zalo.php';
 if (!isset($_SESSION['id_nguoidung'])) {
     header("Location: login.php");
     exit;

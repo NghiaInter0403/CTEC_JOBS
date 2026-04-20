@@ -5,6 +5,7 @@ if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'nhatuyendung') 
     exit;
 }
 include 'ketnoi.php';
+include 'zalo.php';
 $id_nhatuyendung = $_SESSION['id_nguoidung'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

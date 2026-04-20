@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'ketnoi.php';
-
+include 'zalo.php';
 // === PHÂN TRANG ===
 $limit = 10;                    // Số tin tuyển dụng trên 1 trang 
 $page  = isset($_GET['page']) ? (int)$_GET['page'] : 1;

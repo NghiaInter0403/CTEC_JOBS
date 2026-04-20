@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'quantrivien') {
     exit;
 }
 include 'ketnoi.php';
-
+include 'zalo.php';
 // Thống kê nhanh
 $soluong_viec = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam"))['tongso'];
 $trangthai_vieclam = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as tongso FROM vieclam WHERE trangthai='choxuly'"))['tongso'];

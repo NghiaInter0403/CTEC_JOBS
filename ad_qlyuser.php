@@ -5,7 +5,7 @@ if (!isset($_SESSION['id_nguoidung']) || $_SESSION['vaitro'] != 'quantrivien') {
     exit;
 }
 include 'ketnoi.php';
-
+include 'zalo.php';
 $id_dang_nhap = $_SESSION['id_nguoidung']; // ID của chính bạn
 
 // === XỬ LÝ NÂNG CẤP TÀI KHOẢN (Mới) ===

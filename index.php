@@ -20,6 +20,7 @@
 <!-- kết nối csdl và bắt đầu session -->
 <?php 
 session_start(); 
+include 'zalo.php'; 
 include 'ketnoi.php'; 
 include 'include_header.php';
 ?>
