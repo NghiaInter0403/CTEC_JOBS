@@ -43,108 +43,232 @@ $sql = "SELECT vl.*, nd.hoten as company
 
 $ketqua = mysqli_query($conn, $sql);
 ?>
+<style>
+    /* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
 
+/* TITLE */
+.page-title {
+    text-align: center;
+    font-size: 32px;
+    color: #2e7d32;
+    margin-bottom: 25px;
+}
+
+/* FORM */
+.search-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 120px;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-form input,
+.search-form select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.search-form button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background: #1b5e20;
+}
+
+/* GRID */
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* CARD */
+.job-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-card h3 {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.company {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info {
+    margin-bottom: 15px;
+}
+
+.salary {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.btn-detail {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    background: #2e7d32;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-detail:hover {
+    background: #1b5e20;
+}
+
+/* PAGINATION */
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.page-number, .page-btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.page-number.active {
+    background: #2e7d32;
+    color: white;
+}
+
+.page-btn.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* EMPTY */
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: gray;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .search-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .job-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 <?php include 'include_header.php'; ?>
-<link rel="stylesheet" href="style.css">
 
-<div class="container mt-4">
-    <h2>Tin tuyển dụng</h2>
+<div class="container">
 
-    <!-- Form tìm kiếm -->
-    <form method="GET" class="mb-4">
-        <div class="row g-2">
-            <div class="col-md-4">
-                <input type="text" name="tukhoa" class="form-control" placeholder="Tìm theo từ khóa..." value="<?php echo htmlspecialchars($tukhoa); ?>">
-            </div>
-            <div class="col-md-3">
-                <select name="nganh" class="form-select">
-                    <option value="">Tất cả ngành nghề</option>
-                    <option value="Công nghệ thông tin" <?php if($nganh=='Công nghệ thông tin') echo 'selected'; ?>>Công nghệ thông tin</option>
-                    <option value="Marketing" <?php if($nganh=='Marketing') echo 'selected'; ?>>Marketing</option>
-                    <option value="Kinh doanh" <?php if($nganh=='Kinh doanh') echo 'selected'; ?>>Kinh doanh</option>
-                    <option value="Nông Nghiệp" <?php if($nganh=='Nông Nghiệp') echo 'selected'; ?>>Nông Nghiệp</option>
-                    <option value="Kế Toán" <?php if($nganh=='Kế Toán') echo 'selected'; ?>>Kế Toán</option>
-                    <option value="Gia Sư" <?php if($nganh=='Gia Sư') echo 'selected'; ?>>Gia Sư</option>
-                    <option value="Bán Thời Gian" <?php if($nganh=='Bán Thời Gian') echo 'selected'; ?>>Bán Thời Gian</option>
-                    <option value="Freelancer" <?php if($nganh=='Freelancer') echo 'selected'; ?>>Freelancer</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="diadiem" class="form-control" placeholder="Tìm khu vực..." value="<?php echo htmlspecialchars($diadiem); ?>">
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-primary w-100">Tìm</button>
-            </div>
-        </div>
+    <h2 class="page-title">Tin tuyển dụng</h2>
+
+    <!-- FORM -->
+    <form method="GET" class="search-form">
+        <input type="text" name="tukhoa" placeholder="Tìm theo từ khóa..." 
+            value="<?php echo htmlspecialchars($tukhoa); ?>">
+
+        <select name="nganh">
+            <option value="">Tất cả ngành nghề</option>
+            <option value="Công nghệ thông tin" <?= $nganh=='Công nghệ thông tin'?'selected':'' ?>>Công nghệ thông tin</option>
+            <option value="Marketing" <?= $nganh=='Marketing'?'selected':'' ?>>Marketing</option>
+            <option value="Kinh doanh" <?= $nganh=='Kinh doanh'?'selected':'' ?>>Kinh doanh</option>
+            <option value="Nông Nghiệp" <?= $nganh=='Nông Nghiệp'?'selected':'' ?>>Nông Nghiệp</option>
+            <option value="Kế Toán" <?= $nganh=='Kế Toán'?'selected':'' ?>>Kế Toán</option>
+            <option value="Gia Sư" <?= $nganh=='Gia Sư'?'selected':'' ?>>Gia Sư</option>
+            <option value="Bán Thời Gian" <?= $nganh=='Bán Thời Gian'?'selected':'' ?>>Bán Thời Gian</option>
+            <option value="Freelancer" <?= $nganh=='Freelancer'?'selected':'' ?>>Freelancer</option>
+        </select>
+
+        <input type="text" name="diadiem" placeholder="Tìm khu vực..." 
+            value="<?php echo htmlspecialchars($diadiem); ?>">
+
+        <button type="submit">Tìm</button>
     </form>
 
-    <!-- Kết quả -->
+    <!-- LIST -->
     <?php if (mysqli_num_rows($ketqua) > 0): ?>
-        <div class="row">
+        <div class="job-grid">
             <?php while ($vieclam = mysqli_fetch_assoc($ketqua)): ?>
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h2 style="color:blue"><?php echo htmlspecialchars($vieclam['tieude']); ?></h2>
-                        <h4><strong><?php echo htmlspecialchars($vieclam['tencongty']); ?></strong></h4>
-                        <h4>Lương: <?php echo htmlspecialchars($vieclam['mucluong']); ?> | <?php echo htmlspecialchars($vieclam['diadiem']); ?></h4>
-                        <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
-                    </div>
+                <div class="job-card">
+                    <h3><?php echo htmlspecialchars($vieclam['tieude']); ?></h3>
+                    <p class="company"><?php echo htmlspecialchars($vieclam['tencongty']); ?></p>
+
+                    <p class="info">
+                        <span class="salary"><?php echo htmlspecialchars($vieclam['mucluong']); ?></span>  
+                        • <?php echo htmlspecialchars($vieclam['diadiem']); ?>
+                    </p>
+
+                    <a href="vl_chitiet.php?id=<?php echo $vieclam['id']; ?>" class="btn-detail">
+                        Xem chi tiết
+                    </a>
                 </div>
-            </div>
             <?php endwhile; ?>
         </div>
 
-        <!-- PHÂN TRANG -->
+        <!-- PAGINATION -->
         <?php if ($total_pages > 1): ?>
-        <nav aria-label="Page navigation" class="mt-4">
-            <ul class="pagination justify-content-center">
-                <!-- Trang trước -->
-                <li class="page-item <?php if($page <= 1) echo 'disabled'; ?>">
-                    <a class="page-link" href="?<?php echo http_build_query(array_merge($_GET, ['page' => $page-1])); ?>" aria-label="Previous">
-                        <span aria-hidden="true">&laquo; Trước</span>
-                    </a>
-                </li>
+        <div class="pagination">
+            
+            <!-- prev -->
+            <a class="page-btn <?= $page<=1?'disabled':'' ?>" 
+               href="?<?= http_build_query(array_merge($_GET, ['page'=>$page-1])) ?>">
+               « Trước
+            </a>
 
-                <!-- Các số trang -->
-                <?php
-                $range = 2; // hiển thị ... 2 trang trước và 2 trang sau trang hiện tại
-                $start = max(1, $page - $range);
-                $end   = min($total_pages, $page + $range);
+            <?php
+            $range = 2;
+            $start = max(1, $page - $range);
+            $end = min($total_pages, $page + $range);
 
-                if ($start > 1): ?>
-                    <li class="page-item"><a class="page-link" href="?<?php echo http_build_query(array_merge($_GET, ['page' => 1])); ?>">1</a></li>
-                    <?php if ($start > 2): ?>
-                        <li class="page-item disabled"><span class="page-link">...</span></li>
-                    <?php endif; ?>
-                <?php endif; ?>
+            for ($i=$start; $i <= $end; $i++): ?>
+                <a class="page-number <?= $i==$page?'active':'' ?>" 
+                   href="?<?= http_build_query(array_merge($_GET, ['page'=>$i])) ?>">
+                   <?= $i ?>
+                </a>
+            <?php endfor; ?>
 
-                <?php for ($i = $start; $i <= $end; $i++): ?>
-                    <li class="page-item <?php if($i == $page) echo 'active'; ?>">
-                        <a class="page-link" href="?<?php echo http_build_query(array_merge($_GET, ['page' => $i])); ?>"><?php echo $i; ?></a>
-                    </li>
-                <?php endfor; ?>
+            <!-- next -->
+            <a class="page-btn <?= $page>=$total_pages?'disabled':'' ?>" 
+               href="?<?= http_build_query(array_merge($_GET, ['page'=>$page+1])) ?>">
+               Sau »
+            </a>
 
-                <?php if ($end < $total_pages): ?>
-                    <?php if ($end < $total_pages - 1): ?>
-                        <li class="page-item disabled"><span class="page-link">...</span></li>
-                    <?php endif; ?>
-                    <li class="page-item"><a class="page-link" href="?<?php echo http_build_query(array_merge($_GET, ['page' => $total_pages])); ?>"><?php echo $total_pages; ?></a></li>
-                <?php endif; ?>
-
-                <!-- Trang sau -->
-                <li class="page-item <?php if($page >= $total_pages) echo 'disabled'; ?>">
-                    <a class="page-link" href="?<?php echo http_build_query(array_merge($_GET, ['page' => $page+1])); ?>" aria-label="Next">
-                        <span aria-hidden="true">Sau &raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        </div>
         <?php endif; ?>
 
     <?php else: ?>
-        <div class="alert alert-info text-center">Không tìm thấy tin tuyển dụng nào phù hợp.</div>
+        <div class="empty">Không tìm thấy tin tuyển dụng nào.</div>
     <?php endif; ?>
+
 </div>
 
 <?php include 'include_footer.php'; ?>

@@ -13,20 +13,22 @@ if (isset($_POST['btn_import'])) {
 
         // Đọc từng dòng của file CSV
         while (($data = fgetcsv($open, 1000, ",")) !== FALSE) {
-            if (empty($data[0]) || empty($data[1])) continue; // Bỏ qua dòng trống
+            if (empty($data[0]) || empty($data[1]) || empty($data[2])) continue;
 
             $hoten = trim($data[0]);
-            $masv = trim($data[1]); // Mã SV
+            $username = trim($data[1]); 
+            $email = trim($data[2]);    
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) continue;
             $vaitro = 'sinhvien';
-            $password = password_hash($masv, PASSWORD_DEFAULT); // MK mặc định là Mã SV
+            $password = password_hash($username, PASSWORD_DEFAULT);
 
             // Kiểm tra trùng tên đăng nhập (cột email)
-            $check = $conn->prepare("SELECT id FROM nguoidung WHERE email = ?");
-            $check->bind_param("s", $masv);
+            $check = $conn->prepare("SELECT id FROM nguoidung WHERE username = ? OR email = ?");
+            $check->bind_param("ss", $username, $email);
             $check->execute();
             if ($check->get_result()->num_rows == 0) {
-                $stmt = $conn->prepare("INSERT INTO nguoidung (hoten, email, matkhau, vaitro) VALUES (?, ?, ?, ?)");
-                $stmt->bind_param("ssss", $hoten, $masv, $password, $vaitro);
+                $stmt = $conn->prepare("INSERT INTO nguoidung (hoten, username, email, matkhau, vaitro) VALUES (?, ?, ?, ?, ?)");
+                $stmt->bind_param("sssss", $hoten, $username, $email, $password, $vaitro);
                 if ($stmt->execute()) $thanhcong++;
                 $stmt->close();
             }
@@ -51,7 +53,11 @@ if (isset($_POST['btn_import'])) {
                 <div class="card-body p-4">
                     <h4 class="text-center mb-3" style="color: black;">Tải lên danh sách sinh viên</h4>
                     <div class="alert alert-info py-2 small">
-                        <i class="fas fa-info-circle"></i> Định dạng file <b>.csv</b> (Cột 1: Họ tên, Cột 2: Mã SV).<br>
+                        <i class="fas fa-info-circle"></i> Định dạng file <b>.csv</b><br>
+                        Cột 1: Họ tên<br>
+                        Cột 2: Tên đăng nhập (MSSV)<br>
+                        Cột 3: Email<br>
+                        Mật khẩu mặc định: MSSV
                         Mật khẩu mặc định sẽ là Mã sinh viên.
                     </div>
                     

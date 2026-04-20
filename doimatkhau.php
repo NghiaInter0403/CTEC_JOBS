@@ -57,7 +57,40 @@ if (isset($_POST['btn_doimk'])) {
     }
 }
 ?>
+<style>
+    .btn-green {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
 
+/* hover */
+.btn-green:hover {
+    background: linear-gradient(135deg, #1b5e20, #4caf50);
+    transform: translateY(-2px);
+}
+
+/* click */
+.btn-green:active {
+    transform: scale(0.98);
+}
+
+/* disabled */
+.btn-green:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+</style>
 <?php include 'include_header.php'; ?>
 
 <div class="container mt-5">
@@ -90,8 +123,8 @@ if (isset($_POST['btn_doimk'])) {
                             <input type="password" name="re_mk_moi" class="form-control" required>
                         </div>
 
-                        <button type="submit" name="btn_doimk" class="btn btn-primary w-100 fw-bold shadow-sm">
-                            CẬP NHẬT MẬT KHẨU
+                        <button type="submit" name="btn_doimk" class="btn-green">
+                             CẬP NHẬT MẬT KHẨU
                         </button>
                         
                         <a href="<?php echo $link_back; ?>" class="btn btn-link w-100 mt-2 text-decoration-none text-muted small">

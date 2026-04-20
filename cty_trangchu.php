@@ -25,7 +25,101 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
     WHERE vl.idnhatuyendung = '$id_nhatuyendung' 
     ORDER BY duv.ngaynop DESC");
 ?>
+<style>
+            /* CARD */
+    .quick-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
 
+    /* HEADER */
+    .quick-header {
+        background: linear-gradient(135deg, #2e7d32, #66bb6a);
+        padding: 20px;
+        text-align: center;
+    }
+
+    .quick-header h4 {
+        margin: 0;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    /* BODY */
+    .quick-body {
+        padding: 25px;
+    }
+
+    /* GRID */
+    .quick-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    /* BUTTON */
+    .quick-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90px;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    /* GREEN */
+    .quick-btn.green {
+        background: linear-gradient(135deg, #43a047, #66bb6a);
+        color: white;
+    }
+
+    .quick-btn.green:hover {
+        background: linear-gradient(135deg, #2e7d32, #43a047);
+        transform: translateY(-4px);
+    }
+
+    /* BLUE */
+    .quick-btn.blue {
+        background: linear-gradient(135deg, #1976d2, #42a5f5);
+        color: white;
+    }
+
+    .quick-btn.blue:hover {
+        background: linear-gradient(135deg, #0d47a1, #1976d2);
+        transform: translateY(-4px);
+    }
+
+    /* OUTLINE */
+    .quick-btn.outline {
+        border: 2px solid #2e7d32;
+        color: #2e7d32;
+        background: #f9fdf9;
+    }
+
+    .quick-btn.outline:hover {
+        background: #e8f5e9;
+        transform: translateY(-4px);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+        .quick-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .quick-btn {
+            height: 70px;
+            font-size: 16px;
+        }
+}
+</style>
 <?php include 'include_header.php'; ?>
 
 <div class="container mt-4">
@@ -144,24 +238,29 @@ $ungvien_moi = mysqli_query($conn, "SELECT duv.*, vl.tieude, nd.hoten as sinhvie
         </div>
     </div>
 
-    <div class="card shadow-sm border-0 mb-5">
-        <div class="card-header bg-dark text-white py-3">
-            <h4 class="mb-0 fw-bold text-black">Quản lý nhanh</h4>
-        </div>
-        <div class="card-body py-4">
-            <div class="row g-3 text-center">
-                <div class="col-md-4">
-                    <a href="cty_dangtuyen.php" class="btn btn-success w-100 py-4 fs-4 fw-bold shadow-sm text-black">ĐĂNG TIN MỚI</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="cty_ungvien.php" class="btn btn-primary w-100 py-4 fs-4 fw-bold shadow-sm text-black">XEM ỨNG VIÊN</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="vl_danhsach.php" class="btn btn-outline-dark w-100 py-4 fs-4 fw-bold shadow-sm">DS VIỆC LÀM</a>
-                </div>
-            </div>
+    <div class="quick-card">
+    <div class="quick-header">
+        <h4>Quản lý nhanh</h4>
+    </div>
+
+    <div class="quick-body">
+        <div class="quick-grid">
+
+            <a href="cty_dangtuyen.php" class="quick-btn green">
+                <span>ĐĂNG TIN MỚI</span>
+            </a>
+
+            <a href="cty_ungvien.php" class="quick-btn blue">
+                <span>XEM ỨNG VIÊN</span>
+            </a>
+
+            <a href="vl_danhsach.php" class="quick-btn outline">
+                <span>DS VIỆC LÀM</span>
+            </a>
+
         </div>
     </div>
+</div>
 </div>
 
 <?php include 'include_footer.php'; ?>

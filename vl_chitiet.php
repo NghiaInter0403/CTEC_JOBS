@@ -25,100 +25,252 @@ mysqli_query($conn, "INSERT INTO thongke (trang) VALUES ('Việc làm_$id_viecla
 <?php include 'include_header.php'; ?>
 
 <style>
-    .job-title {
-        color: #212529 !important; /* Màu đen xám đậm */
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    .card-header-custom {
-        background-color: #f8f9fa; /* Nền xám cực nhẹ */
-        border-bottom: 2px solid #e9ecef;
-    }
-</style>
+    /* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
 
-<div class="container mt-4 mb-5">
-    <div class="card shadow-sm border-0">
-        <div class="card-header card-header-custom py-4">
-            <h3 class="job-title mb-1"><?php echo htmlspecialchars($vieclam['tieude']); ?></h3>
-            <div class="d-flex align-items-center">
-                <span class="badge bg-primary me-2">Tin cậy</span>
-                <small class="text-muted"><i class="far fa-calendar-alt"></i> Đăng ngày: <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?></small>
+/* CARD */
+.job-detail {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* HEADER */
+.job-header {
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    color: white;
+    padding: 25px;
+}
+
+.job-header h2 {
+    margin-bottom: 10px;
+}
+
+.meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.badge {
+    background: white;
+    color: #2e7d32;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* BODY */
+.job-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    padding: 30px;
+}
+
+/* LEFT */
+.info-box p {
+    margin-bottom: 10px;
+}
+
+.salary {
+    color: red;
+    font-weight: bold;
+}
+
+.content-text {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* RIGHT */
+.job-right {
+    border-left: 2px solid #eee;
+    padding-left: 20px;
+}
+
+.job-img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.file-box {
+    text-align: center;
+    padding: 20px;
+    background: #f1f8f4;
+    border-radius: 10px;
+}
+
+.file-box a {
+    display: block;
+    margin-top: 10px;
+    color: #2e7d32;
+}
+
+/* FOOTER */
+.job-footer {
+    border-top: 1px solid #eee;
+    padding: 20px 30px;
+}
+
+.actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* BUTTON */
+.btn-main {
+    background: #2e7d32;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-main:hover {
+    background: #1b5e20;
+}
+
+.btn-outline {
+    border: 2px solid #2e7d32;
+    color: #2e7d32;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-disabled {
+    background: gray;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* EMPTY */
+.empty {
+    color: gray;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .job-body {
+        grid-template-columns: 1fr;
+    }
+
+    .job-right {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
+</style>
+<div class="container">
+
+    <div class="job-detail">
+
+        <!-- HEADER -->
+        <div class="job-header">
+            <h2><?php echo htmlspecialchars($vieclam['tieude']); ?></h2>
+            <div class="meta">
+                <span class="badge">Tin cậy</span>
+                <span class="date">
+                    <i class="far fa-calendar-alt"></i>
+                    <?php echo date('d/m/Y', strtotime($vieclam['ngaydang'])); ?>
+                </span>
             </div>
         </div>
-        
-        <div class="card-body p-4">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="mb-4">
-                        <p class="mb-2"><strong><i class="fas fa-building text-secondary me-2"></i>Công ty:</strong> <?php echo htmlspecialchars($vieclam['tencongty']); ?></p>
-                        <p class="mb-2"><strong><i class="fas fa-money-bill-wave text-success me-2"></i>Mức lương:</strong> <span class="text-danger fw-bold fs-5"><?php echo htmlspecialchars($vieclam['mucluong']); ?></span></p>
-                        <p class="mb-2"><strong><i class="fas fa-map-marker-alt text-danger me-2"></i>Khu vực:</strong> <?php echo htmlspecialchars($vieclam['diadiem']); ?></p>
-                        <p class="mb-2"><strong><i class="fas fa-briefcase text-info me-2"></i>Ngành nghề:</strong> <?php echo htmlspecialchars($vieclam['nganhnghe']); ?></p>
-                    </div>
-                    
-                    <hr class="my-4">
-                    <h5 class="fw-bold border-start border-4 border-primary ps-2 mb-3">Mô tả công việc</h5>
-                    <p class="text-justify line-height-lg"><?php echo nl2br(htmlspecialchars($vieclam['mota'])); ?></p>
-                    
-                    <h5 class="fw-bold border-start border-4 border-primary ps-2 mt-4 mb-3">Yêu cầu ứng viên</h5>
-                    <p class="text-justify line-height-lg"><?php echo nl2br(htmlspecialchars($vieclam['yeucau'])); ?></p>
+
+        <!-- CONTENT -->
+        <div class="job-body">
+
+            <!-- LEFT -->
+            <div class="job-left">
+
+                <div class="info-box">
+                    <p><strong><i class="fas fa-building"></i> Công ty:</strong> <?php echo htmlspecialchars($vieclam['tencongty']); ?></p>
+                    <p><strong><i class="fas fa-money-bill-wave"></i> Mức lương:</strong> 
+                        <span class="salary"><?php echo htmlspecialchars($vieclam['mucluong']); ?></span>
+                    </p>
+                    <p><strong><i class="fas fa-map-marker-alt"></i> Khu vực:</strong> <?php echo htmlspecialchars($vieclam['diadiem']); ?></p>
+                    <p><strong><i class="fas fa-briefcase"></i> Ngành nghề:</strong> <?php echo htmlspecialchars($vieclam['nganhnghe']); ?></p>
                 </div>
-                
-                <div class="col-md-4 border-start d-none d-md-block">
-                    <h5 class="fw-bold mb-3"><i class="fas fa-paperclip me-2"></i>Tài liệu đính kèm</h5>
-                    <?php if (!empty($vieclam['chitiet'])): ?>
-                        <?php 
+
+                <h3>Mô tả công việc</h3>
+                <p class="content-text"><?php echo nl2br(htmlspecialchars($vieclam['mota'])); ?></p>
+
+                <h3>Yêu cầu ứng viên</h3>
+                <p class="content-text"><?php echo nl2br(htmlspecialchars($vieclam['yeucau'])); ?></p>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="job-right">
+                <h4><i class="fas fa-paperclip"></i> Tài liệu</h4>
+
+                <?php if (!empty($vieclam['chitiet'])): ?>
+                    <?php 
                         $file_path = "uploads/chitiet_vieclam/" . $vieclam['chitiet'];
                         $ext = strtolower(pathinfo($file_path, PATHINFO_EXTENSION));
-                        
-                        if (in_array($ext, ['jpg', 'jpeg', 'png', 'gif'])): ?>
-                            <div class="mb-3">
-                                <a href="<?php echo $file_path; ?>" target="_blank">
-                                    <img src="<?php echo $file_path; ?>" class="img-fluid img-thumbnail hover-shadow" alt="Chi tiết công việc">
-                                </a>
-                                <p class="small text-muted mt-2 text-center small italic"><i class="fas fa-search-plus"></i> Click để xem ảnh lớn</p>
-                            </div>
-                        <?php else: ?>
-                            <div class="card bg-light border-0 text-center p-3">
-                                <i class="fas fa-file-pdf text-danger fa-3x mb-2"></i>
-                                <p class="small fw-bold mb-2">Tài liệu chi tiết (.<?php echo $ext; ?>)</p>
-                                <a href="<?php echo $file_path; ?>" target="_blank" class="btn btn-sm btn-primary w-100">Xem ngay</a>
-                            </div>
-                        <?php endif; ?>
+                    ?>
+
+                    <?php if (in_array($ext, ['jpg','jpeg','png','gif'])): ?>
+                        <a href="<?php echo $file_path; ?>" target="_blank">
+                            <img src="<?php echo $file_path; ?>" class="job-img">
+                        </a>
                     <?php else: ?>
-                        <div class="text-center py-4 bg-light rounded">
-                            <p class="text-muted small mb-0">Không có file đính kèm</p>
+                        <div class="file-box">
+                            <i class="fas fa-file"></i>
+                            <p>.<?php echo $ext; ?></p>
+                            <a href="<?php echo $file_path; ?>" target="_blank">Xem file</a>
                         </div>
                     <?php endif; ?>
-                </div>
+
+                <?php else: ?>
+                    <p class="empty">Không có file đính kèm</p>
+                <?php endif; ?>
             </div>
 
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0 fs-6"><strong><i class="fas fa-envelope me-2"></i>Email liên hệ:</strong> <span class="text-primary"><?php echo htmlspecialchars($vieclam['emaillienhe']); ?></span></p>
-                </div>
-                <div class="col-md-6 text-md-end mt-3 mt-md-0">
-                    <?php if (isset($_SESSION['vaitro']) && $_SESSION['vaitro'] == 'sinhvien'): ?>
-                        <?php
-                        $id_sinhvien = $_SESSION['id_nguoidung'];
-                        $ungtuyen_check = mysqli_query($conn, "SELECT id FROM donungvien WHERE idvieclam = '$id_vieclam' AND idsinhvien = '$id_sinhvien'");
-                        $da_ungtuyen = mysqli_num_rows($ungtuyen_check);
-                        ?>
-                        <?php if ($da_ungtuyen == 0): ?>
-                            <a href="sv_nopdon.php?id=<?php echo $id_vieclam; ?>" class="btn btn-success btn-lg px-4 shadow-sm fw-bold">Ứng tuyển ngay</a>
-                        <?php else: ?>
-                            <button class="btn btn-secondary btn-lg px-4 shadow-sm" disabled><i class="fas fa-check-circle me-1"></i> Đã ứng tuyển</button>
-                        <?php endif; ?>
-                    <?php elseif (!isset($_SESSION['id_nguoidung'])): ?>
-                        <a href="login.php" class="btn btn-primary btn-lg shadow-sm">Đăng nhập ứng tuyển</a>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="job-footer">
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($vieclam['emaillienhe']); ?></p>
+
+            <div class="actions">
+
+                <?php if (isset($_SESSION['vaitro']) && $_SESSION['vaitro'] == 'sinhvien'): ?>
+                    <?php
+                    $id_sinhvien = $_SESSION['id_nguoidung'];
+                    $ungtuyen_check = mysqli_query($conn, "SELECT id FROM donungvien WHERE idvieclam = '$id_vieclam' AND idsinhvien = '$id_sinhvien'");
+                    $da_ungtuyen = mysqli_num_rows($ungtuyen_check);
+                    ?>
+
+                    <?php if ($da_ungtuyen == 0): ?>
+                        <a href="sv_nopdon.php?id=<?php echo $id_vieclam; ?>" class="btn-main">Ứng tuyển</a>
+                    <?php else: ?>
+                        <button class="btn-disabled">Đã ứng tuyển</button>
                     <?php endif; ?>
 
-                    <a href="vl_danhsach.php" class="btn btn-outline-secondary btn-lg shadow-sm ms-2">Quay lại</a>
-                </div>
+                <?php elseif (!isset($_SESSION['id_nguoidung'])): ?>
+                    <a href="login.php" class="btn-main">Đăng nhập ứng tuyển</a>
+                <?php endif; ?>
+
+                <a href="vl_danhsach.php" class="btn-outline">Quay lại</a>
+
             </div>
         </div>
+
     </div>
 </div>
 
