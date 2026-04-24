@@ -10,136 +10,191 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-.custom-navbar {
-    background: linear-gradient(135deg, #2e7d32, #4caf50);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-container {
-    max-width: 1320px;
-    margin: auto;
-    padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
-}
-
-/* LOGO */
-.nav-logo img {
-    width: 200px;
-}
-
-/* MENU */
-.nav-menu {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 20px;
-}
-
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.nav-menu a {
-    color: #fff;
-    font-size: 25px;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
-.nav-menu a:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-/* LOGIN BUTTON */
-.btn-login {
-    color: #fff !important;
-    border-radius: 20px;
-    padding: 8px 18px;
-    font-weight: bold;
-}
-
-/* DROPDOWN */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    background: #2e7d32;
-    border-radius: 8px;
-    min-width: 200px;
-    display: none;
-    flex-direction: column;
-}
-
-.dropdown-menu a {
-    padding: 10px;
-    font-size: 16px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: flex;
-}
-
-/* MOBILE */
-.nav-toggle {
-    display: none;
-    font-size: 28px;
-    color: white;
-    background: none;
-    border: none;
-}
-
-@media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
+    .custom-navbar {
+        background: linear-gradient(135deg, #2e7d32, #4caf50);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
+    .nav-container {
+        max-width: 1320px;
+        margin: auto;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+    }
+
+    /* LOGO */
+    .nav-logo img {
+        width: 200px;
+    }
+
+    /* MENU */
     .nav-menu {
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        flex-direction: column;
-        background: #2e7d32;
+        display: flex;
+        justify-content: space-between;
         width: 100%;
-        padding: 20px;
-    }
-
-    .nav-menu.active {
-        left: 0;
+        padding-top: 20px;
     }
 
     .nav-left, .nav-right {
-        flex-direction: column;
-        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .nav-menu a {
+        color: #fff;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    /* LOGIN BUTTON */
+    .btn-login {
+        color: #fff !important;
+        border-radius: 20px;
+        padding: 8px 18px;
+        font-weight: bold;
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+        position: relative;
     }
 
     .dropdown-menu {
-        position: static;
+        position: absolute;
+        top: 110%;
+        left: 0;
+        background: #2e7d32;
+        border-radius: 8px;
+        min-width: 200px;
         display: none;
+        flex-direction: column;
     }
 
-    .dropdown.active .dropdown-menu {
+    .dropdown-menu a {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .dropdown:hover .dropdown-menu {
         display: flex;
     }
-}
+
+    /* MOBILE */
+    .nav-toggle {
+        display: none;
+        font-size: 28px;
+        color: white;
+        background: none;
+        border: none;
+    }
+
+    @media (max-width: 768px) {
+        .nav-toggle {
+            display: block;
+        }
+
+        .nav-menu {
+            position: absolute;
+            top: 80px;
+            left: -100%;
+            flex-direction: column;
+            background: #2e7d32;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .nav-menu.active {
+            left: 0;
+        }
+
+        .nav-left, .nav-right {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .dropdown-menu {
+            position: static;
+            display: none;
+        }
+
+        .dropdown.active .dropdown-menu {
+            display: flex;
+        }
+    }
+    /* USER INFO */
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* AVATAR */
+    .nav-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid white;
+        transition: 0.3s;
+    }
+
+    /* HOVER */
+    .nav-avatar:hover {
+        transform: scale(1.1);
+        border-color: #c8e6c9;
+    }
+    .username-toggle {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    }
+
+    .username-toggle:hover {
+        text-decoration: underline;
+    }
 </style>
 <body>
+<?php
+$avatar = "uploads/avatar/default.jpg";
+
+if (isset($_SESSION['id_nguoidung'])) {
+    $id = $_SESSION['id_nguoidung'];
+
+    $stmt = $conn->prepare("SELECT avatar FROM nguoidung WHERE id=?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_assoc();
+
+    if (!empty($data['avatar'])) {
+        $avatar = "uploads/avatar/" . $data['avatar'];
+    }
+}
+if (isset($_SERVER['HTTP_REFERER'])) {
+    // chỉ lưu nếu là link nội bộ
+    if (strpos($_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST']) !== false) {
+        $_SESSION['last_page'] = $_SERVER['HTTP_REFERER'];
+    }
+}
+?>
 <header class="custom-navbar">
     <div class="nav-container">
         
@@ -173,7 +228,14 @@
             <ul class="nav-right">
                 <?php if (isset($_SESSION['id_nguoidung'])): ?>
                     <li class="dropdown">
-                        <a href="#"><i class="bi bi-person-circle"></i> <?php echo $_SESSION['hoten']; ?></a>
+                        <div class="user-info">
+                            <a href="uploads_avatar.php">
+                                <img src="<?php echo $avatar; ?>" class="nav-avatar">
+                            </a> 
+                            <span class="username-toggle">
+                                <?php echo $_SESSION['hoten']; ?>
+                            </span>
+                        </div>
                         <ul class="dropdown-menu">
                             <?php if ($_SESSION['vaitro'] == 'sinhvien'): ?>
                                 <li><a href="sv_trangchu.php">Trang cá nhân</a></li>
@@ -183,7 +245,7 @@
                             <?php elseif ($_SESSION['vaitro'] == 'nhatuyendung'): ?>
                                 <li><a href="cty_trangchu.php">Trang chủ</a></li>
                                 <li><a href="cty_dangtuyen.php">Đăng tin</a></li>
-                                <li><a href="cty_ungvien.php">Xem ứng viên</a></li>
+                                <li><a href="ntd_hoso.php">Cập nhật thông tin công ty</a></li>
                                  <li><a href="doimatkhau.php">Đổi mật khẩu</a></li>
                                 <li><a href="dangxuat.php">Đăng xuất</a></li>
                             <?php elseif ($_SESSION['vaitro'] == 'quantrivien'): ?>

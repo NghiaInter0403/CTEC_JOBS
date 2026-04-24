@@ -26,154 +26,167 @@ mysqli_query($conn, "INSERT INTO thongke (trang) VALUES ('Việc làm_$id_viecla
 
 <style>
     /* CONTAINER */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* CARD */
-.job-detail {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
-
-/* HEADER */
-.job-header {
-    background: linear-gradient(135deg, #2e7d32, #66bb6a);
-    color: white;
-    padding: 25px;
-}
-
-.job-header h2 {
-    margin-bottom: 10px;
-}
-
-.meta {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.badge {
-    background: white;
-    color: #2e7d32;
-    padding: 5px 10px;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-/* BODY */
-.job-body {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
-    padding: 30px;
-}
-
-/* LEFT */
-.info-box p {
-    margin-bottom: 10px;
-}
-
-.salary {
-    color: red;
-    font-weight: bold;
-}
-
-.content-text {
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-/* RIGHT */
-.job-right {
-    border-left: 2px solid #eee;
-    padding-left: 20px;
-}
-
-.job-img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.file-box {
-    text-align: center;
-    padding: 20px;
-    background: #f1f8f4;
-    border-radius: 10px;
-}
-
-.file-box a {
-    display: block;
-    margin-top: 10px;
-    color: #2e7d32;
-}
-
-/* FOOTER */
-.job-footer {
-    border-top: 1px solid #eee;
-    padding: 20px 30px;
-}
-
-.actions {
-    margin-top: 15px;
-    display: flex;
-    gap: 10px;
-}
-
-/* BUTTON */
-.btn-main {
-    background: #2e7d32;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-.btn-main:hover {
-    background: #1b5e20;
-}
-
-.btn-outline {
-    border: 2px solid #2e7d32;
-    color: #2e7d32;
-    padding: 10px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
-.btn-disabled {
-    background: gray;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-}
-
-/* EMPTY */
-.empty {
-    color: gray;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .job-body {
-        grid-template-columns: 1fr;
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
     }
 
+    /* CARD */
+    .job-detail {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+
+    /* HEADER */
+    .job-header {
+        background: linear-gradient(135deg, #2e7d32, #66bb6a);
+        color: white;
+        padding: 25px;
+    }
+
+    .job-header h2 {
+        margin-bottom: 10px;
+    }
+
+    .meta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .badge {
+        background: white;
+        color: #2e7d32;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+    /* BODY */
+    .job-body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    /* LEFT */
+    .info-box p {
+        margin-bottom: 10px;
+    }
+
+    .salary {
+        color: red;
+        font-weight: bold;
+    }
+
+    .content-text {
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+
+    /* RIGHT */
     .job-right {
-        border-left: none;
-        padding-left: 0;
+        border-left: 2px solid #eee;
+        padding-left: 20px;
+    }
+
+    .job-img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .file-box {
+        text-align: center;
+        padding: 20px;
+        background: #f1f8f4;
+        border-radius: 10px;
+    }
+
+    .file-box a {
+        display: block;
+        margin-top: 10px;
+        color: #2e7d32;
+    }
+
+    /* FOOTER */
+    .job-footer {
+        border-top: 1px solid #eee;
+        padding: 20px 30px;
     }
 
     .actions {
-        flex-direction: column;
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
     }
-}
+
+    /* BUTTON */
+    .btn-main {
+        background: #2e7d32;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .btn-main:hover {
+        background: #1b5e20;
+    }
+
+    .btn-outline {
+        border: 2px solid #2e7d32;
+        color: #2e7d32;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+
+    .btn-disabled {
+        background: gray;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    /* EMPTY */
+    .empty {
+        color: gray;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .job-body {
+            grid-template-columns: 1fr;
+        }
+
+        .job-right {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .actions {
+            flex-direction: column;
+        }
+    }
+    .btn-company {
+    border: 2px solid #1976d2;
+    color: #1976d2;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+    }
+
+    .btn-company:hover {
+        background: #1976d2;
+        color: white;
+    }
 </style>
 <div class="container">
 
@@ -196,9 +209,13 @@ mysqli_query($conn, "INSERT INTO thongke (trang) VALUES ('Việc làm_$id_viecla
 
             <!-- LEFT -->
             <div class="job-left">
-
                 <div class="info-box">
-                    <p><strong><i class="fas fa-building"></i> Công ty:</strong> <?php echo htmlspecialchars($vieclam['tencongty']); ?></p>
+                    <p>
+                        <strong>Công ty:</strong> 
+                        <a href="ntd_xemhoso.php?id=<?php echo $vieclam['idnhatuyendung']; ?>">
+                            <?php echo htmlspecialchars($vieclam['tencongty']); ?>
+                        </a>
+                    </p>
                     <p><strong><i class="fas fa-money-bill-wave"></i> Mức lương:</strong> 
                         <span class="salary"><?php echo htmlspecialchars($vieclam['mucluong']); ?></span>
                     </p>
@@ -239,6 +256,9 @@ mysqli_query($conn, "INSERT INTO thongke (trang) VALUES ('Việc làm_$id_viecla
                 <?php else: ?>
                     <p class="empty">Không có file đính kèm</p>
                 <?php endif; ?>
+                <a href="ntd_xemhoso.php?id=<?php echo $vieclam['idnhatuyendung']; ?>" class="btn-outline">
+                    <i class="fas fa-building"></i> Xem thông tin nhà tuyển dụng
+                </a>
             </div>
 
         </div>
