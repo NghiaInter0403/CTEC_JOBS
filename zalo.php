@@ -2,6 +2,9 @@
 <a href="https://zalo.me/0333161534" target="_blank" class="zalo-float">
     <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
 </a>
+<a href="https://zalo.me/0352755926" target="_blank" class="zalo-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" alt="Zalo">
+</a>
 
 <style>
 .zalo-float {
