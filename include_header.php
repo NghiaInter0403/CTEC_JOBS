@@ -175,17 +175,21 @@
 <?php
 $avatar = "uploads/avatar/default.jpg";
 
-if (isset($_SESSION['id_nguoidung'])) {
+if (isset($_SESSION['id_nguoidung']) && isset($conn)) {
     $id = $_SESSION['id_nguoidung'];
 
     $stmt = $conn->prepare("SELECT avatar FROM nguoidung WHERE id=?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $data = $result->fetch_assoc();
-
-    if (!empty($data['avatar'])) {
-        $avatar = "uploads/avatar/" . $data['avatar'];
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result) {
+            $data = $result->fetch_assoc();
+            if (!empty($data['avatar'])) {
+                $avatar = "uploads/avatar/" . $data['avatar'];
+            }
+        }
+        $stmt->close();
     }
 }
 if (isset($_SERVER['HTTP_REFERER'])) {
